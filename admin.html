@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
     <!-- Admin CSS -->
-    <link rel="stylesheet" href="css/admin.css?v=20260905_v6">
+    <link rel="stylesheet" href="css/admin.css?v=20260905_v7">
 </head>
 <body>
 
@@ -645,7 +645,7 @@
                         </div>
 
                         <!-- Mục 2: Hero Section -->
-                        <div id="cmsTabHero" class="cms-tab-pane">
+                        <div id="cmsTabHero" class="cms-tab-pane" style="display: none;">
                             <div class="cms-card">
                                 <h3 class="cms-card-title">Lời Mở Đầu Trang Chủ (Hero Section)</h3>
                                 <p class="cms-card-desc">Đoạn văn ấn tượng đầu tiên khi các cặp đôi vừa mở trang web của Trầu Cau.</p>
@@ -685,7 +685,7 @@
                         </div>
 
                         <!-- Mục 3: About 14 Năm -->
-                        <div id="cmsTabAbout" class="cms-tab-pane">
+                        <div id="cmsTabAbout" class="cms-tab-pane" style="display: none;">
                             <div class="cms-card">
                                 <h3 class="cms-card-title">Chuyện Nghề & 3 Con Số Tự Hào (About Studio)</h3>
                                 <p class="cms-card-desc">Kể về cái tâm làm nghề và các mốc son 14 năm gìn giữ phong tục của studio.</p>
@@ -735,7 +735,7 @@
                         </div>
 
                         <!-- Mục 4: Footer & Địa Chỉ -->
-                        <div id="cmsTabFooter" class="cms-tab-pane">
+                        <div id="cmsTabFooter" class="cms-tab-pane" style="display: none;">
                             <div class="cms-card">
                                 <h3 class="cms-card-title">Chân Trang (Footer) & Địa Chỉ Studio</h3>
                                 <p class="cms-card-desc">Nơi khắc ghi câu nói tâm đắc của cô chủ và địa chỉ mới nhất của showroom.</p>
@@ -775,37 +775,43 @@
                         </div>
 
                         <!-- Mục 5: CHẾ ĐỘ TECHNICAL DÀNH CHO DÂN KỸ THUẬT (RAW JSON CMS) -->
-                        <div id="cmsTabTechnical" class="cms-tab-pane">
-                            <div class="technical-editor-wrap">
-                                <div class="technical-toolbar">
-                                    <div style="display: flex; align-items: center; gap: 10px;">
-                                        <span class="tech-badge"><i class="fas fa-terminal"></i> Technical Mode</span>
-                                        <span style="font-size: 13.5px; color: #94A3B8;">Cấu hình dữ liệu gốc JSON của toàn bộ website</span>
+                        <div id="cmsTabTechnical" class="cms-tab-pane" style="display: none;">
+                            <div class="cms-card">
+                                <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px; margin-bottom: 16px;">
+                                    <div>
+                                        <h3 class="cms-card-title"><i class="fas fa-code" style="color: #0284C7;"></i> Cấu Hình JSON Gốc (Technical Mode)</h3>
+                                        <p class="cms-card-desc" style="margin-bottom: 0;">Chỉnh sửa trực tiếp dữ liệu toàn bộ website. Đồng bộ hai chiều tức thì sang trang web khách xem.</p>
                                     </div>
-                                    <div style="display: flex; gap: 8px;">
-                                        <button type="button" onclick="prettifyJsonEditor()" class="btn-topbar-action btn-topbar-outline" style="border-color: #475569; color:#E2E8F0; padding:6px 14px; font-size:12.5px;">
-                                            <i class="fas fa-magic"></i> Căn Code Đẹp
+                                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                        <button type="button" onclick="prettifyJsonEditor()" class="topbar-btn" title="Định dạng lại thụt dòng chuẩn">
+                                            <i class="fas fa-align-left" style="color: #0284C7;"></i> Căn Code Đẹp
                                         </button>
-                                        <button type="button" onclick="copyTechnicalJson()" class="btn-topbar-action btn-topbar-outline" style="border-color: #475569; color:#E2E8F0; padding:6px 14px; font-size:12.5px;">
-                                            <i class="fas fa-copy"></i> Sao Chép Mã
+                                        <button type="button" onclick="copyTechnicalJson()" class="topbar-btn" title="Sao chép toàn bộ mã JSON vào bộ nhớ đệm">
+                                            <i class="fas fa-copy" style="color: #64748B;"></i> Sao Chép
                                         </button>
-                                        <button type="button" onclick="downloadConfigFile()" class="btn-topbar-action btn-topbar-outline" style="border-color: #475569; color:#E2E8F0; padding:6px 14px; font-size:12.5px;">
-                                            <i class="fas fa-download"></i> Tải File .json
+                                        <button type="button" onclick="downloadConfigFile()" class="topbar-btn" title="Tải file site-content.json về máy tính">
+                                            <i class="fas fa-download" style="color: #059669;"></i> Tải File .json
                                         </button>
-                                        <button type="button" onclick="resetSiteContentDefaults()" class="btn-topbar-action btn-topbar-outline" style="border-color: #E11D48; color:#FFA4B2; padding:6px 14px; font-size:12.5px;">
-                                            <i class="fas fa-undo"></i> Khôi Phục Gốc
+                                        <button type="button" onclick="resetSiteContentDefaults()" class="topbar-btn" style="color: #DC2626; border-color: #FECDD3;" title="Khôi phục về nội dung chuẩn ban đầu">
+                                            <i class="fas fa-undo" style="color: #DC2626;"></i> Khôi Phục Gốc
                                         </button>
                                     </div>
                                 </div>
 
-                                <textarea id="techJsonTextarea" class="tech-json-textarea" spellcheck="false"></textarea>
+                                <div class="code-editor-box">
+                                    <div class="code-editor-header">
+                                        <span class="code-editor-tab"><i class="fas fa-file-code" style="color: #38BDF8;"></i> site-content.json</span>
+                                        <span class="code-editor-status"><i class="fas fa-circle" style="color: #10B981; font-size: 8px;"></i> Sẵn sàng chỉnh sửa</span>
+                                    </div>
+                                    <textarea id="techJsonTextarea" class="tech-json-textarea" rows="22" spellcheck="false" placeholder="Đang tải dữ liệu cấu hình..."></textarea>
+                                </div>
 
-                                <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
-                                    <span style="font-size: 12.5px; color: #94A3B8;">
-                                        <i class="fas fa-shield-alt"></i> Lưu ý: Cú pháp JSON cần có dấu phẩy và ngoặc nhọn chuẩn xác trước khi áp dụng.
+                                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 18px;">
+                                    <span style="font-size: 13px; color: var(--tc-ink-soft);">
+                                        <i class="fas fa-shield-alt" style="color: #0284C7;"></i> Lưu ý: Cú pháp JSON cần có dấu phẩy và đóng ngoặc nhọn chuẩn xác trước khi lưu.
                                     </span>
-                                    <button type="button" onclick="saveTechnicalJson()" class="btn-topbar-action btn-topbar-gold" style="padding: 12px 30px; font-size: 15px;">
-                                        <i class="fas fa-rocket"></i> ÁP DỤNG THAY ĐỔI LÊN HỆ THỐNG NGAY
+                                    <button type="button" onclick="saveTechnicalJson()" class="btn-save-primary">
+                                        <i class="fas fa-check-circle"></i> Áp Dụng Thay Đổi Lên Hệ Thống Ngay
                                     </button>
                                 </div>
                             </div>
@@ -990,6 +996,6 @@
 
     <!-- Scripts -->
     <script src="js/projects-data.js"></script>
-    <script src="js/admin.js?v=20260905_v6"></script>
+    <script src="js/admin.js?v=20260905_v7"></script>
 </body>
 </html>

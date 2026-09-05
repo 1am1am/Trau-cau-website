@@ -1544,3 +1544,86 @@ body {
         margin-left: 0;
     }
 }
+/* ==========================================================================
+   TECHNICAL JSON MODE — MODERN DEVELOPER EXPERIENCE
+   ========================================================================== */
+.code-editor-box {
+    background: #0F172A;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 16px 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.code-editor-header {
+    background: #1E293B;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #334155;
+}
+
+.code-editor-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #F1F5F9;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'Consolas', 'Fira Code', monospace !important;
+}
+
+.code-editor-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #94A3B8;
+    font-size: 12px;
+}
+
+.tech-json-textarea {
+    width: 100%;
+    min-height: 480px;
+    background: #090D16;
+    border: none;
+    padding: 18px 20px;
+    color: #38BDF8;
+    font-family: 'Consolas', 'Fira Code', 'Courier New', monospace !important;
+    font-size: 13.5px;
+    line-height: 1.65;
+    resize: vertical;
+    outline: none;
+    tab-size: 2;
+}
+
+.tech-json-textarea:focus {
+    background: #060910;
+}
+
+.btn-save-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--tc-green);
+    color: #FFFFFF;
+    font-size: 13.5px;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(37, 70, 41, 0.2);
+}
+
+.btn-save-primary:hover {
+    background: var(--tc-forest);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 70, 41, 0.3);
+}
+
+.btn-save-primary:active {
+    transform: translateY(0);
+}

@@ -651,12 +651,25 @@
     // 7. TÙY BIẾN TOÀN BỘ WEBSITE & TECHNICAL CMS
     // ==========================================
     window.switchCmsTab = function (subTabId, btn) {
-        document.querySelectorAll('.cms-tab-pane').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.cms-tab-pane').forEach(p => {
+            p.classList.remove('active');
+            p.style.display = 'none';
+        });
         document.querySelectorAll('.cms-tab-btn').forEach(b => b.classList.remove('active'));
 
         const target = document.getElementById(subTabId);
-        if (target) target.classList.add('active');
+        if (target) {
+            target.classList.add('active');
+            target.style.display = 'block';
+        }
         if (btn) btn.classList.add('active');
+        
+        if (subTabId === 'cmsTabTechnical') {
+            const jsonArea = document.getElementById('techJsonTextarea');
+            if (jsonArea) {
+                jsonArea.value = JSON.stringify(getSiteContent(), null, 2);
+            }
+        }
     };
 
     function loadSiteEditorData() {
@@ -752,7 +765,8 @@
         current.footer.quote_sub = getVal('cmsFooterQuoteSub');
         current.footer.copyright = getVal('cmsFooterCopyright');
 
-        localStorage.setItem('tc_site_content', JSON.stringify(current, null, 2));
+                localStorage.setItem('tc_site_content', JSON.stringify(current, null, 2));
+        window.dispatchEvent(new Event('tc_cms_updated'));
 
         // Cập nhật textarea technical JSON tương ứng
         const jsonArea = document.getElementById('techJsonTextarea');
