@@ -58,6 +58,17 @@ body {
     overflow-x: hidden;
 }
 
+/* Universal Link Reset */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+a:visited {
+    color: inherit;
+}
+
 /* Typography Utilities */
 h1, h2, h3, h4 {
     font-family: var(--font-heading);
@@ -230,32 +241,30 @@ h1, h2, h3, h4 {
     width: 100%;
 }
 
-.nav-socials {
+.nav-social, .nav-socials {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
-.social-icon-btn {
+.nav-social a, .social-icon-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 34px;
-    height: 34px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(197, 155, 39, 0.4);
-    color: var(--gold);
-    font-size: 0.85rem;
+    border: 1px solid var(--green);
+    color: var(--green);
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
-.social-icon-btn:hover {
-    background: var(--gold);
-    color: var(--green-dark);
+.nav-social a:hover, .social-icon-btn:hover {
+    background-color: var(--green);
+    color: var(--ivory);
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(197, 155, 39, 0.35);
+    box-shadow: 0 4px 10px rgba(72, 108, 47, 0.25);
 }
 
 .mobile-btn {

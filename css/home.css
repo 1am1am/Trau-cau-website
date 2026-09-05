@@ -213,6 +213,8 @@
             height: 35px;
             border-radius: 50%;
             border: 1px solid var(--green);
+            color: var(--green);
+            text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -2045,6 +2047,12 @@
             margin-bottom: 15px;
         }
 
+        .blog-title a {
+            color: var(--green-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
         .blog-title a:hover {
             color: var(--gold-text);
         }
@@ -3044,6 +3052,12 @@
         .blog-title {
             font-size: 1.3rem;
             margin-bottom: 15px;
+        }
+
+        .blog-title a {
+            color: var(--green-dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         .blog-title a:hover {
