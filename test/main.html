@@ -1,0 +1,2804 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cưới Hỏi Trầu Cau | Trang Trí Gia Tiên & Mâm Quả Bản Sắc (#486C2F & #F1E5A1)</title>
+    <meta name="description" content="Trang trí lễ gia tiên và mâm quả nghệ thuật Trầu Cau với đúng 3 màu chủ đạo chuẩn mực: Xanh Lá Trầu (#486C2F), Vàng Gấm (#F1E5A1) và Kem Ngà (#FAF8F0).">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ==========================================================================
+           HỆ MÀU CHUẨN XÁC 3 MÀU ĐƠN SẮC (STRICT 3-COLOR SYSTEM)
+           1. Nền Canvas & Card: #FAF8F0 (Kem Ngà) & #FFFFFF (Trắng Tinh Tôn Ảnh)
+           2. Sắc Xanh Lá Trầu: #486C2F (Chuẩn xác #486C2F, không dùng màu đen/đậm khác)
+           3. Sắc Vàng Gấm:     #F1E5A1 (Chuẩn xác #F1E5A1)
+           ========================================================================== */
+
+        :root {
+            --c-canvas: #FAF8F0;
+            --c-white: #FFFFFF;
+            --c-green: #486C2F;
+            --c-gold: #F1E5A1;
+
+            --font-heading: 'Playfair Display', Georgia, serif;
+            --font-brand: 'Cinzel', serif;
+            --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-full: 9999px;
+            --container: 1240px;
+        }
+
+        /* RESET & BASE */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--c-canvas);
+            color: var(--c-green);
+            font-family: var(--font-body);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+
+        button, input, select, textarea {
+            font-family: inherit;
+            outline: none;
+        }
+
+        .container {
+            max-width: var(--container);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* TYPOGRAPHY */
+        .font-serif { font-family: var(--font-heading); }
+        .font-brand { font-family: var(--font-brand); }
+        .text-green { color: var(--c-green); }
+        .text-gold { color: var(--c-gold); }
+
+        /* SECTION HEADER */
+        .section-header {
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto 45px;
+        }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-brand);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--c-green);
+            background-color: var(--c-gold);
+            padding: 6px 18px;
+            border-radius: var(--radius-full);
+            border: 1.5px solid var(--c-green);
+            margin-bottom: 14px;
+        }
+
+        .section-tag i {
+            color: var(--c-green);
+            font-size: 0.85rem;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--c-green);
+            line-height: 1.25;
+            margin-bottom: 14px;
+        }
+
+        .section-title em {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--c-green);
+            opacity: 0.85;
+        }
+
+        .section-desc {
+            font-size: 1.05rem;
+            color: var(--c-green);
+            opacity: 0.85;
+            line-height: 1.7;
+        }
+
+        /* BUTTONS (STRICTLY 3 COLORS) */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.94rem;
+            font-weight: 700;
+            padding: 13px 26px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1.5px solid var(--c-green);
+        }
+
+        .btn-green {
+            background-color: var(--c-green);
+            color: var(--c-gold);
+            border-color: var(--c-green);
+        }
+
+        .btn-green:hover {
+            background-color: var(--c-gold);
+            color: var(--c-green);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            background-color: var(--c-gold);
+            color: var(--c-green);
+            border-color: var(--c-green);
+        }
+
+        .btn-gold:hover {
+            background-color: var(--c-green);
+            color: var(--c-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: var(--c-white);
+            color: var(--c-green);
+            border-color: var(--c-green);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--c-green);
+            color: var(--c-gold);
+            transform: translateY(-2px);
+        }
+
+        /* ==========================================================================
+           1. TOPBAR & MAIN NAVIGATION
+           ========================================================================== */
+        .topbar {
+            background-color: var(--c-green);
+            color: var(--c-gold);
+            font-size: 0.85rem;
+            padding: 8px 0;
+            border-bottom: 2px solid var(--c-gold);
+        }
+
+        .topbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .topbar-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .topbar-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--c-gold);
+        }
+
+        .topbar-item i {
+            color: var(--c-gold);
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .topbar-link {
+            color: var(--c-gold);
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        /* MAIN HEADER */
+        .main-header {
+            background-color: var(--c-white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(72, 108, 47, 0.08);
+            border-bottom: 1.5px solid var(--c-gold);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-symbol {
+            width: 46px;
+            height: 46px;
+            background-color: var(--c-green);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--c-gold);
+            color: var(--c-gold);
+            font-family: var(--font-brand);
+            font-size: 1.3rem;
+            font-weight: 800;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: var(--font-brand);
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            color: var(--c-green);
+            line-height: 1.1;
+        }
+
+        .logo-sub {
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--c-green);
+            font-weight: 700;
+            margin-top: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-item a {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--c-green);
+            position: relative;
+            padding: 6px 0;
+        }
+
+        .nav-item a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background-color: var(--c-green);
+            transition: width 0.25s ease;
+        }
+
+        .nav-item a:hover::after,
+        .nav-item.active a::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--c-green);
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           2. HERO SECTION (SOLID #FAF8F0 + #486C2F + #F1E5A1)
+           ========================================================================== */
+        .hero {
+            background-color: var(--c-canvas);
+            padding: 80px 0 70px;
+            border-bottom: 1.5px solid var(--c-gold);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--c-gold);
+            border: 1.5px solid var(--c-green);
+            padding: 7px 18px;
+            border-radius: var(--radius-full);
+            margin-bottom: 22px;
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--c-green);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .hero-badge span {
+            font-family: var(--font-brand);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            color: var(--c-green);
+            text-transform: uppercase;
+        }
+
+        .hero-heading {
+            font-family: var(--font-heading);
+            font-size: 3.3rem;
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--c-green);
+            margin-bottom: 20px;
+        }
+
+        .hero-heading span.accent-italic {
+            font-style: italic;
+            font-weight: 400;
+            color: var(--c-green);
+            display: block;
+        }
+
+        .hero-desc {
+            font-size: 1.12rem;
+            color: var(--c-green);
+            opacity: 0.9;
+            line-height: 1.75;
+            margin-bottom: 35px;
+            max-width: 580px;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding-top: 25px;
+            border-top: 1.5px solid var(--c-green);
+        }
+
+        .stat-item h3 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--c-green);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--c-green);
+            font-weight: 600;
+        }
+
+        /* HERO CARD PREVIEW */
+        .hero-main-card {
+            background-color: var(--c-white);
+            border-radius: var(--radius-lg);
+            padding: 12px;
+            border: 2px solid var(--c-green);
+            position: relative;
+            box-shadow: 0 8px 24px rgba(72, 108, 47, 0.1);
+        }
+
+        .hero-img-wrapper {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            border: 1px solid var(--c-gold);
+        }
+
+        .hero-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-floating-card {
+            position: absolute;
+            bottom: -18px;
+            left: -20px;
+            background-color: var(--c-green);
+            color: var(--c-gold);
+            padding: 18px 22px;
+            border-radius: var(--radius-md);
+            border: 2px solid var(--c-gold);
+            max-width: 270px;
+        }
+
+        .hero-floating-card .quote-icon {
+            color: var(--c-gold);
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .hero-floating-card p {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 0.92rem;
+            line-height: 1.4;
+            color: var(--c-white);
+        }
+
+        .hero-floating-card span {
+            display: block;
+            font-size: 0.74rem;
+            color: var(--c-gold);
+            font-weight: 700;
+            margin-top: 8px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+           3. BRAND CULTURE & PHILOSOPHY
+           ========================================================================== */
+        .philosophy-section {
+            padding: 85px 0;
+            background-color: var(--c-white);
+            border-bottom: 1.5px solid var(--c-gold);
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .philosophy-visual {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .ph-img {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 2px solid var(--c-green);
+            background-color: var(--c-white);
+            padding: 6px;
+        }
+
+        .ph-img img {
+            border-radius: calc(var(--radius-md) - 4px);
+            width: 100%;
+            height: 270px;
+            object-fit: cover;
+        }
+
+        .ph-img:first-child {
+            margin-top: 25px;
+        }
+
+        .philosophy-text h2 {
+            font-family: var(--font-heading);
+            font-size: 2.3rem;
+            color: var(--c-green);
+            line-height: 1.3;
+            margin-bottom: 18px;
+        }
+
+        .philosophy-text p {
+            color: var(--c-green);
+            opacity: 0.9;
+            margin-bottom: 18px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .philosophy-pillars {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-top: 26px;
+        }
+
+        .pillar-card {
+            background-color: var(--c-canvas);
+            padding: 18px;
+            border-radius: var(--radius-sm);
+            border: 1.5px solid var(--c-green);
+        }
+
+        .pillar-card h4 {
+            font-family: var(--font-brand);
+            font-size: 0.95rem;
+            color: var(--c-green);
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pillar-card p {
+            font-size: 0.88rem;
+            color: var(--c-green);
+            opacity: 0.85;
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        /* ==========================================================================
+           4. CORE SERVICES
+           ========================================================================== */
+        .services-section {
+            padding: 90px 0;
+            background-color: var(--c-canvas);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+
+        .service-card {
+            background-color: var(--c-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 2px solid var(--c-green);
+            transition: transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-thumb {
+            position: relative;
+            height: 230px;
+            overflow: hidden;
+            border-bottom: 1.5px solid var(--c-gold);
+        }
+
+        .service-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-tag-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: var(--c-gold);
+            color: var(--c-green);
+            font-family: var(--font-brand);
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: var(--radius-full);
+            letter-spacing: 0.1em;
+            border: 1.5px solid var(--c-green);
+        }
+
+        .service-body {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .service-title {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--c-green);
+            margin-bottom: 8px;
+        }
+
+        .service-desc {
+            font-size: 0.92rem;
+            color: var(--c-green);
+            opacity: 0.85;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 18px;
+            padding-top: 14px;
+            border-top: 1px dashed var(--c-green);
+        }
+
+        .service-features li {
+            font-size: 0.88rem;
+            color: var(--c-green);
+            margin-bottom: 7px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-features li i {
+            color: var(--c-green);
+            font-size: 0.85rem;
+        }
+
+        .service-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 14px;
+            border-top: 1.5px solid var(--c-gold);
+        }
+
+        .service-price {
+            font-size: 0.85rem;
+            color: var(--c-green);
+            opacity: 0.85;
+        }
+
+        .service-price strong {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            color: var(--c-green);
+            display: block;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--c-green);
+        }
+
+        .service-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ==========================================================================
+           5. 3 TIERS OF GIA TIEN PACKAGES & COMPARISON TABLE
+           ========================================================================== */
+        .packages-section {
+            padding: 95px 0;
+            background-color: var(--c-white);
+            border-top: 1.5px solid var(--c-gold);
+            border-bottom: 1.5px solid var(--c-gold);
+        }
+
+        .package-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-bottom: 55px;
+        }
+
+        .pkg-card {
+            background-color: var(--c-canvas);
+            border-radius: var(--radius-md);
+            padding: 34px 28px;
+            border: 2px solid var(--c-green);
+            position: relative;
+            transition: transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pkg-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pkg-card.featured {
+            background-color: var(--c-white);
+            border: 3px solid var(--c-green);
+            transform: scale(1.02);
+        }
+
+        .pkg-card.featured:hover {
+            transform: scale(1.02) translateY(-5px);
+        }
+
+        .pkg-ribbon {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--c-gold);
+            color: var(--c-green);
+            font-family: var(--font-brand);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            padding: 5px 18px;
+            border-radius: var(--radius-full);
+            border: 1.5px solid var(--c-green);
+            white-space: nowrap;
+        }
+
+        .pkg-header {
+            text-align: center;
+            padding-bottom: 22px;
+            border-bottom: 1.5px solid var(--c-gold);
+            margin-bottom: 22px;
+        }
+
+        .pkg-tier-name {
+            font-family: var(--font-brand);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--c-green);
+            margin-bottom: 5px;
+        }
+
+        .pkg-title {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--c-green);
+            margin-bottom: 12px;
+        }
+
+        .pkg-price {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--c-green);
+            line-height: 1;
+        }
+
+        .pkg-price span {
+            font-size: 0.88rem;
+            font-family: var(--font-body);
+            font-weight: 400;
+            color: var(--c-green);
+            opacity: 0.85;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .pkg-desc {
+            font-size: 0.9rem;
+            color: var(--c-green);
+            opacity: 0.85;
+            text-align: center;
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
+        .pkg-list {
+            list-style: none;
+            margin-bottom: 28px;
+            flex-grow: 1;
+        }
+
+        .pkg-list li {
+            font-size: 0.92rem;
+            color: var(--c-green);
+            margin-bottom: 11px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+        }
+
+        .pkg-list li i {
+            color: var(--c-green);
+            margin-top: 4px;
+            font-size: 0.88rem;
+        }
+
+        .pkg-list li.highlight {
+            font-weight: 700;
+        }
+
+        /* COMPARISON TABLE */
+        .comparison-wrapper {
+            background-color: var(--c-canvas);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            border: 2px solid var(--c-green);
+            overflow-x: auto;
+        }
+
+        .cmp-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+        }
+
+        .cmp-table th, .cmp-table td {
+            padding: 15px 18px;
+            text-align: center;
+            border-bottom: 1.5px solid var(--c-gold);
+        }
+
+        .cmp-table thead th {
+            background-color: var(--c-green);
+            color: var(--c-gold);
+            font-family: var(--font-brand);
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .cmp-table thead th:first-child {
+            text-align: left;
+            border-top-left-radius: var(--radius-sm);
+            width: 34%;
+        }
+
+        .cmp-table thead th:last-child {
+            border-top-right-radius: var(--radius-sm);
+        }
+
+        .cmp-table tbody td:first-child {
+            text-align: left;
+            font-weight: 700;
+            color: var(--c-green);
+        }
+
+        .cmp-table tbody tr:hover td {
+            background-color: var(--c-white);
+        }
+
+        .cmp-check {
+            color: var(--c-green);
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        /* ==========================================================================
+           6. MÂM QUẢ & LONG PHỤNG (CHÍNH XÁC SOLID #486C2F - KHÔNG TỐI ĐEN)
+           ========================================================================== */
+        .mam-qua-section {
+            padding: 90px 0;
+            background-color: var(--c-green); /* ĐÚNG CHUẨN #486C2F */
+            color: var(--c-white);
+            position: relative;
+        }
+
+        .mam-qua-section .section-tag {
+            background-color: var(--c-gold);
+            color: var(--c-green);
+            border-color: var(--c-white);
+        }
+
+        .mam-qua-section .section-title {
+            color: var(--c-white);
+        }
+
+        .mam-qua-section .section-title em {
+            color: var(--c-gold);
+        }
+
+        .mam-qua-section .section-desc {
+            color: var(--c-gold);
+        }
+
+        .mam-qua-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        /* KHUNG CARD MÂM QUẢ DÙNG NỀN TRẮNG HOẶC NỀN XANH CHUẨN #486C2F SÁNG RÕ */
+        .mam-qua-card {
+            background-color: var(--c-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 2px solid var(--c-gold);
+            transition: transform 0.2s ease;
+            color: var(--c-green);
+        }
+
+        .mam-qua-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .mam-qua-img {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1.5px solid var(--c-gold);
+        }
+
+        .mam-qua-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .mam-qua-content {
+            padding: 18px;
+        }
+
+        .mam-qua-tag {
+            font-family: var(--font-brand);
+            font-size: 0.7rem;
+            color: var(--c-green);
+            background-color: var(--c-gold);
+            padding: 2px 8px;
+            border-radius: var(--radius-full);
+            display: inline-block;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            font-weight: 800;
+        }
+
+        .mam-qua-name {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            color: var(--c-green);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .mam-qua-details {
+            font-size: 0.84rem;
+            color: var(--c-green);
+            opacity: 0.85;
+            line-height: 1.5;
+            margin-bottom: 14px;
+        }
+
+        .mam-qua-price-tag {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 10px;
+            border-top: 1.5px solid var(--c-gold);
+            color: var(--c-green);
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        /* ==========================================================================
+           7. 4 PHONG CÁCH XU HƯỚNG 2026
+           ========================================================================== */
+        .styles-section {
+            padding: 90px 0;
+            background-color: var(--c-canvas);
+        }
+
+        .styles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .style-card {
+            background-color: var(--c-white);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 2px solid var(--c-green);
+            transition: transform 0.2s ease;
+        }
+
+        .style-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .style-img {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+            border-bottom: 1.5px solid var(--c-gold);
+        }
+
+        .style-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .style-body {
+            padding: 18px;
+        }
+
+        .style-palette {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .palette-dot {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1px solid var(--c-green);
+        }
+
+        .style-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--c-green);
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .style-desc {
+            font-size: 0.86rem;
+            color: var(--c-green);
+            opacity: 0.85;
+            line-height: 1.55;
+        }
+
+        /* ==========================================================================
+           8. WORKFLOW
+           ========================================================================== */
+        .process-section {
+            padding: 90px 0;
+            background-color: var(--c-white);
+            border-top: 1.5px solid var(--c-gold);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+        }
+
+        .process-card {
+            background-color: var(--c-canvas);
+            padding: 22px 14px;
+            border-radius: var(--radius-md);
+            border: 1.5px solid var(--c-green);
+            text-align: center;
+        }
+
+        .process-step-num {
+            width: 38px;
+            height: 38px;
+            background-color: var(--c-green);
+            color: var(--c-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            font-family: var(--font-brand);
+            font-weight: 800;
+            font-size: 0.95rem;
+            border: 1.5px solid var(--c-gold);
+        }
+
+        .process-title {
+            font-family: var(--font-heading);
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--c-green);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .process-desc {
+            font-size: 0.8rem;
+            color: var(--c-green);
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        /* ==========================================================================
+           9. INTERACTIVE COST ESTIMATOR WIDGET
+           ========================================================================== */
+        .calculator-section {
+            padding: 90px 0;
+            background-color: var(--c-canvas);
+        }
+
+        .calculator-box {
+            background-color: var(--c-white);
+            border-radius: var(--radius-lg);
+            border: 2.5px solid var(--c-green);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+        }
+
+        .calc-form-pane {
+            padding: 40px 35px;
+            background-color: var(--c-white);
+        }
+
+        .calc-summary-pane {
+            background-color: var(--c-green); /* ĐÚNG MÃ #486C2F */
+            color: var(--c-white);
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-left: 2px solid var(--c-gold);
+        }
+
+        .calc-group {
+            margin-bottom: 24px;
+        }
+
+        .calc-label {
+            font-family: var(--font-brand);
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--c-green);
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .calc-options-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .calc-pill {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 12px 8px;
+            background-color: var(--c-canvas);
+            border: 1.5px solid var(--c-green);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .calc-pill.active {
+            background-color: var(--c-gold);
+            border-color: var(--c-green);
+            box-shadow: inset 0 0 0 1px var(--c-green);
+        }
+
+        .calc-pill-title {
+            font-size: 0.86rem;
+            font-weight: 700;
+            color: var(--c-green);
+            margin-bottom: 3px;
+        }
+
+        .calc-pill-sub {
+            font-size: 0.74rem;
+            color: var(--c-green);
+            opacity: 0.8;
+        }
+
+        .calc-checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .calc-checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            background-color: var(--c-canvas);
+            border: 1.5px solid var(--c-green);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--c-green);
+        }
+
+        .calc-checkbox-label input {
+            accent-color: var(--c-green);
+            width: 16px;
+            height: 16px;
+        }
+
+        /* SUMMARY PANE */
+        .summary-header h3 {
+            font-family: var(--font-heading);
+            font-size: 1.55rem;
+            color: var(--c-gold);
+            margin-bottom: 4px;
+        }
+
+        .summary-header p {
+            font-size: 0.82rem;
+            color: var(--c-white);
+            opacity: 0.9;
+        }
+
+        .summary-breakdown {
+            margin: 20px 0;
+            list-style: none;
+            border-top: 1px dashed var(--c-gold);
+            border-bottom: 1px dashed var(--c-gold);
+            padding: 16px 0;
+        }
+
+        .summary-breakdown li {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.88rem;
+            margin-bottom: 8px;
+            color: var(--c-white);
+        }
+
+        .summary-breakdown li span:last-child {
+            font-weight: 700;
+            color: var(--c-gold);
+        }
+
+        .summary-total {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .summary-total-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--c-gold);
+        }
+
+        .summary-total-price {
+            font-family: var(--font-heading);
+            font-size: 2.1rem;
+            font-weight: 700;
+            color: var(--c-gold);
+            line-height: 1.1;
+            margin-top: 4px;
+        }
+
+        /* ==========================================================================
+           10. TESTIMONIALS
+           ========================================================================== */
+        .testimonials-section {
+            padding: 90px 0;
+            background-color: var(--c-canvas);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 26px;
+        }
+
+        .testimonial-card {
+            background-color: var(--c-white);
+            padding: 30px 24px;
+            border-radius: var(--radius-md);
+            border: 2px solid var(--c-green);
+            position: relative;
+        }
+
+        .testi-stars {
+            color: var(--c-green);
+            font-size: 0.88rem;
+            margin-bottom: 14px;
+        }
+
+        .testi-text {
+            font-style: italic;
+            font-size: 0.93rem;
+            color: var(--c-green);
+            line-height: 1.65;
+            margin-bottom: 18px;
+        }
+
+        .testi-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testi-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: var(--c-gold);
+            border: 1.5px solid var(--c-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--c-green);
+            font-weight: 800;
+            font-family: var(--font-brand);
+        }
+
+        .testi-name {
+            font-family: var(--font-heading);
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: var(--c-green);
+        }
+
+        .testi-loc {
+            font-size: 0.78rem;
+            color: var(--c-green);
+            opacity: 0.8;
+        }
+
+        /* ==========================================================================
+           11. FAQ ACCORDION
+           ========================================================================== */
+        .faq-section {
+            padding: 90px 0;
+            background-color: var(--c-white);
+        }
+
+        .faq-accordion {
+            max-width: 840px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--c-canvas);
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+            border: 1.5px solid var(--c-green);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 16px 22px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--font-heading);
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: var(--c-green);
+        }
+
+        .faq-question i {
+            color: var(--c-green);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.open .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            padding: 0 22px 18px;
+            font-size: 0.91rem;
+            color: var(--c-green);
+            opacity: 0.9;
+            line-height: 1.65;
+            display: none;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        /* ==========================================================================
+           12. CALL TO ACTION BANNER (SOLID #486C2F)
+           ========================================================================== */
+        .booking-banner {
+            background-color: var(--c-green); /* ĐÚNG MÃ #486C2F */
+            color: var(--c-white);
+            padding: 65px 0;
+            border-top: 3px solid var(--c-gold);
+            text-align: center;
+            position: relative;
+        }
+
+        .booking-banner h2 {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            margin-bottom: 14px;
+            color: var(--c-white);
+        }
+
+        .booking-banner h2 em {
+            color: var(--c-gold);
+            font-style: italic;
+        }
+
+        .booking-banner p {
+            font-size: 1.05rem;
+            max-width: 680px;
+            margin: 0 auto 30px;
+            color: var(--c-gold);
+        }
+
+        .booking-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        /* ==========================================================================
+           13. SITE FOOTER (SOLID #486C2F)
+           ========================================================================== */
+        .site-footer {
+            background-color: var(--c-green); /* ĐÚNG MÃ #486C2F */
+            color: var(--c-white);
+            padding: 65px 0 25px;
+            font-size: 0.88rem;
+            border-top: 2px solid var(--c-gold);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 45px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-brand);
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--c-gold);
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            position: relative;
+            padding-bottom: 6px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 28px;
+            height: 2px;
+            background-color: var(--c-gold);
+        }
+
+        .footer-info-list {
+            list-style: none;
+        }
+
+        .footer-info-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+            color: var(--c-white);
+        }
+
+        .footer-info-list li i {
+            color: var(--c-gold);
+            margin-top: 4px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: var(--c-white);
+        }
+
+        .footer-links a:hover {
+            color: var(--c-gold);
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(241, 229, 161, 0.3);
+            padding-top: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--c-gold);
+        }
+
+        /* FLOATING QUICK CONTACT BAR */
+        .floating-contact-widget {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .float-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .float-phone {
+            background-color: var(--c-green);
+            color: var(--c-gold);
+            border: 2px solid var(--c-gold);
+        }
+
+        .float-zalo {
+            background-color: var(--c-gold);
+            color: var(--c-green);
+            border: 2px solid var(--c-green);
+            font-weight: 800;
+            font-size: 0.85rem;
+            font-family: var(--font-body);
+        }
+
+        .float-quote {
+            background-color: var(--c-green);
+            color: var(--c-gold);
+            border: 2px solid var(--c-gold);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1024px) {
+            .hero-heading { font-size: 2.7rem; }
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-showcase { max-width: 460px; margin: 0 auto; }
+            .services-grid, .package-cards-grid, .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+            .mam-qua-grid, .styles-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-grid { grid-template-columns: repeat(3, 1fr); }
+            .calculator-box { grid-template-columns: 1fr; }
+            .calc-summary-pane { border-left: none; border-top: 2px solid var(--c-gold); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .topbar { display: none; }
+            .nav-menu { display: none; }
+            .mobile-toggle { display: block; }
+            .section-title { font-size: 1.9rem; }
+            .hero-heading { font-size: 2.1rem; }
+            .services-grid, .package-cards-grid, .testimonial-grid, .mam-qua-grid, .styles-grid { grid-template-columns: 1fr; }
+            .philosophy-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .calc-options-grid { grid-template-columns: 1fr; }
+            .calc-checkbox-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero-stats { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         TOPBAR
+         ========================================== -->
+    <div class="topbar">
+        <div class="container topbar-content">
+            <div class="topbar-left">
+                <div class="topbar-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>746 Nguyễn Đình Chiểu, P.1, Q.3, TP. Hồ Chí Minh</span>
+                </div>
+                <div class="topbar-item">
+                    <i class="fa-solid fa-clock"></i>
+                    <span>08:00 — 21:00 (Hàng ngày)</span>
+                </div>
+            </div>
+            <div class="topbar-right">
+                <div class="topbar-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Hotline: <strong>0932 005 738 · 0908 248 359</strong></span>
+                </div>
+                <a href="#calculator" class="topbar-link">Ước tính giá</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MAIN HEADER
+         ========================================== -->
+    <header class="main-header">
+        <div class="container header-content">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-logo">
+                <div class="logo-symbol">
+                    <span>TC</span>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">TRẦU CAU</span>
+                    <span class="logo-sub">Wedding & Traditional Decor</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item active"><a href="#home">Trang Chủ</a></li>
+                    <li class="nav-item"><a href="#services">Dịch Vụ</a></li>
+                    <li class="nav-item"><a href="#packages">Gói Gia Tiên</a></li>
+                    <li class="nav-item"><a href="#mam-qua">Mâm Quả & Long Phụng</a></li>
+                    <li class="nav-item"><a href="#styles">Bộ Sưu Tập</a></li>
+                    <li class="nav-item"><a href="#calculator">Dự Toán Chi Phí</a></li>
+                    <li class="nav-item"><a href="#contact">Liên Hệ</a></li>
+                </ul>
+            </nav>
+
+            <!-- CTA & Mobile Toggle -->
+            <div class="header-actions">
+                <a href="#calculator" class="btn btn-green">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>Đặt Lịch Khảo Sát</span>
+                </a>
+                <button class="mobile-toggle" aria-label="Open Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================
+         HERO SECTION (3 CHUẨN MÀU #FAF8F0, #486C2F, #F1E5A1)
+         ========================================== -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    <span>3 Màu Đơn Sắc Chuẩn: #FAF8F0 · #486C2F · #F1E5A1</span>
+                </div>
+                <h1 class="hero-heading">
+                    Trầu Xanh Cau Thắm
+                    <span class="accent-italic">Sắc Vàng Hoàng Kim Ngày Đại Hỷ</span>
+                </h1>
+                <p class="hero-desc">
+                    Trang trí lễ gia tiên chuẩn mực văn hóa cưới hỏi Việt với đúng bộ ba màu sắc tự nhiên: **Xanh Lá Trầu (#486C2F)**, **Vàng Gấm (#F1E5A1)** và **Kem Ngà (#FAF8F0)**.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#packages" class="btn btn-green">
+                        <span>Khám Phá Gói Gia Tiên</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#calculator" class="btn btn-gold">
+                        <i class="fa-solid fa-calculator"></i>
+                        <span>Tính Báo Giá Nhanh</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>12+</h3>
+                        <p>Năm gìn giữ hồn cưới hỏi Việt</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>8.500+</h3>
+                        <p>Cặp đôi trao gửi trọn niềm tin</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Nghệ nhân mâm quả gia truyền</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image Preview -->
+            <div class="hero-showcase">
+                <div class="hero-main-card">
+                    <div class="hero-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=1000&auto=format&fit=crop" alt="Không gian gia tiên Xanh Lá Trầu & Vàng Gấm Cưới Hỏi Trầu Cau">
+                    </div>
+                    <div class="hero-floating-card">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                        <p>"Màu lá trầu tươi (#486C2F) sánh cùng vàng gấm (#F1E5A1) — Gắn kết trăm năm son sắt."</p>
+                        <span>Cưới Hỏi Trầu Cau · 746 Nguyễn Đình Chiểu, Q.3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         BRAND CULTURE & PHILOSOPHY
+         ========================================== -->
+    <section class="philosophy-section">
+        <div class="container philosophy-grid">
+            <div class="philosophy-visual">
+                <div class="ph-img">
+                    <img src="https://images.unsplash.com/photo-1545232979-fbf6c968f5fb?q=80&w=800&auto=format&fit=crop" alt="Tone xanh lá trầu & vàng gấm trang trí cưới">
+                </div>
+                <div class="ph-img">
+                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=800&auto=format&fit=crop" alt="Hoa tươi trắng kem trên nền vàng gấm">
+                </div>
+            </div>
+            <div class="philosophy-text">
+                <div class="section-tag">
+                    <i class="fa-solid fa-palette"></i>
+                    <span>Tối Giản 3 Màu</span>
+                </div>
+                <h2>Đúng 3 Tone Màu: Không Pha Đen, Không Tối Màu, Tôn Nổi Hình Ảnh</h2>
+                <p>
+                    Website sử dụng chuẩn xác 3 mã màu duy nhất: **#FAF8F0** làm nền sáng thoáng đãng, **#486C2F** làm màu xanh lá trầu tươi sáng tự nhiên, và **#F1E5A1** làm điểm nhấn vàng tơ tằm thanh nhã.
+                </p>
+                <p>
+                    Không dùng bất kỳ sắc độ đen tối nào pha trộn, giúp toàn bộ khung hình, mâm quả và hoa tươi của bạn luôn **sáng sủa, tươi mới và bắt mắt nhất**.
+                </p>
+
+                <div class="philosophy-pillars">
+                    <div class="pillar-card">
+                        <h4><i class="fa-solid fa-leaf"></i> Xanh Lá Trầu #486C2F</h4>
+                        <p>Xanh tươi mộc mạc, tươi tắn, không bị tối đen hay xỉn màu.</p>
+                    </div>
+                    <div class="pillar-card">
+                        <h4><i class="fa-solid fa-sun"></i> Vàng Tơ Gấm #F1E5A1</h4>
+                        <p>Sắc vàng sáng ấm dịu dàng, tạo điểm nhấn son thiếp quý phái.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CORE SERVICES
+         ========================================== -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fa-solid fa-crown"></i>
+                    <span>Hệ Sinh Thái Cưới Hỏi</span>
+                </div>
+                <h2 class="section-title">Dịch Vụ Cưới Hỏi <em>Trọn Gói &amp; Chỉn Chu</em></h2>
+                <p class="section-desc">Mọi hạng mục cần thiết cho một ngày vui vẹn toàn — từ lễ gia tiên tại tư gia đến sảnh tiệc nhà hàng lộng lẫy.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-thumb">
+                        <span class="service-tag-badge">Chủ Lực</span>
+                        <img src="https://images.unsplash.com/photo-1545232979-fbf6c968f5fb?q=80&w=800&auto=format&fit=crop" alt="Trang trí lễ gia tiên #486C2F & #F1E5A1">
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-title">Trang Trí Lễ Gia Tiên</h3>
+                        <p class="service-desc">Backdrop lễ vòm 3D xanh lá trầu (#486C2F) phối chữ Hỷ vàng gấm (#F1E5A1), bàn thờ tổ tiên trang nghiêm, bộ ấm chén sứ ngọc cao cấp.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Đính Hôn · Vu Quy · Tân Hôn</li>
+                            <li><i class="fa-solid fa-check"></i> Hoa tươi nhập khẩu hoặc hoa lụa cao cấp</li>
+                            <li><i class="fa-solid fa-check"></i> Miễn phí khảo sát &amp; thiết kế phối cảnh tận nhà</li>
+                        </ul>
+                        <div class="service-footer">
+                            <div class="service-price">
+                                <span>Chi phí từ:</span>
+                                <strong>3.500.000đ</strong>
+                            </div>
+                            <a href="#packages" class="service-link">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-thumb">
+                        <span class="service-tag-badge">Nghệ Nhân</span>
+                        <img src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?q=80&w=800&auto=format&fit=crop" alt="Mâm quả Long Phụng cưới hỏi">
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-title">Mâm Quả &amp; Long Phụng</h3>
+                        <p class="service-desc">Tráp sơn mài xanh lá trầu (#486C2F) nẹp chỉ vàng gấm (#F1E5A1), mâm trầu cau gia truyền, cặp Rồng Phụng kết trái cây sống động 100%.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Chuẩn phong tục 3 miền (4 - 6 - 8 - 10 tráp)</li>
+                            <li><i class="fa-solid fa-check"></i> Bánh phu thê gấm, trà rượu, heo quay giòn thơm</li>
+                            <li><i class="fa-solid fa-check"></i> Tháp hoa tươi cắm nghệ thuật sang trọng</li>
+                        </ul>
+                        <div class="service-footer">
+                            <div class="service-price">
+                                <span>Chi phí từ:</span>
+                                <strong>3.500.000đ</strong>
+                            </div>
+                            <a href="#mam-qua" class="service-link">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-thumb">
+                        <span class="service-tag-badge">Lộng Lẫy</span>
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=800&auto=format&fit=crop" alt="Trang trí sảnh tiệc cưới">
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-title">Trang Trí Tiệc Nhà Hàng</h3>
+                        <p class="service-desc">Gallery đón khách phong cách Botanical Gold, backdrop sân khấu ánh sáng lung linh, lối đi rải cánh hoa tươi thơ mộng.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Thiết kế concept đồng bộ theo câu chuyện tình</li>
+                            <li><i class="fa-solid fa-check"></i> Hệ thống ánh sáng và đèn chùm pha lê</li>
+                            <li><i class="fa-solid fa-check"></i> Phù hợp mọi sảnh tiệc 4-5 sao tại TP.HCM</li>
+                        </ul>
+                        <div class="service-footer">
+                            <div class="service-price">
+                                <span>Chi phí từ:</span>
+                                <strong>8.500.000đ</strong>
+                            </div>
+                            <a href="#contact" class="service-link">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-thumb">
+                        <span class="service-tag-badge">Trọn Vẹn</span>
+                        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=800&auto=format&fit=crop" alt="Rạp cưới cao cấp">
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-title">Rạp Cưới &amp; Cổng Hoa</h3>
+                        <p class="service-desc">Khung rạp sự kiện cao cấp lụa voan vàng gấm &amp; lá trầu, quạt điều hòa mát mẻ và đại cổng hoa tươi đón khách trước cửa nhà.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Đa dạng kích cỡ: 2 bàn đến 20 bàn</li>
+                            <li><i class="fa-solid fa-check"></i> Voan lụa cao cấp kết hợp trần đèn fairy lights</li>
+                            <li><i class="fa-solid fa-check"></i> Thi công kiên cố, an toàn tuyệt đối</li>
+                        </ul>
+                        <div class="service-footer">
+                            <div class="service-price">
+                                <span>Chi phí từ:</span>
+                                <strong>4.500.000đ</strong>
+                            </div>
+                            <a href="#contact" class="service-link">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-thumb">
+                        <span class="service-tag-badge">Nổi Bật</span>
+                        <img src="https://images.unsplash.com/photo-1549417229-aa67d3263c09?q=80&w=800&auto=format&fit=crop" alt="Xe hoa cưới hoa tươi">
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-title">Xe Hoa &amp; Hoa Tươi Cưới</h3>
+                        <p class="service-desc">Trang trí xe rước dâu bằng hoa tươi nhập khẩu tông trắng - vàng champagne, bó hoa cầm tay cô dâu dáng bay bổng.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Hoa tươi cao cấp cắm mút chống gió đường dài</li>
+                            <li><i class="fa-solid fa-check"></i> Bó hoa cưới cầm tay cô dâu thiết kế riêng</li>
+                            <li><i class="fa-solid fa-check"></i> Tặng kèm hoa cài áo hai họ</li>
+                        </ul>
+                        <div class="service-footer">
+                            <div class="service-price">
+                                <span>Chi phí từ:</span>
+                                <strong>1.500.000đ</strong>
+                            </div>
+                            <a href="#contact" class="service-link">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-thumb">
+                        <span class="service-tag-badge">Chu Đáo</span>
+                        <img src="https://images.unsplash.com/photo-1529636798458-92182e662485?q=80&w=800&auto=format&fit=crop" alt="Đội ngũ bê quả áo dài">
+                    </div>
+                    <div class="service-body">
+                        <h3 class="service-title">Đội Bê Tráp &amp; Áo Dài</h3>
+                        <p class="service-desc">Đội ngũ nam thanh nữ tú trang nghiêm, đồng bộ áo dài gấm vàng hoàng kim hoặc xanh trầu sang trọng.</p>
+                        <ul class="service-features">
+                            <li><i class="fa-solid fa-check"></i> Chiều cao chuẩn, tác phong lịch thiệp, đúng giờ</li>
+                            <li><i class="fa-solid fa-check"></i> Áo dài mới 100%, giặt là thơm tho</li>
+                            <li><i class="fa-solid fa-check"></i> Đầy đủ bao lì xì duyên may mắn</li>
+                        </ul>
+                        <div class="service-footer">
+                            <div class="service-price">
+                                <span>Chi phí từ:</span>
+                                <strong>150.000đ/người</strong>
+                            </div>
+                            <a href="#contact" class="service-link">Xem chi tiết <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         3 GÓI GIA TIÊN & BẢNG SO SÁNH
+         ========================================== -->
+    <section class="packages-section" id="packages">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fa-solid fa-gem"></i>
+                    <span>Bảng Giá Minh Bạch</span>
+                </div>
+                <h2 class="section-title">3 Phân Khúc <em>Trang Trí Gia Tiên Trầu Cau</em></h2>
+                <p class="section-desc">Lựa chọn gói phù hợp với không gian tư gia và ngân sách của gia đình bạn — không phát sinh chi phí bất ngờ.</p>
+            </div>
+
+            <div class="package-cards-grid">
+                <!-- Package 1 -->
+                <div class="pkg-card">
+                    <div class="pkg-header">
+                        <span class="pkg-tier-name">Gói 01 · Cơ Bản Tinh Tế</span>
+                        <h3 class="pkg-title">Khởi Duyên</h3>
+                        <div class="pkg-price">
+                            3.500.000đ
+                            <span>- 4.500.000đ / trọn gói</span>
+                        </div>
+                        <p class="pkg-desc">Lựa chọn tối ưu cho gia đình muốn không gian gia tiên ấm cúng, chuẩn nghi lễ trong ngân sách tiết kiệm.</p>
+                    </div>
+                    <ul class="pkg-list">
+                        <li><i class="fa-solid fa-check"></i> Backdrop chữ Hỷ tone xanh lá trầu &amp; vàng gấm tiêu chuẩn</li>
+                        <li><i class="fa-solid fa-check"></i> Bàn hai họ dài + 12 ghế tiffany trang trí nơ gấm vàng</li>
+                        <li><i class="fa-solid fa-check"></i> Bộ bình trà tách sứ ngọc cao cấp + 12 chai nước gắn tag</li>
+                        <li><i class="fa-solid fa-check"></i> 06 đôn để mâm quả đồng bộ</li>
+                        <li><i class="fa-solid fa-check"></i> Hoa lụa cao cấp nhập khẩu 90% giống hoa thật</li>
+                        <li><i class="fa-solid fa-check"></i> Bảng tên lễ (Tân Hôn / Vu Quy / Đính Hôn)</li>
+                    </ul>
+                    <a href="#calculator" class="btn btn-outline" style="width: 100%;">Chọn Gói Khởi Duyên</a>
+                </div>
+
+                <!-- Package 2 (Featured) -->
+                <div class="pkg-card featured">
+                    <div class="pkg-ribbon">Gói Bản Sắc Khuyên Dùng</div>
+                    <div class="pkg-header">
+                        <span class="pkg-tier-name">Gói 02 · Nâng Cao Hoa Tươi</span>
+                        <h3 class="pkg-title">Phụng Hòa (Gold &amp; Green)</h3>
+                        <div class="pkg-price">
+                            6.500.000đ
+                            <span>- 9.500.000đ / trọn gói</span>
+                        </div>
+                        <p class="pkg-desc">Cấu trúc backdrop 3D vòm đôi uốn lượn tone #486C2F &amp; #F1E5A1, kết hợp 70-100% hoa tươi nhập khẩu thơm ngát.</p>
+                    </div>
+                    <ul class="pkg-list">
+                        <li class="highlight"><i class="fa-solid fa-star"></i> Backdrop 3D layer xanh lá trầu kết hợp đèn hắt sáng vàng ấm</li>
+                        <li class="highlight"><i class="fa-solid fa-star"></i> 70% - 100% Hoa tươi nhập khẩu phối hoa lụa cao cấp</li>
+                        <li><i class="fa-solid fa-check"></i> Cổng hoa tươi đón khách trước cửa nhà đồng điệu</li>
+                        <li><i class="fa-solid fa-check"></i> Bàn hai họ khăn gấm hoàng kim + 12 ghế tiffany nơ nhung</li>
+                        <li><i class="fa-solid fa-check"></i> Bộ ấm chén hoàng gia + đĩa bánh pha lê 2 tầng</li>
+                        <li><i class="fa-solid fa-check"></i> Bàn thờ tơ hồng / Gia tiên đầy đủ bộ lư đồng sáng bóng</li>
+                    </ul>
+                    <a href="#calculator" class="btn btn-green" style="width: 100%;">Chọn Gói Phụng Hòa</a>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="pkg-card">
+                    <div class="pkg-header">
+                        <span class="pkg-tier-name">Gói 03 · Độc Bản Hoàng Gia</span>
+                        <h3 class="pkg-title">Kim Bảo (Royal Bespoke)</h3>
+                        <div class="pkg-price">
+                            15.000.000đ
+                            <span>- 35.000.000đ+ / thiết kế riêng</span>
+                        </div>
+                        <p class="pkg-desc">Dành cho tư gia mong muốn bản vẽ thiết kế độc bản 100%, 100% hoa tươi nhập khẩu quý hiếm và mạ vàng son thiếp.</p>
+                    </div>
+                    <ul class="pkg-list">
+                        <li class="highlight"><i class="fa-solid fa-crown"></i> Thiết kế concept độc quyền riêng theo câu chuyện của hai bạn</li>
+                        <li class="highlight"><i class="fa-solid fa-crown"></i> 100% Hoa tươi cao cấp loại 1 (Lan hồ điệp, Tulip, Hồng nhập)</li>
+                        <li><i class="fa-solid fa-check"></i> Khảo sát tận nơi &amp; lên bản vẽ mô phỏng 3D trước khi thi công</li>
+                        <li><i class="fa-solid fa-check"></i> Bao phủ toàn diện: Cổng hoa biệt thự, cầu thang hoa, trần hoa thả</li>
+                        <li><i class="fa-solid fa-check"></i> Bộ đồ gốm sứ mạ vàng kim độc bản + tag tên cô dâu chú rể thiết kế riêng</li>
+                        <li><i class="fa-solid fa-check"></i> Giám sát trưởng theo sát 100% thời gian thi công &amp; làm lễ</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-gold" style="width: 100%;">Tư Vấn Gói Kim Bảo</a>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="comparison-wrapper">
+                <h3 style="font-family: var(--font-heading); color: var(--c-green); margin-bottom: 20px; font-size: 1.3rem;">
+                    <i class="fa-solid fa-table-columns"></i> Bảng Đối Chiếu Chi Tiết Các Hạng Mục
+                </h3>
+                <table class="cmp-table">
+                    <thead>
+                        <tr>
+                            <th>Hạng Mục Bàn Giao</th>
+                            <th>Gói Khởi Duyên</th>
+                            <th>Gói Phụng Hòa (Khuyên Dùng)</th>
+                            <th>Gói Kim Bảo (Bespoke)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Chất liệu hoa sử dụng</td>
+                            <td>Hoa lụa nhập khẩu 90%</td>
+                            <td>Hoa tươi 70% + Hoa lụa cao cấp</td>
+                            <td><strong class="text-green">100% Hoa tươi loại 1</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Cấu trúc Backdrop lễ</td>
+                            <td>Phẳng hoặc vòm đôi</td>
+                            <td>Layer 3D đa khối + Ánh sáng hắt</td>
+                            <td>Bản vẽ 3D thiết kế độc bản</td>
+                        </tr>
+                        <tr>
+                            <td>Bàn thờ gia tiên / Lư đồng</td>
+                            <td><i class="fa-solid fa-check cmp-check"></i> Đầy đủ bộ lư đồng</td>
+                            <td><i class="fa-solid fa-check cmp-check"></i> Bộ lư đồng cao cấp sáng bóng</td>
+                            <td><i class="fa-solid fa-check cmp-check"></i> Bộ đồ đồng mạ vàng hoàng gia</td>
+                        </tr>
+                        <tr>
+                            <td>Bàn ghế 2 họ (12 khách)</td>
+                            <td>Ghế Tiffany tiêu chuẩn</td>
+                            <td>Ghế Tiffany nơ nhung gấm vàng</td>
+                            <td>Ghế Louis hoàng gia hoặc Phoenix</td>
+                        </tr>
+                        <tr>
+                            <td>Cổng hoa đón khách</td>
+                            <td>Hoa lụa đồng bộ (tùy chọn)</td>
+                            <td><i class="fa-solid fa-check cmp-check"></i> Cổng hoa tươi kết khối</td>
+                            <td><i class="fa-solid fa-check cmp-check"></i> Đại cổng hoa tươi vòm lớn</td>
+                        </tr>
+                        <tr>
+                            <td>Khảo sát tận nhà &amp; Thiết kế 3D</td>
+                            <td>Khảo sát online/offline</td>
+                            <td><i class="fa-solid fa-check cmp-check"></i> Khảo sát tận nơi + Mockup</td>
+                            <td><i class="fa-solid fa-check cmp-check"></i> Moodboard + 3D Render chi tiết</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         MÂM QUẢ & LONG PHỤNG (NỀN CHUẨN #486C2F TƯƠI SÁNG)
+         ========================================== -->
+    <section class="mam-qua-section" id="mam-qua">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fa-solid fa-fire-flame-curved"></i>
+                    <span>Tinh Hoa Mâm Quả Việt</span>
+                </div>
+                <h2 class="section-title">Nghệ Thuật Mâm Quả &amp; <em>Long Phụng Sum Vầy</em></h2>
+                <p class="section-desc">Mâm quả cưới hỏi kết hợp giữa truyền thống và tráp sơn mài màu xanh lá trầu (#486C2F) viền vàng gấm (#F1E5A1) tinh xảo, dâng trọn lòng thành kính lên tổ tiên.</p>
+            </div>
+
+            <div class="mam-qua-grid">
+                <!-- Card 1 -->
+                <div class="mam-qua-card">
+                    <div class="mam-qua-img">
+                        <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?q=80&w=800&auto=format&fit=crop" alt="Cặp Long Phụng kết trái cây nghệ thuật">
+                    </div>
+                    <div class="mam-qua-content">
+                        <span class="mam-qua-tag">Nghệ Thuật Đỉnh Cao</span>
+                        <h4 class="mam-qua-name">Cặp Long Phụng Trái Cây</h4>
+                        <p class="mam-qua-details">Rồng Phụng uốn lượn kết thủ công từ ớt trái, tỏi, cau tươi và trái cây ngũ quả tươi mới 100%, mắt ngọc phát sáng sang trọng.</p>
+                        <div class="mam-qua-price-tag">
+                            <span>Giá trọn bộ:</span>
+                            <span>Từ 2.200.000đ / cặp</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="mam-qua-card">
+                    <div class="mam-qua-img">
+                        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=800&auto=format&fit=crop" alt="Mâm Trầu Cau Têm Cánh Phượng">
+                    </div>
+                    <div class="mam-qua-content">
+                        <span class="mam-qua-tag">Lễ Vật Cốt Lõi</span>
+                        <h4 class="mam-qua-name">Tráp Trầu Cau Cánh Phượng</h4>
+                        <p class="mam-qua-details">105 trái cau tươi xanh bóng kết lá trầu têm cánh phượng khéo léo, gắn hoa tươi và chữ Song Hỷ mạ vàng rực rỡ.</p>
+                        <div class="mam-qua-price-tag">
+                            <span>Giá trọn bộ:</span>
+                            <span>Từ 650.000đ / tráp</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="mam-qua-card">
+                    <div class="mam-qua-img">
+                        <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?q=80&w=800&auto=format&fit=crop" alt="Mâm quả 6 tráp sơn mài truyền thống">
+                    </div>
+                    <div class="mam-qua-content">
+                        <span class="mam-qua-tag">Gói Đầy Đủ</span>
+                        <h4 class="mam-qua-name">Bộ 6 Mâm Quả Sơn Mài Gấm</h4>
+                        <p class="mam-qua-details">Bao gồm: Trầu cau, Trà rượu, Bánh phu thê gấm, Bánh kem/cốm, Trái cây ngũ quả, Xôi gấc tim song hỷ + gà luộc.</p>
+                        <div class="mam-qua-price-tag">
+                            <span>Giá trọn gói:</span>
+                            <span>Từ 4.200.000đ / bộ 6</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="mam-qua-card">
+                    <div class="mam-qua-img">
+                        <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?q=80&w=800&auto=format&fit=crop" alt="Mâm quả tháp hoa tươi cao cấp">
+                    </div>
+                    <div class="mam-qua-content">
+                        <span class="mam-qua-tag">Cao Cấp 2026</span>
+                        <h4 class="mam-qua-name">Tráp Tháp Hoa Tươi Hoàng Kim</h4>
+                        <p class="mam-qua-details">Lễ vật được tạo hình dạng tháp cao vút, cắm xen kẽ hoa hồng trắng, lan hồ điệp và hoa lá tone vàng gấm cực kỳ sang trọng.</p>
+                        <div class="mam-qua-price-tag">
+                            <span>Giá trọn bộ:</span>
+                            <span>Từ 6.800.000đ / bộ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mâm quả CTA button -->
+            <div style="margin-top: 40px; text-align: center;">
+                <a href="#calculator" class="btn btn-gold">
+                    <i class="fa-solid fa-boxes-packing"></i>
+                    <span>Tự Phối Mâm Quả Theo Phong Tục Gia Đình Bạn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         4 PHONG CÁCH XU HƯỚNG 2026
+         ========================================== -->
+    <section class="styles-section" id="styles">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fa-solid fa-palette"></i>
+                    <span>Bộ Sưu Tập Phong Cách</span>
+                </div>
+                <h2 class="section-title">4 Phong Cách Gia Tiên <em>Thịnh Hành 2026</em></h2>
+                <p class="section-desc">Mỗi phong cách được Cưới Hỏi Trầu Cau nghiên cứu kỹ lưỡng để hòa hợp phong thủy tư gia và mang lại góc chụp ảnh rạng ngời.</p>
+            </div>
+
+            <div class="styles-grid">
+                <!-- Style 1: Solid Olive Gold Featured -->
+                <div class="style-card" style="border: 2.5px solid var(--c-green);">
+                    <div class="style-img">
+                        <img src="https://images.unsplash.com/photo-1545232979-fbf6c968f5fb?q=80&w=600&auto=format&fit=crop" alt="Phong cách Bản Sắc #486C2F & #F1E5A1">
+                    </div>
+                    <div class="style-body">
+                        <div class="style-palette">
+                            <span class="palette-dot" style="background-color: #486C2F;" title="Xanh Lá Trầu #486C2F"></span>
+                            <span class="palette-dot" style="background-color: #F1E5A1;" title="Vàng Gấm #F1E5A1"></span>
+                            <span class="palette-dot" style="background-color: #FAF8F0;" title="Kem Ngà #FAF8F0"></span>
+                        </div>
+                        <h4 class="style-title">Bản Sắc Trầu Cau (#486C2F &amp; #F1E5A1)</h4>
+                        <p class="style-desc">Màu xanh mướt lá trầu kết hợp sắc vàng tơ lụa ấm áp. Tượng trưng cho sự gắn kết son sắt và phúc lộc tròn đầy.</p>
+                    </div>
+                </div>
+
+                <!-- Style 2 -->
+                <div class="style-card">
+                    <div class="style-img">
+                        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop" alt="Phong cách Hoàng Gia Đỏ Burgundy">
+                    </div>
+                    <div class="style-body">
+                        <div class="style-palette">
+                            <span class="palette-dot" style="background-color: #7A1F2B;" title="Đỏ Burgundy"></span>
+                            <span class="palette-dot" style="background-color: #D4AF37;" title="Vàng Ánh Kim"></span>
+                            <span class="palette-dot" style="background-color: #FFF8F0;" title="Trắng Kem"></span>
+                        </div>
+                        <h4 class="style-title">Hoàng Gia Burgundy &amp; Gold</h4>
+                        <p class="style-desc">Tông đỏ đô quý phái kết hợp hoa văn son thiếp vàng kim. Thích hợp gia đình trọng lễ nghi và mang lại cảm giác ấm cúng trường cửu.</p>
+                    </div>
+                </div>
+
+                <!-- Style 3 -->
+                <div class="style-card">
+                    <div class="style-img">
+                        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=600&auto=format&fit=crop" alt="Phong cách Pastel Nàng Thơ">
+                    </div>
+                    <div class="style-body">
+                        <div class="style-palette">
+                            <span class="palette-dot" style="background-color: #F7D6D0;" title="Hồng Pastel"></span>
+                            <span class="palette-dot" style="background-color: #FFF0E5;" title="Kem Nhạt"></span>
+                            <span class="palette-dot" style="background-color: #E8D8C8;" title="Beige"></span>
+                        </div>
+                        <h4 class="style-title">Pastel Hiện Đại (Rosé Glow)</h4>
+                        <p class="style-desc">Sắc hồng phấn, kem be và trắng ngọc trai nhẹ nhàng. Phong cách được cô dâu trẻ yêu thích nhất vì lên hình sáng rực rỡ và trẻ trung.</p>
+                    </div>
+                </div>
+
+                <!-- Style 4 -->
+                <div class="style-card">
+                    <div class="style-img">
+                        <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=600&auto=format&fit=crop" alt="Phong cách Á Đông Đương Đại">
+                    </div>
+                    <div class="style-body">
+                        <div class="style-palette">
+                            <span class="palette-dot" style="background-color: #486C2F;" title="Xanh Trầu"></span>
+                            <span class="palette-dot" style="background-color: #F1E5A1;" title="Gỗ Vàng"></span>
+                            <span class="palette-dot" style="background-color: #FAF8F0;" title="Mành Tre"></span>
+                        </div>
+                        <h4 class="style-title">Á Đông Đương Đại (Indochine)</h4>
+                        <p class="style-desc">Mộc mạc với mành tre, gốm sứ hoa lam, hoa sen trắng và hoa lan hồ điệp. Sự giao thoa tuyệt mỹ giữa truyền thống và thanh lịch hiện đại.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         QUY TRÌNH 6 BƯỚC CHUẨN MỰC
+         ========================================== -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fa-solid fa-list-check"></i>
+                    <span>Tác Phong Chuyên Nghiệp</span>
+                </div>
+                <h2 class="section-title">Quy Trình 6 Bước <em>An Tâm Tuyệt Đối</em></h2>
+                <p class="section-desc">Từ khâu tiếp nhận ý tưởng đến khi bàn giao và hoàn trả nguyên trạng hiện trạng nhà sau buổi lễ.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-step-num">01</div>
+                    <h4 class="process-title">Tiếp Nhận &amp; Lắng Nghe</h4>
+                    <p class="process-desc">Tư vấn chọn tone màu phối hợp chuẩn bản sắc, tìm hiểu phong tục hai bên gia đình.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-step-num">02</div>
+                    <h4 class="process-title">Khảo Sát Tư Gia</h4>
+                    <p class="process-desc">Kỹ thuật viên đến tận nhà đo đạc hướng sáng, diện tích tường và lối đi cổng hẻm.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-step-num">03</div>
+                    <h4 class="process-title">Phối Cảnh Mockup</h4>
+                    <p class="process-desc">Gửi bản mô phỏng 3D bố cục &amp; moodboard màu sắc để gia đình duyệt trước khi cắm hoa.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-step-num">04</div>
+                    <h4 class="process-title">Sản Xuất Tại Xưởng</h4>
+                    <p class="process-desc">Gia công chữ nổi CNC, chuẩn bị tráp sính lễ và cắm hoa tươi tuyển chọn ngay trước ngày lễ.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-step-num">05</div>
+                    <h4 class="process-title">Thi Công Sớm</h4>
+                    <p class="process-desc">Lắp đặt hoàn thiện trước giờ làm lễ từ 6 - 12 tiếng để gia đình an tâm ngắm nhìn và chụp hình.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-step-num">06</div>
+                    <h4 class="process-title">Thu Dọn Hoàn Trạng</h4>
+                    <p class="process-desc">Đội ngũ tháo dỡ cẩn thận, vệ sinh sạch sẽ, trả lại hiện trạng nguyên vẹn cho ngôi nhà.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         INTERACTIVE COST ESTIMATOR WIDGET
+         ========================================== -->
+    <section class="calculator-section" id="calculator">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fa-solid fa-calculator"></i>
+                    <span>Công Cụ Tương Tác</span>
+                </div>
+                <h2 class="section-title">Dự Toán Chi Phí <em>Cưới Hỏi Tức Thì</em></h2>
+                <p class="section-desc">Tự chọn các hạng mục cần thiết để có ngay bảng dự toán ngân sách chính xác và nhận ưu đãi đặt lịch sớm.</p>
+            </div>
+
+            <div class="calculator-box">
+                <!-- Form Pane -->
+                <div class="calc-form-pane">
+                    <!-- Step 1: Ceremony Type -->
+                    <div class="calc-group">
+                        <label class="calc-label">1. Loại Hình Lễ Cưới</label>
+                        <div class="calc-options-grid">
+                            <div class="calc-pill active" onclick="selectOption('ceremony', 'vu-quy', 0, this)">
+                                <span class="calc-pill-title">Lễ Vu Quy</span>
+                                <span class="calc-pill-sub">(Nhà Gái)</span>
+                            </div>
+                            <div class="calc-pill" onclick="selectOption('ceremony', 'tan-hon', 0, this)">
+                                <span class="calc-pill-title">Lễ Tân Hôn</span>
+                                <span class="calc-pill-sub">(Nhà Trai)</span>
+                            </div>
+                            <div class="calc-pill" onclick="selectOption('ceremony', 'dinh-hon', 0, this)">
+                                <span class="calc-pill-title">Lễ Đính Hôn</span>
+                                <span class="calc-pill-sub">(Ăn Hỏi)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Gia Tien Package -->
+                    <div class="calc-group">
+                        <label class="calc-label">2. Gói Trang Trí Gia Tiên</label>
+                        <div class="calc-options-grid">
+                            <div class="calc-pill" onclick="selectOption('pkg', 'khoi-duyen', 3500000, this)">
+                                <span class="calc-pill-title">Khởi Duyên (Cơ Bản)</span>
+                                <span class="calc-pill-sub">3.500.000đ</span>
+                            </div>
+                            <div class="calc-pill active" onclick="selectOption('pkg', 'phung-hoa', 6500000, this)">
+                                <span class="calc-pill-title">Phụng Hòa (Hoa Tươi)</span>
+                                <span class="calc-pill-sub">6.500.000đ</span>
+                            </div>
+                            <div class="calc-pill" onclick="selectOption('pkg', 'kim-bao', 15000000, this)">
+                                <span class="calc-pill-title">Kim Bảo (Bespoke)</span>
+                                <span class="calc-pill-sub">15.000.000đ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Mam Qua Option -->
+                    <div class="calc-group">
+                        <label class="calc-label">3. Lễ Vật Mâm Quả &amp; Long Phụng</label>
+                        <div class="calc-options-grid">
+                            <div class="calc-pill" onclick="selectOption('mamqua', 'none', 0, this)">
+                                <span class="calc-pill-title">Chưa cần</span>
+                                <span class="calc-pill-sub">0đ</span>
+                            </div>
+                            <div class="calc-pill active" onclick="selectOption('mamqua', 'bo-6-qua', 4200000, this)">
+                                <span class="calc-pill-title">Bộ 6 Tráp Sơn Mài</span>
+                                <span class="calc-pill-sub">+4.200.000đ</span>
+                            </div>
+                            <div class="calc-pill" onclick="selectOption('mamqua', 'long-phung', 6400000, this)">
+                                <span class="calc-pill-title">Bộ 6 Quả + Cặp Long Phụng</span>
+                                <span class="calc-pill-sub">+6.400.000đ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Add-ons -->
+                    <div class="calc-group" style="margin-bottom: 0;">
+                        <label class="calc-label">4. Dịch Vụ Bổ Sung (Tùy Chọn)</label>
+                        <div class="calc-checkbox-grid">
+                            <label class="calc-checkbox-label">
+                                <input type="checkbox" id="addon-rap" value="3500000" onchange="updateCalc()">
+                                <span>Khung Rạp Cưới 2 Bàn (+3.5tr)</span>
+                            </label>
+                            <label class="calc-checkbox-label">
+                                <input type="checkbox" id="addon-xehoa" value="1500000" onchange="updateCalc()">
+                                <span>Xe Hoa Rước Dâu (+1.5tr)</span>
+                            </label>
+                            <label class="calc-checkbox-label">
+                                <input type="checkbox" id="addon-betrap" value="1200000" onchange="updateCalc()">
+                                <span>Đội Bê Tráp 6 Nam 6 Nữ (+1.2tr)</span>
+                            </label>
+                            <label class="calc-checkbox-label">
+                                <input type="checkbox" id="addon-chupanh" value="2500000" onchange="updateCalc()">
+                                <span>Phóng Sự Chụp Ảnh Lễ (+2.5tr)</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Pane -->
+                <div class="calc-summary-pane">
+                    <div>
+                        <div class="summary-header">
+                            <h3>Bảng Tổng Hợp Dự Toán</h3>
+                            <p>Ước tính tiêu chuẩn tại nội thành TP.HCM</p>
+                        </div>
+
+                        <ul class="summary-breakdown" id="summary-list">
+                            <li><span>Gói Gia Tiên:</span> <span id="sum-pkg">Phụng Hòa (6.500.000đ)</span></li>
+                            <li><span>Mâm Quả:</span> <span id="sum-mamqua">Bộ 6 Tráp (4.200.000đ)</span></li>
+                            <li><span>Dịch Vụ Kèm Theo:</span> <span id="sum-addons">0đ</span></li>
+                            <li><span>Khảo sát &amp; Tư vấn:</span> <span style="color: var(--c-gold); font-weight: 700;">Miễn Phí</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="summary-total">
+                            <span class="summary-total-label">Tổng Chi Phí Ước Tính:</span>
+                            <div class="summary-total-price" id="total-price-display">10.700.000đ</div>
+                        </div>
+
+                        <button class="btn btn-gold" style="width: 100%; margin-bottom: 10px;" onclick="requestQuoteModal()">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Giữ Lịch &amp; Nhận Tư Vấn Chi Tiết</span>
+                        </button>
+                        <p style="font-size: 0.75rem; text-align: center; color: var(--c-white); opacity: 0.85;">
+                            * Giá chính xác sẽ được xác nhận sau khi khảo sát thực tế không gian nhà.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         TESTIMONIALS
+         ========================================== -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Cảm Nhận Thực Tế</span>
+                </div>
+                <h2 class="section-title">Hạnh Phúc Của Bạn Là <em>Thành Công Của Chúng Tôi</em></h2>
+                <p class="section-desc">Hơn 8.500 cặp đôi đã trao trọn niềm tin cho Cưới Hỏi Trầu Cau trong ngày trọng đại nhất cuộc đời.</p>
+            </div>
+
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testi-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text">
+                        "Tone màu xanh lá trầu kết hợp vàng gấm của Trầu Cau lên hình nhìn cực kỳ sang và ấm cúng! Cả hai bên nội ngoại đều khen nức nở vì vừa giữ được nét truyền thống mà lại rất hiện đại."
+                    </p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">HL</div>
+                        <div>
+                            <h4 class="testi-name">Hoàng Long &amp; Mai Phương</h4>
+                            <span class="testi-loc">Lễ Vu Quy · Q.3, TP.HCM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testi-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text">
+                        "Bộ tráp sơn mài và cặp Rồng Phụng kết trái cây của Trầu Cau thực sự xuất sắc! Từng chi tiết đều tươi roi rói, mắt ngọc phát sáng nhìn rất oai nghiêm và bề thế. Rất tự hào khi làm lễ."
+                    </p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">TK</div>
+                        <div>
+                            <h4 class="testi-name">Tuấn Kiệt &amp; Bích Trâm</h4>
+                            <span class="testi-loc">Lễ Tân Hôn · Q.7, TP.HCM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testi-stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="testi-text">
+                        "Đội ngũ làm việc rất đúng giờ, hoàn thiện từ tối hôm trước để sáng làm lễ gia đình hoàn toàn thảnh thơi. Không gian rất thanh nhã, đạo hiếu trang nghiêm mà vẫn hiện đại. Rất ưng ý!"
+                    </p>
+                    <div class="testi-author">
+                        <div class="testi-avatar">TV</div>
+                        <div>
+                            <h4 class="testi-name">Bác Thanh Vân (Đại diện gia đình)</h4>
+                            <span class="testi-loc">Lễ Đính Hôn · Phú Nhuận, TP.HCM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         FAQ ACCORDION
+         ========================================== -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">
+                    <i class="fa-solid fa-circle-question"></i>
+                    <span>Giải Đáp Thắc Mắc</span>
+                </div>
+                <h2 class="section-title">Những Câu Hỏi <em>Thường Gặp Nhất</em></h2>
+                <p class="section-desc">Mọi thắc mắc của bạn về thời gian chuẩn bị, không gian nhà ở và quy trình thanh toán.</p>
+            </div>
+
+            <div class="faq-accordion">
+                <div class="faq-item open">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Thiết kế 3 màu #486C2F, #F1E5A1 và #FAF8F0 có ưu điểm gì khi chụp ảnh cưới?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Cực kỳ sắc nét! Vì không có màu đen tối pha trộn, ánh sáng khi chụp ảnh sẽ phản chiếu tự nhiên, giữ trọn màu tươi của hoa và làn da sáng hồng của cô dâu chú rể.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Tôi nên đặt lịch dịch vụ trước ngày cưới bao lâu?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Thời điểm lý tưởng nhất là từ <strong>1 - 3 tháng trước ngày cưới</strong> để có đủ thời gian khảo sát, duyệt bản vẽ mockup 3D và chuẩn bị hoa tươi chỉn chu nhất.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Cưới Hỏi Trầu Cau có nhận thi công ở các tỉnh lân cận TP.HCM không?</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Có. Ngoài tất cả các quận huyện tại TP.HCM, chúng tôi thường xuyên phục vụ tại Bình Dương, Đồng Nai, Long An, Bà Rịa - Vũng Tàu, Tây Ninh...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         CALL TO ACTION BANNER
+         ========================================== -->
+    <section class="booking-banner" id="contact">
+        <div class="container">
+            <div class="section-tag" style="background-color: var(--c-gold); color: var(--c-green); border-color: var(--c-white);">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                <span>Tư Vấn Miễn Phí</span>
+            </div>
+            <h2>Bắt Đầu Ngày Trọng Đại Cùng <em>Cưới Hỏi Trầu Cau</em></h2>
+            <p>Hãy để chúng tôi cùng bạn kiến tạo một không gian lễ gia tiên thanh mát, trang trọng và chuẩn mực đạo hiếu. Đặt lịch hẹn khảo sát tại nhà ngay hôm nay.</p>
+            
+            <div class="booking-actions">
+                <a href="tel:0932005738" class="btn btn-gold btn-lg">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>Gọi Ngay: 0932.005.738</span>
+                </a>
+                <a href="https://zalo.me/0932005738" target="_blank" class="btn btn-outline btn-lg" style="background-color: var(--c-white); color: var(--c-green);">
+                    <i class="fa-solid fa-comments"></i>
+                    <span>Chat Zalo Tư Vấn Nhanh</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================
+         SITE FOOTER
+         ========================================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: Brand Info -->
+                <div class="footer-col">
+                    <div class="brand-logo" style="margin-bottom: 20px;">
+                        <div class="logo-symbol">
+                            <span>TC</span>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-title" style="color: var(--c-gold);">TRẦU CAU</span>
+                            <span class="logo-sub" style="color: var(--c-white);">Wedding & Traditional Decor</span>
+                        </div>
+                    </div>
+                    <p style="line-height: 1.7; margin-bottom: 20px; font-size: 0.88rem; color: var(--c-white);">
+                        Thương hiệu dịch vụ cưới hỏi, trang trí gia tiên và mâm quả rồng phụng nghệ thuật hàng đầu tại TP.HCM. Tận tâm gìn giữ nét đẹp văn hóa Việt trong chuẩn mực thẩm mỹ cao cấp.
+                    </p>
+                    <div style="display: flex; gap: 12px;">
+                        <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background-color: var(--c-gold); display: flex; align-items: center; justify-content: center; color: var(--c-green);"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background-color: var(--c-gold); display: flex; align-items: center; justify-content: center; color: var(--c-green);"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" style="width: 36px; height: 36px; border-radius: 50%; background-color: var(--c-gold); display: flex; align-items: center; justify-content: center; color: var(--c-green);"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Services List -->
+                <div class="footer-col">
+                    <h4>Dịch Vụ Cưới Hỏi</h4>
+                    <ul class="footer-links">
+                        <li><a href="#packages">Trang trí lễ gia tiên Vu Quy</a></li>
+                        <li><a href="#packages">Trang trí lễ gia tiên Tân Hôn</a></li>
+                        <li><a href="#mam-qua">Mâm quả &amp; Rồng Phụng kết trái cây</a></li>
+                        <li><a href="#services">Trang trí sảnh tiệc nhà hàng</a></li>
+                        <li><a href="#services">Khung rạp cưới &amp; Cổng hoa tươi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Quick Links -->
+                <div class="footer-col">
+                    <h4>Khám Phá</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Trang chủ</a></li>
+                        <li><a href="#styles">Bộ sưu tập 2026</a></li>
+                        <li><a href="#calculator">Bảng tính dự toán chi phí</a></li>
+                        <li><a href="#packages">Bảng giá 3 gói gia tiên</a></li>
+                        <li><a href="#contact">Liên hệ đặt lịch khảo sát</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact Info -->
+                <div class="footer-col">
+                    <h4>Thông Tin Liên Hệ</h4>
+                    <ul class="footer-info-list">
+                        <li>
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>746 Nguyễn Đình Chiểu, P.1, Q.3, TP. Hồ Chí Minh</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-phone"></i>
+                            <span>Hotline: 0932 005 738 · 0908 248 359</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>Email: traucau746@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-globe"></i>
+                            <span>Website: cuoihoitraucau.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div>
+                    Copyright &copy; 2026 · <strong>CƯỚI HỎI TRẦU CAU</strong> · Bản quyền thuộc về Cưới Hỏi Trầu Cau TP.HCM.
+                </div>
+                <div>
+                    Hệ 3 Màu Chuẩn: #FAF8F0 · #486C2F · #F1E5A1
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================
+         FLOATING ACTION BUTTONS
+         ========================================== -->
+    <div class="floating-contact-widget">
+        <a href="https://zalo.me/0932005738" target="_blank" class="float-btn float-zalo" title="Chat Zalo">
+            Zalo
+        </a>
+        <a href="tel:0932005738" class="float-btn float-phone" title="Gọi Điện Thoại">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+        <a href="#calculator" class="float-btn float-quote" title="Tính Giá Nhanh">
+            <i class="fa-solid fa-calculator"></i>
+        </a>
+    </div>
+
+    <!-- ==========================================
+         JAVASCRIPT LOGIC
+         ========================================== -->
+    <script>
+        // Calculator State
+        const state = {
+            ceremony: 'vu-quy',
+            pkg: { name: 'Phụng Hòa (Hoa Tươi)', price: 6500000 },
+            mamqua: { name: 'Bộ 6 Tráp Sơn Mài', price: 4200000 },
+            addons: 0
+        };
+
+        function selectOption(category, key, price, element) {
+            const parent = element.parentElement;
+            parent.querySelectorAll('.calc-pill').forEach(pill => pill.classList.remove('active'));
+            element.classList.add('active');
+
+            if (category === 'ceremony') {
+                state.ceremony = key;
+            } else if (category === 'pkg') {
+                state.pkg = {
+                    name: element.querySelector('.calc-pill-title').innerText,
+                    price: price
+                };
+                document.getElementById('sum-pkg').innerText = `${state.pkg.name} (${formatCurrency(price)})`;
+            } else if (category === 'mamqua') {
+                state.mamqua = {
+                    name: element.querySelector('.calc-pill-title').innerText,
+                    price: price
+                };
+                document.getElementById('sum-mamqua').innerText = price === 0 ? 'Không lấy' : `${state.mamqua.name} (${formatCurrency(price)})`;
+            }
+
+            updateCalc();
+        }
+
+        function updateCalc() {
+            let addonTotal = 0;
+            const checkboxes = ['addon-rap', 'addon-xehoa', 'addon-betrap', 'addon-chupanh'];
+            checkboxes.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && el.checked) {
+                    addonTotal += parseInt(el.value);
+                }
+            });
+            state.addons = addonTotal;
+            document.getElementById('sum-addons').innerText = formatCurrency(addonTotal);
+
+            const grandTotal = state.pkg.price + state.mamqua.price + state.addons;
+            document.getElementById('total-price-display').innerText = formatCurrency(grandTotal);
+        }
+
+        function formatCurrency(amount) {
+            return amount.toLocaleString('vi-VN') + 'đ';
+        }
+
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            item.classList.toggle('open');
+        }
+
+        function requestQuoteModal() {
+            const grandTotal = document.getElementById('total-price-display').innerText;
+            const msg = `Cảm ơn bạn! Dự toán tạm tính của bạn là ${grandTotal}.\n\nĐội ngũ Cưới Hỏi Trầu Cau (746 Nguyễn Đình Chiểu) sẽ liên hệ qua Hotline 0932 005 738 để tư vấn khảo sát tư gia miễn phí cho bạn!`;
+            alert(msg);
+        }
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-toggle')?.addEventListener('click', () => {
+            const menu = document.querySelector('.nav-menu');
+            if (menu) {
+                if (menu.style.display === 'flex') {
+                    menu.style.display = 'none';
+                } else {
+                    menu.style.display = 'flex';
+                    menu.style.flexDirection = 'column';
+                    menu.style.position = 'absolute';
+                    menu.style.top = '100%';
+                    menu.style.left = '0';
+                    menu.style.width = '100%';
+                    menu.style.background = '#FFFFFF';
+                    menu.style.padding = '20px';
+                    menu.style.boxShadow = '0 10px 20px rgba(72, 108, 47, 0.15)';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trầu Cau - Premium Wedding Decoration</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            /* Color Palette */
+            --ivory: #FAF8F0;
+            --green: #486C2F;
+            --gold: #F1E5A1;
+            --white: #FFFFFF;
+            
+            /* Shadows with green */
+            --shadow-sm: 0 4px 6px rgba(72, 108, 47, 0.05);
+            --shadow-md: 0 10px 15px rgba(72, 108, 47, 0.08);
+            --shadow-lg: 0 20px 25px rgba(72, 108, 47, 0.12);
+            --shadow-gold: 0 10px 20px rgba(241, 229, 161, 0.3);
+
+            /* Typography */
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-heading: 'Playfair Display', serif;
+            --font-brand: 'Cinzel', serif;
+
+            /* Spacing */
+            --section-pad-y: 100px;
+            --section-pad-x: 5%;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--ivory);
+            color: var(--green);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Typography Base */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--green);
+        }
+
+        h2.italic, span.italic, em {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--section-pad-x);
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .section-tag::before, .section-tag::after {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 1px;
+            background-color: var(--gold);
+            vertical-align: middle;
+            margin: 0 10px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--green);
+            color: var(--ivory);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--gold);
+            color: var(--green);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--green);
+            color: var(--ivory);
+        }
+
+        /* Image Placeholder */
+        .img-placeholder {
+            background-color: #E8E2D6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            opacity: 0.5;
+            font-size: 2rem;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            padding: 25px 0;
+        }
+
+        .header.scrolled {
+            background-color: var(--white);
+            padding: 15px 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            text-align: center;
+        }
+
+        .logo-text {
+            font-family: var(--font-brand);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--green);
+            letter-spacing: 2px;
+            margin-bottom: -5px;
+        }
+
+        .logo-tagline {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 35px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-social a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            border: 1px solid var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .nav-social a:hover {
+            background-color: var(--green);
+            color: var(--ivory);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--green);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--ivory) 0%, rgba(241, 229, 161, 0.2) 50%, rgba(72, 108, 47, 0.05) 100%);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            color: var(--green);
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--gold);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: var(--green);
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            color: var(--green);
+            font-size: 1.5rem;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+
+        /* About Section */
+        .about {
+            padding: var(--section-pad-y) 0;
+            background-color: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-images {
+            position: relative;
+            height: 600px;
+        }
+
+        .about-img-main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80%;
+            height: 80%;
+            border: 15px solid var(--white);
+            box-shadow: var(--shadow-lg);
+            z-index: 1;
+        }
+
+        .about-img-overlap {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            height: 60%;
+            border: 15px solid var(--white);
+            box-shadow: var(--shadow-lg);
+            z-index: 2;
+        }
+
+        .about-title {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .about-desc {
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 40px;
+            border-top: 1px solid rgba(72, 108, 47, 0.2);
+            padding-top: 30px;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 5px;
+            font-family: var(--font-heading);
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Services Section */
+        .services {
+            padding: var(--section-pad-y) 0;
+            background-color: var(--ivory);
+            text-align: center;
+        }
+
+        .services .about-title {
+            margin-bottom: 60px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 25px;
+            background-color: var(--ivory);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--gold);
+        }
+
+        .service-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-family: var(--font-heading);
+        }
+
+        .service-desc {
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            opacity: 0.8;
+        }
+
+        .service-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        .service-link:hover {
+            color: var(--green);
+        }
+
+        /* Portfolio */
+        .portfolio {
+            padding: var(--section-pad-y) 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(72, 108, 47, 0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.4s ease;
+            color: var(--ivory);
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-title {
+            font-size: 1.5rem;
+            color: var(--ivory);
+            margin-bottom: 10px;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-title {
+            transform: translateY(0);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: var(--section-pad-y) 0;
+            background-color: var(--green);
+            text-align: center;
+            color: var(--ivory);
+        }
+
+        .testimonials .section-tag {
+            color: var(--gold);
+        }
+
+        .testimonials .about-title {
+            color: var(--ivory);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testi-card {
+            background-color: var(--ivory);
+            padding: 40px;
+            color: var(--green);
+            text-align: left;
+            position: relative;
+        }
+
+        .quote-icon {
+            font-size: 2.5rem;
+            color: var(--gold);
+            opacity: 0.3;
+            position: absolute;
+            top: 30px;
+            right: 30px;
+        }
+
+        .testi-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testi-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #E8E2D6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--green);
+        }
+
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 3px;
+        }
+
+        .author-info span {
+            font-size: 0.85rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: var(--section-pad-y) 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .blog-card {
+            background-color: var(--white);
+            text-align: left;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+
+        .blog-img {
+            aspect-ratio: 16/10;
+        }
+
+        .blog-content {
+            padding: 30px;
+        }
+
+        .blog-meta {
+            font-size: 0.85rem;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .blog-title a:hover {
+            color: var(--gold);
+        }
+
+        .blog-excerpt {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            background-color: var(--green);
+            text-align: center;
+            color: var(--ivory);
+        }
+
+        .cta-title {
+            font-size: 3.5rem;
+            color: var(--ivory);
+            margin-bottom: 20px;
+        }
+
+        .cta-desc {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-btns .btn-outline {
+            border-color: var(--ivory);
+            color: var(--ivory);
+        }
+
+        .cta-btns .btn-outline:hover {
+            background-color: var(--ivory);
+            color: var(--green);
+        }
+        
+        .cta-btns .btn-primary {
+            background-color: var(--gold);
+            color: var(--green);
+        }
+        
+        .cta-btns .btn-primary:hover {
+            background-color: var(--ivory);
+        }
+
+        /* Instagram Section */
+        .instagram {
+            padding: var(--section-pad-y) 0;
+            text-align: center;
+            background-color: var(--ivory);
+        }
+
+        .insta-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0;
+            margin-top: 40px;
+        }
+
+        .insta-item {
+            aspect-ratio: 1/1;
+            position: relative;
+        }
+
+        .insta-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(72, 108, 47, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ivory);
+            font-size: 2rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .insta-item:hover .insta-overlay {
+            opacity: 1;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--green);
+            color: var(--ivory);
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo .logo-text {
+            color: var(--ivory);
+            text-align: left;
+        }
+
+        .footer-logo .logo-tagline {
+            text-align: left;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .footer-social a {
+            color: var(--ivory);
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(250, 248, 240, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer-social a:hover {
+            background-color: var(--gold);
+            color: var(--green);
+            border-color: var(--gold);
+        }
+
+        .footer-right h3 {
+            font-size: 2.5rem;
+            color: var(--ivory);
+            margin-bottom: 40px;
+            font-family: var(--font-heading);
+            font-weight: 300;
+        }
+
+        .footer-right h3 strong {
+            font-style: italic;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .footer-contact {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .contact-item h4 {
+            color: var(--gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-family: var(--font-body);
+        }
+
+        .contact-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(250, 248, 240, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Floating Components */
+        .float-contact {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+
+        .float-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--green);
+            color: var(--ivory);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s;
+        }
+
+        .float-btn:hover {
+            transform: scale(1.1);
+            background-color: var(--gold);
+            color: var(--green);
+        }
+
+        .float-menu {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .float-contact.active .float-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .float-menu a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--white);
+            color: var(--green);
+            box-shadow: var(--shadow-md);
+            font-size: 1.2rem;
+            text-decoration: none;
+            margin-left: auto;
+        }
+
+        .float-menu a:hover {
+            background-color: var(--green);
+            color: var(--ivory);
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 110px;
+            right: 35px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--green);
+            color: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            background-color: var(--ivory);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            background-color: var(--green);
+            color: var(--ivory);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 3.5rem; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+            .insta-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 300px;
+                height: 100vh;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 100px 40px;
+                box-shadow: -10px 0 20px rgba(0,0,0,0.05);
+                transition: right 0.4s ease;
+            }
+
+            .nav-menu.active { right: 0; }
+            .nav-social { display: none; }
+            
+            .hero-title { font-size: 2.5rem; }
+            
+            .about-grid, .footer-grid { grid-template-columns: 1fr; }
+            .about-images { height: 400px; margin-bottom: 40px; }
+            
+            .services-grid, .portfolio-grid, .testimonials-grid, .blog-grid, .footer-contact {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-btns, .cta-btns {
+                flex-direction: column;
+            }
+
+            .insta-grid { grid-template-columns: repeat(2, 1fr); }
+            
+            .footer-right h3 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-text">TRẦU CAU</div>
+                <div class="logo-tagline">Premium Wedding Decoration</div>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Trang Chủ</a>
+                <a href="#about" class="nav-link">Giới Thiệu</a>
+                <a href="#services" class="nav-link">Dịch Vụ</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#blog" class="nav-link">Blog</a>
+                <a href="#contact" class="nav-link">Liên Hệ</a>
+            </nav>
+
+            <div class="nav-social">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-pinterest-p"></i></a>
+            </div>
+
+            <div class="mobile-menu-btn" id="mobile-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-in-up">
+            <h2 class="hero-subtitle">Premium Wedding Decoration</h2>
+            <h1 class="hero-title"><span class="italic">Trang Trí Gia Tiên</span><br>& Mâm Quả Nghệ Thuật</h1>
+            <p class="hero-desc">Đồng hành cùng bạn trong ngày trọng đại nhất cuộc đời với sự tận tâm, chuyên nghiệp và những ý tưởng thiết kế độc bản.</p>
+            <div class="hero-btns">
+                <a href="#services" class="btn btn-primary">Khám Phá Dịch Vụ</a>
+                <a href="#contact" class="btn btn-outline">Liên Hệ Tư Vấn</a>
+            </div>
+        </div>
+        <div class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container about-grid">
+            <div class="about-images fade-in-up">
+                <div class="about-img-main">
+                    <div class="img-placeholder"><i class="fas fa-camera"></i></div>
+                </div>
+                <div class="about-img-overlap">
+                    <div class="img-placeholder"><i class="fas fa-image"></i></div>
+                </div>
+            </div>
+            <div class="about-content fade-in-up delay-200">
+                <span class="section-tag">Về Chúng Tôi</span>
+                <h2 class="about-title">Nghệ Thuật Trang Trí <br><span class="italic">Từ Trái Tim</span></h2>
+                <p class="about-desc">Trầu Cau tự hào là đơn vị tiên phong trong lĩnh vực trang trí tiệc cưới cao cấp. Với triết lý mang vẻ đẹp truyền thống kết hợp cùng phong cách hiện đại, chúng tôi tạo nên những không gian cưới sang trọng, tinh tế và mang đậm dấu ấn cá nhân của từng cặp đôi.</p>
+                <p class="about-desc">Mỗi chi tiết nhỏ đều được chăm chút tỉ mỉ bởi đội ngũ chuyên gia tâm huyết, biến giấc mơ về một đám cưới hoàn hảo của bạn thành hiện thực.</p>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h3>500+</h3>
+                        <p>Lễ Cưới</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10+</h3>
+                        <p>Năm Kinh Nghiệm</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Hài Lòng</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <span class="section-tag fade-in-up">Dịch Vụ</span>
+            <h2 class="about-title fade-in-up delay-100">Dịch Vụ <span class="italic">Trọn Gói</span></h2>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in-up">
+                    <div class="service-icon"><i class="fas fa-vihara"></i></div>
+                    <h3 class="service-title">Trang Trí Gia Tiên</h3>
+                    <p class="service-desc">Không gian lễ gia tiên sang trọng, ấm cúng, giữ gìn nét đẹp truyền thống văn hóa Việt.</p>
+                    <a href="#" class="service-link">Xem Chi Tiết &rarr;</a>
+                </div>
+                <div class="service-card fade-in-up delay-100">
+                    <div class="service-icon"><i class="fas fa-gift"></i></div>
+                    <h3 class="service-title">Mâm Quả Cưới Hỏi</h3>
+                    <p class="service-desc">Thiết kế mâm quả nghệ thuật, cao cấp với các vật phẩm thượng hạng được tuyển chọn kỹ lưỡng.</p>
+                    <a href="#" class="service-link">Xem Chi Tiết &rarr;</a>
+                </div>
+                <div class="service-card fade-in-up delay-200">
+                    <div class="service-icon"><i class="fas fa-rings-wedding"></i></div>
+                    <h3 class="service-title">Trang Trí Tiệc Cưới</h3>
+                    <p class="service-desc">Concept trang trí tiệc cưới độc quyền tại nhà hàng, ngoài trời theo câu chuyện của riêng bạn.</p>
+                    <a href="#" class="service-link">Xem Chi Tiết &rarr;</a>
+                </div>
+                <div class="service-card fade-in-up delay-300">
+                    <div class="service-icon"><i class="fas fa-clipboard-list"></i></div>
+                    <h3 class="service-title">Wedding Planner</h3>
+                    <p class="service-desc">Lên kế hoạch và điều phối toàn bộ lễ cưới, giúp cô dâu chú rể thảnh thơi tận hưởng ngày vui.</p>
+                    <a href="#" class="service-link">Xem Chi Tiết &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <span class="section-tag fade-in-up">Portfolio</span>
+            <h2 class="about-title fade-in-up delay-100">Những Tác Phẩm <span class="italic">Đáng Nhớ</span></h2>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in-up">
+                    <div class="img-placeholder"><i class="fas fa-camera"></i></div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Lễ Gia Tiên - Minh & Hoa</h3>
+                        <p>Concept Truyền Thống</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in-up delay-100">
+                    <div class="img-placeholder"><i class="fas fa-camera"></i></div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Tiệc Cưới Ngoài Trời</h3>
+                        <p>Concept Rustic Chic</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in-up delay-200">
+                    <div class="img-placeholder"><i class="fas fa-camera"></i></div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Mâm Quả Nghệ Thuật</h3>
+                        <p>Bộ 8 Quả Cao Cấp</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in-up">
+                    <div class="img-placeholder"><i class="fas fa-camera"></i></div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Khách Sạn Park Hyatt</h3>
+                        <p>Concept Luxury Royal</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in-up delay-100">
+                    <div class="img-placeholder"><i class="fas fa-camera"></i></div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Lễ Đính Hôn - Tuấn & Mai</h3>
+                        <p>Concept Indochine</p>
+                    </div>
+                </div>
+                <div class="portfolio-item fade-in-up delay-200">
+                    <div class="img-placeholder"><i class="fas fa-camera"></i></div>
+                    <div class="portfolio-overlay">
+                        <h3 class="portfolio-title">Tiệc Báo Hỷ</h3>
+                        <p>Concept Minimalist</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <span class="section-tag fade-in-up">Đánh Giá</span>
+            <h2 class="about-title fade-in-up delay-100">Cảm Nhận <span class="italic">Từ Khách Hàng</span></h2>
+            
+            <div class="testimonials-grid">
+                <div class="testi-card fade-in-up">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <p class="testi-text">"Gia đình hai bên vô cùng ưng ý với concept trang trí gia tiên của Trầu Cau. Từng chi tiết hoa lụa, chữ hỉ đến bàn ghế đều toát lên sự sang trọng, tinh tế. Cảm ơn đội ngũ đã hỗ trợ nhiệt tình."</p>
+                    <div class="testi-author">
+                        <div class="author-avatar"><i class="fas fa-user"></i></div>
+                        <div class="author-info">
+                            <h4>Ngọc Trâm</h4>
+                            <span>Cô Dâu - Lễ Gia Tiên</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card fade-in-up delay-100">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <p class="testi-text">"Bộ mâm quả thực sự xuất sắc, hoa quả tươi ngon, thiết kế nghệ thuật rất ấn tượng. Khách mời ai cũng khen nức nở. Sự chuyên nghiệp của team Trầu Cau làm mình rất yên tâm trong ngày cưới."</p>
+                    <div class="testi-author">
+                        <div class="author-avatar"><i class="fas fa-user"></i></div>
+                        <div class="author-info">
+                            <h4>Hoàng Nam</h4>
+                            <span>Chú Rể - Lễ Đính Hôn</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-card fade-in-up delay-200">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <p class="testi-text">"Từ khâu tư vấn ý tưởng đến khi thi công thực tế tại nhà hàng, mọi thứ đều vượt ngoài mong đợi của chúng tôi. Concept The Secret Garden được tái hiện hoàn hảo. Cảm ơn Trầu Cau Wedding!"</p>
+                    <div class="testi-author">
+                        <div class="author-avatar"><i class="fas fa-user"></i></div>
+                        <div class="author-info">
+                            <h4>Mai Lan</h4>
+                            <span>Cô Dâu - Tiệc Cưới</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <span class="section-tag fade-in-up">Tin Tức</span>
+            <h2 class="about-title fade-in-up delay-100">Blog <span class="italic">& Cảm Hứng</span></h2>
+            
+            <div class="blog-grid">
+                <article class="blog-card fade-in-up">
+                    <div class="blog-img">
+                        <div class="img-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>Xu Hướng</span>
+                            <span>15 Tháng 10, 2023</span>
+                        </div>
+                        <h3 class="blog-title"><a href="#">Top 5 Phong Cách Trang Trí Gia Tiên Hot Nhất Năm Nay</a></h3>
+                        <p class="blog-excerpt">Khám phá những xu hướng trang trí lễ gia tiên đang được các cặp đôi ưa chuộng nhất, từ truyền thống đến hiện đại...</p>
+                    </div>
+                </article>
+                <article class="blog-card fade-in-up delay-100">
+                    <div class="blog-img">
+                        <div class="img-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>Kinh Nghiệm</span>
+                            <span>22 Tháng 9, 2023</span>
+                        </div>
+                        <h3 class="blog-title"><a href="#">Ý Nghĩa Của 6 Mâm Quả Trong Phong Tục Cưới Hỏi Việt</a></h3>
+                        <p class="blog-excerpt">Tìm hiểu ý nghĩa sâu sắc đằng sau từng mâm quả trong phong tục cưới hỏi truyền thống của người Việt Nam...</p>
+                    </div>
+                </article>
+                <article class="blog-card fade-in-up delay-200">
+                    <div class="blog-img">
+                        <div class="img-placeholder"><i class="fas fa-image"></i></div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>Cảm Hứng</span>
+                            <span>05 Tháng 9, 2023</span>
+                        </div>
+                        <h3 class="blog-title"><a href="#">Bí Quyết Chọn Hoa Tươi Trang Trí Tiệc Cưới Mùa Thu</a></h3>
+                        <p class="blog-excerpt">Gợi ý cách lựa chọn các loại hoa tươi phù hợp với không khí lãng mạn của mùa thu để không gian tiệc cưới thêm phần trọn vẹn...</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="container fade-in-up">
+            <h2 class="cta-title">Bắt Đầu Hành Trình <br><span class="italic">Của Riêng Bạn</span></h2>
+            <p class="cta-desc">Hãy để Trầu Cau cùng bạn kiến tạo nên những khoảnh khắc tuyệt đẹp và đáng nhớ nhất.</p>
+            <div class="cta-btns">
+                <a href="#" class="btn btn-primary">Đặt Lịch Tư Vấn</a>
+                <a href="#" class="btn btn-outline">Gọi Ngay Hotline</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section class="instagram">
+        <div class="container">
+            <span class="section-tag fade-in-up">Instagram</span>
+            <h2 class="about-title fade-in-up delay-100">Theo Dõi <span class="italic">@traucau.wedding</span></h2>
+        </div>
+        <div class="insta-grid fade-in-up delay-200">
+            <div class="insta-item">
+                <div class="img-placeholder"><i class="fas fa-camera"></i></div>
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <div class="img-placeholder"><i class="fas fa-camera"></i></div>
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <div class="img-placeholder"><i class="fas fa-camera"></i></div>
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <div class="img-placeholder"><i class="fas fa-camera"></i></div>
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <div class="img-placeholder"><i class="fas fa-camera"></i></div>
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+            <div class="insta-item">
+                <div class="img-placeholder"><i class="fas fa-camera"></i></div>
+                <div class="insta-overlay"><i class="fab fa-instagram"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <div class="logo-text">TRẦU CAU</div>
+                    <div class="logo-tagline">Premium Wedding Decoration</div>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-right">
+                    <h3>A beautiful wedding begins with a <br><strong>Deep Understanding</strong></h3>
+                    <div class="footer-contact">
+                        <div class="contact-item">
+                            <h4>Hotline</h4>
+                            <p>0909 123 456</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Email</h4>
+                            <p>hello@traucau.vn</p>
+                        </div>
+                        <div class="contact-item">
+                            <h4>Địa Chỉ</h4>
+                            <p>123 Nguyễn Văn Linh, Quận 7, TP.HCM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2023 Trầu Cau Wedding Decoration. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="float-contact" id="floatContact">
+        <div class="float-btn" id="floatBtn">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+        <div class="float-menu">
+            <a href="#" title="Zalo"><i class="fas fa-comment-medical"></i></a>
+            <a href="#" title="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+            <a href="#" title="Hotline"><i class="fas fa-phone-alt"></i></a>
+        </div>
+    </div>
+
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Mobile Menu
+        const mobileBtn = document.getElementById('mobile-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileBtn.querySelector('i');
+            if(navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Floating Contact Button
+        const floatContact = document.getElementById('floatContact');
+        const floatBtn = document.getElementById('floatBtn');
+
+        floatBtn.addEventListener('click', () => {
+            floatContact.classList.toggle('active');
+            const icon = floatBtn.querySelector('i');
+            if(floatContact.classList.contains('active')) {
+                icon.classList.remove('fa-comment-dots');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-comment-dots');
+            }
+        });
+
+        // Scroll to top
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Xử lý cuộn lướt mượt mà cho tất cả liên kết nội bộ
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                        if (navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            const icon = mobileBtn.querySelector('i');
+                            if (icon) {
+                                icon.classList.remove('fa-times');
+                                icon.classList.add('fa-bars');
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+        // Mũi tên ở Hero lướt mượt xuống phần Giới Thiệu
+        const scrollDownBtn = document.querySelector('.scroll-down');
+        if (scrollDownBtn) {
+            scrollDownBtn.style.cursor = 'pointer';
+            scrollDownBtn.addEventListener('click', () => {
+                const aboutSection = document.getElementById('about');
+                if (aboutSection) {
+                    aboutSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        }
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
