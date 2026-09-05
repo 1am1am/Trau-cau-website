@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xưởng Cưới Trầu Cau — Góc Quản Trị Dành Cho Cô Chủ</title>
+    <title>Cưới Hỏi Trầu Cau — Quản Trị Hệ Thống</title>
     <link rel="icon" href="https://cuoihoitraucau.com/favicon.ico" type="image/x-icon">
 
-    <!-- Google Fonts: Playfair Display + Plus Jakarta Sans + Cinzel -->
+    <!-- Google Fonts: Plus Jakarta Sans (Clean Modern Sans-Serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- FontAwesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
     <!-- Admin CSS -->
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/admin.css?v=20260905_v5">
 </head>
 <body>
 
@@ -34,7 +34,7 @@
                         <i class="fas fa-ring"></i>
                     </div>
                     <h1 class="auth-title">CƯỚI HỎI TRẦU CAU</h1>
-                    <p class="auth-subtitle">Góc Quản Trị Thân Mật Dành Riêng Cho Cô Chủ Studio</p>
+                    <p class="auth-subtitle">Hệ Thống Quản Trị & Điều Hành Website</p>
                 </div>
 
                 <form id="loginForm">
@@ -65,7 +65,7 @@
                     </div>
 
                     <button type="submit" class="auth-btn-primary">
-                        <i class="fas fa-sign-in-alt"></i> VÀO BÀN LÀM VIỆC
+                        <i class="fas fa-sign-in-alt"></i> ĐĂNG NHẬP HỆ THỐNG
                     </button>
                 </form>
             </div>
@@ -176,7 +176,7 @@
                 </div>
                 <div>
                     <div class="sidebar-title">TRẦU CAU</div>
-                    <div class="sidebar-tagline">Xưởng Cưới Nghệ Nhân</div>
+                    <div class="sidebar-tagline">Quản Trị Website</div>
                 </div>
             </div>
 
@@ -184,43 +184,43 @@
                 <div class="sidebar-avatar">TC</div>
                 <div>
                     <div class="sidebar-user-name">Cô Chủ Trầu Cau</div>
-                    <div class="sidebar-user-status">Đang mở cửa studio</div>
+                    <div class="sidebar-user-status">Trực tuyến</div>
                 </div>
             </div>
 
             <nav class="sidebar-nav">
-                <span class="nav-heading">Chăm Sóc Khách Hàng</span>
+                <span class="nav-heading">QUẢN LÝ TƯ VẤN</span>
                 <button class="nav-item-btn active" onclick="switchTab('tabDashboard', this)">
-                    <i class="fas fa-book-open"></i> Sổ Tay & Tổng Quan
+                    <i class="fas fa-chart-pie"></i> Tổng Quan
                 </button>
                 <button class="nav-item-btn" onclick="switchTab('tabLeads', this)">
-                    <i class="fas fa-envelope-open-text"></i> Khách Gửi Tâm Thư
+                    <i class="fas fa-users"></i> Khách Hàng Tư Vấn
                     <span id="badgeLeadsCount" class="nav-badge" style="display: none;">0</span>
                 </button>
 
-                <span class="nav-heading">Trưng Bày & Album</span>
+                <span class="nav-heading">QUẢN LÝ NỘI DUNG</span>
                 <button class="nav-item-btn" onclick="switchTab('tabProducts', this)">
-                    <i class="fas fa-archway"></i> Mẫu Cưới Lookbook
+                    <i class="fas fa-ring"></i> Bộ Sưu Tập Mẫu Cưới
                 </button>
                 <button class="nav-item-btn" onclick="switchTab('tabCanva', this)">
-                    <i class="fas fa-palette"></i> Soạn Album Canva
+                    <i class="fas fa-palette"></i> Thiết Kế Album (Canva)
                 </button>
                 <button class="nav-item-btn" onclick="switchTab('tabBlogs', this)">
-                    <i class="fas fa-newspaper"></i> Cẩm Nang & Chuyện Nghề
+                    <i class="fas fa-newspaper"></i> Bài Viết & Cẩm Nang
                 </button>
 
-                <span class="nav-heading">Điều Chỉnh Toàn Web</span>
+                <span class="nav-heading">HỆ THỐNG & CẤU HÌNH</span>
                 <button class="nav-item-btn" onclick="switchTab('tabSiteEditor', this)">
-                    <i class="fas fa-globe-asia"></i> Chỉnh Nội Dung Web (CMS)
+                    <i class="fas fa-globe-asia"></i> Chỉnh Sửa Website (CMS)
                 </button>
                 <button class="nav-item-btn" onclick="switchTab('tabSettings', this)">
-                    <i class="fas fa-sliders-h"></i> Cài Đặt, SMTP & Sheet
+                    <i class="fas fa-sliders-h"></i> Cài Đặt Hệ Thống
                 </button>
             </nav>
 
             <div class="sidebar-footer">
                 <button class="btn-sidebar-logout" onclick="handleLogout()">
-                    <i class="fas fa-sign-out-alt"></i> Nghỉ tay (Đăng xuất)
+                    <i class="fas fa-sign-out-alt"></i> Đăng Xuất
                 </button>
                 <span style="font-size: 11px; color: rgba(255,255,255,0.4);">Trầu Cau Studio</span>
             </div>
@@ -234,12 +234,12 @@
                     <button class="mobile-menu-toggle" onclick="toggleMobileSidebar()">
                         <i class="fas fa-bars"></i>
                     </button>
-                    <h2 id="topbarPageTitle" class="topbar-page-title">Sổ Tay & Tổng Quan Xưởng Cưới</h2>
+                    <h2 id="topbarPageTitle" class="topbar-page-title">Tổng Quan Hệ Thống</h2>
                 </div>
 
                 <div class="topbar-right">
                     <button onclick="exportLeadsToExcel()" class="btn-topbar-action btn-excel-export" title="Xuất toàn bộ sổ tay sang Excel">
-                        <i class="fas fa-file-excel"></i> Xuất Sổ Ra Excel
+                        <i class="fas fa-file-excel"></i> Xuất Excel
                     </button>
                     <button onclick="openGoogleSheet()" class="btn-topbar-action btn-gsheet-link" title="Mở bảng Google Sheet trực tiếp">
                         <i class="fas fa-table"></i> Google Sheet
@@ -257,77 +257,99 @@
                      TAB 1: BÀN LÀM VIỆC & SỔ TAY TỔNG QUAN
                      ========================================== -->
                 <div id="tabDashboard" class="admin-tab-pane active">
-                    <!-- Lời Chào Thân Mật Thay Cho 4 Box Nhập Khuôn AI -->
-                    <div class="atelier-welcome-banner">
+                    <!-- Welcome Greeting Banner -->
+                    <div class="dash-welcome-card">
                         <div>
-                            <div style="font-size: 13px; color: var(--tc-gold); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;">
-                                ✦ Góc Chăm Chút Hôn Lễ Của Cô Chủ
+                            <h2 class="dash-welcome-title">Xin chào Cô Chủ Trầu Cau!</h2>
+                            <p class="dash-welcome-desc">Chào mừng cô quay trở lại bàn làm việc. Hiện có <strong id="summaryNewLeadsBadge" class="dash-new-badge">1 đơn mới</strong> từ khách hàng cần tư vấn sớm.</p>
+                        </div>
+                        <div class="dash-welcome-date">
+                            <i class="far fa-calendar-alt"></i> <span id="dashCurrentDate">Thứ Bảy, 05/09/2026</span>
+                        </div>
+                    </div>
+
+                    <!-- 4 Clear KPI Stat Cards -->
+                    <div class="dash-kpi-grid">
+                        <div class="kpi-card kpi-urgent" onclick="switchTab('tabLeads')">
+                            <div class="kpi-icon-wrap"><i class="fas fa-phone-volume"></i></div>
+                            <div class="kpi-content">
+                                <span class="kpi-label">Đơn mới cần gọi ngay</span>
+                                <div class="kpi-value" id="kpiNewLeads">0</div>
+                                <span class="kpi-subtext">Khách đang chờ liên hệ <i class="fas fa-arrow-right"></i></span>
                             </div>
-                            <h3 class="welcome-lead-title">Kính Chúc Cô Chủ Ngày Mới An Lành & Chu Toàn</h3>
-                            <p class="welcome-lead-sub">
-                                Mùa cưới 2026 đang rộn ràng. Hiện đang có <strong id="summaryNewLeadsBadge" style="color: #BE123C;">1 đơn mới</strong> từ các cặp đôi gửi gắm ngày vui cần cô xem qua và hồi âm.
-                            </p>
-                            <div class="welcome-summary-pills">
-                                <span class="summary-pill urgent">
-                                    <i class="fas fa-bell"></i> Đơn cần gọi gấp: <strong id="kpiNewLeads">0</strong>
-                                </span>
-                                <span class="summary-pill">
-                                    <i class="fas fa-inbox"></i> Tổng tâm thư đã nhận: <strong id="kpiTotalLeads">0</strong>
-                                </span>
-                                <span class="summary-pill">
-                                    <i class="fas fa-heart" style="color: #16A34A;"></i> Đã chốt cọc trọn gói: <strong id="kpiDeposited">0</strong>
-                                </span>
-                                <span class="summary-pill">
-                                    <i class="fas fa-archway" style="color: var(--tc-gold);"></i> Mẫu đang trưng bày: <strong>12</strong>
-                                </span>
+                        </div>
+                        <div class="kpi-card kpi-primary" onclick="switchTab('tabLeads')">
+                            <div class="kpi-icon-wrap"><i class="fas fa-users"></i></div>
+                            <div class="kpi-content">
+                                <span class="kpi-label">Tổng khách gửi tư vấn</span>
+                                <div class="kpi-value" id="kpiTotalLeads">0</div>
+                                <span class="kpi-subtext">Đã lưu vào hệ thống</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card kpi-success">
+                            <div class="kpi-icon-wrap"><i class="fas fa-check-circle"></i></div>
+                            <div class="kpi-content">
+                                <span class="kpi-label">Đã chốt cọc trọn gói</span>
+                                <div class="kpi-value" id="kpiDeposited">0</div>
+                                <span class="kpi-subtext">Hợp đồng đang thực hiện</span>
+                            </div>
+                        </div>
+                        <div class="kpi-card kpi-warning" onclick="switchTab('tabProducts')">
+                            <div class="kpi-icon-wrap"><i class="fas fa-archway"></i></div>
+                            <div class="kpi-content">
+                                <span class="kpi-label">Mẫu cưới trưng bày</span>
+                                <div class="kpi-value">12</div>
+                                <span class="kpi-subtext">Mẫu lookbook đang online</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Layout Tự Nhiên (Biểu Đồ Mềm Mại & Phân Bố Dịch Vụ) -->
-                    <div class="dashboard-organic-grid">
-                        <div class="organic-card">
-                            <div class="card-atelier-header">
-                                <h4 class="card-atelier-title"><i class="fas fa-chart-line"></i> Nhịp Điệu Đặt Lịch (6 Tháng Mùa Cưới)</h4>
-                                <span style="font-size: 13px; color: var(--tc-ink-muted);">Xu hướng 2026</span>
+                    <!-- Analytics 2-Column Grid -->
+                    <div class="dash-analytics-grid">
+                        <!-- Lượng Đặt Lịch Theo Tháng -->
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3 class="dash-card-title"><i class="fas fa-chart-bar" style="color: var(--tc-gold);"></i> Lượng Đặt Lịch Theo Tháng (Mùa Cưới 2026)</h3>
+                                <span class="dash-card-badge">6 tháng gần nhất</span>
                             </div>
-                            <div class="chart-soft-box">
-                                <div class="chart-soft-col">
-                                    <div class="chart-soft-pill" style="height: 45%;"></div>
-                                    <span style="font-size: 12px; color: var(--tc-ink-muted);">Tháng 5</span>
+                            <div class="dash-chart-container">
+                                <div class="chart-col">
+                                    <div class="chart-bar" style="height: 45%;"><span class="chart-value">45%</span></div>
+                                    <span class="chart-label">Tháng 5</span>
                                 </div>
-                                <div class="chart-soft-col">
-                                    <div class="chart-soft-pill" style="height: 60%;"></div>
-                                    <span style="font-size: 12px; color: var(--tc-ink-muted);">Tháng 6</span>
+                                <div class="chart-col">
+                                    <div class="chart-bar" style="height: 60%;"><span class="chart-value">60%</span></div>
+                                    <span class="chart-label">Tháng 6</span>
                                 </div>
-                                <div class="chart-soft-col">
-                                    <div class="chart-soft-pill" style="height: 52%;"></div>
-                                    <span style="font-size: 12px; color: var(--tc-ink-muted);">Tháng 7</span>
+                                <div class="chart-col">
+                                    <div class="chart-bar" style="height: 52%;"><span class="chart-value">52%</span></div>
+                                    <span class="chart-label">Tháng 7</span>
                                 </div>
-                                <div class="chart-soft-col">
-                                    <div class="chart-soft-pill" style="height: 75%;"></div>
-                                    <span style="font-size: 12px; color: var(--tc-ink-muted);">Tháng 8</span>
+                                <div class="chart-col">
+                                    <div class="chart-bar" style="height: 75%;"><span class="chart-value">75%</span></div>
+                                    <span class="chart-label">Tháng 8</span>
                                 </div>
-                                <div class="chart-soft-col">
-                                    <div class="chart-soft-pill current" style="height: 92%;"></div>
-                                    <span style="font-size: 12px; font-weight:700; color: var(--tc-forest);">Tháng 9 (Nay)</span>
+                                <div class="chart-col">
+                                    <div class="chart-bar current" style="height: 92%;"><span class="chart-value">92%</span></div>
+                                    <span class="chart-label current">Tháng 9 (Nay)</span>
                                 </div>
-                                <div class="chart-soft-col">
-                                    <div class="chart-soft-pill" style="height: 85%; opacity: 0.5;"></div>
-                                    <span style="font-size: 12px; color: var(--tc-ink-muted);">Tháng 10</span>
+                                <div class="chart-col">
+                                    <div class="chart-bar" style="height: 85%; opacity: 0.6;"><span class="chart-value">85%</span></div>
+                                    <span class="chart-label">Tháng 10</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="organic-card">
-                            <div class="card-atelier-header">
-                                <h4 class="card-atelier-title"><i class="fas fa-heart"></i> Dịch Vụ Khách Quan Tâm Nhiều Nhất</h4>
+                        <!-- Dịch Vụ Khách Quan Tâm Nhiều Nhất -->
+                        <div class="dash-card">
+                            <div class="dash-card-header">
+                                <h3 class="dash-card-title"><i class="fas fa-heart" style="color: #E11D48;"></i> Dịch Vụ Khách Quan Tâm Nhiều Nhất</h3>
                             </div>
                             <div class="service-flow-list">
                                 <div class="service-flow-item">
                                     <div class="service-flow-head">
                                         <span>Trang Trí Gia Tiên</span>
-                                        <span id="distGiaTienCount" style="color: var(--tc-forest);">0 cặp đôi</span>
+                                        <strong id="distGiaTienCount" style="color: var(--tc-forest);">0 khách</strong>
                                     </div>
                                     <div class="service-flow-track">
                                         <div id="distGiaTien" class="service-flow-bar" style="width: 0%; background: var(--tc-forest);"></div>
@@ -337,7 +359,7 @@
                                 <div class="service-flow-item">
                                     <div class="service-flow-head">
                                         <span>Mâm Quả Rồng Phụng</span>
-                                        <span id="distMamQuaCount" style="color: var(--tc-gold);">0 cặp đôi</span>
+                                        <strong id="distMamQuaCount" style="color: var(--tc-gold);">0 khách</strong>
                                     </div>
                                     <div class="service-flow-track">
                                         <div id="distMamQua" class="service-flow-bar" style="width: 0%; background: var(--tc-gold);"></div>
@@ -347,7 +369,7 @@
                                 <div class="service-flow-item">
                                     <div class="service-flow-head">
                                         <span>Rạp Cưới & Bàn Ghế Lụa</span>
-                                        <span id="distRapCuoiCount" style="color: #0284C7;">0 cặp đôi</span>
+                                        <strong id="distRapCuoiCount" style="color: #0284C7;">0 khách</strong>
                                     </div>
                                     <div class="service-flow-track">
                                         <div id="distRapCuoi" class="service-flow-bar" style="width: 0%; background: #0284C7;"></div>
@@ -357,7 +379,7 @@
                                 <div class="service-flow-item">
                                     <div class="service-flow-head">
                                         <span>Xe Hoa Rước Dâu</span>
-                                        <span id="distXeHoaCount" style="color: #E11D48;">0 cặp đôi</span>
+                                        <strong id="distXeHoaCount" style="color: #E11D48;">0 khách</strong>
                                     </div>
                                     <div class="service-flow-track">
                                         <div id="distXeHoa" class="service-flow-bar" style="width: 0%; background: #E11D48;"></div>
@@ -367,12 +389,12 @@
                         </div>
                     </div>
 
-                    <!-- Sổ Ký Tên 5 Khách Gần Nhất -->
-                    <div class="table-card">
-                        <div class="table-toolbar">
-                            <h4 class="card-atelier-title" style="margin: 0;"><i class="fas fa-envelope-open"></i> Đôi Bạn Trẻ Gần Nhất Vừa Đăng Ký Tư Vấn</h4>
+                    <!-- Bảng Khách Gần Nhất -->
+                    <div class="dash-card" style="padding: 24px;">
+                        <div class="dash-card-header">
+                            <h3 class="dash-card-title"><i class="fas fa-envelope-open-text" style="color: var(--tc-forest);"></i> Khách Hàng Đăng Ký Tư Vấn Gần Nhất</h3>
                             <button onclick="switchTab('tabLeads')" class="btn-topbar-action btn-topbar-outline">
-                                Mở Toàn Bộ Sổ Tay <i class="fas fa-arrow-right"></i>
+                                Xem toàn bộ danh sách <i class="fas fa-arrow-right"></i>
                             </button>
                         </div>
                         <div style="overflow-x: auto;">
@@ -381,7 +403,7 @@
                                     <tr>
                                         <th>Cặp Đôi / Thời Gian</th>
                                         <th>Số Điện Thoại / Zalo</th>
-                                        <th>Ngày Lành Dự Kiến</th>
+                                        <th>Ngày Cưới Dự Kiến</th>
                                         <th>Gói Quan Tâm</th>
                                         <th>Trạng Thái</th>
                                         <th>Thao Tác</th>
@@ -968,6 +990,6 @@
 
     <!-- Scripts -->
     <script src="js/projects-data.js"></script>
-    <script src="js/admin.js"></script>
+    <script src="js/admin.js?v=20260905_v5"></script>
 </body>
 </html>

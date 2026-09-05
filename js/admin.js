@@ -212,7 +212,7 @@
                 localStorage.removeItem('tc_locked_until');
                 sessionStorage.setItem('tc_admin_logged', usernameInput);
                 currentUser = usernameInput;
-                showToast('Đăng nhập thành công! Kính chào cô chủ Trầu Cau.', 'success');
+                showToast('Đăng nhập thành công! Chào mừng cô quay trở lại.', 'success');
                 checkAuth();
             } else {
                 failedAttempts++;
@@ -238,7 +238,7 @@
     };
 
     window.handleLogout = function () {
-        if (confirm('Cô có muốn đăng xuất khỏi Bàn Làm Việc không?')) {
+        if (confirm('Bạn có chắc chắn muốn đăng xuất không?')) {
             sessionStorage.removeItem('tc_admin_logged');
             currentUser = null;
             showToast('Đã đăng xuất an toàn.', 'info');
@@ -334,13 +334,13 @@
         if (btn) btn.classList.add('active');
 
         const titles = {
-            tabDashboard: 'Bàn Làm Việc & Sổ Tay Khách Hàng',
-            tabLeads: 'Quản Lý Đơn Đăng Ký Tư Vấn',
+            tabDashboard: 'Tổng Quan Hệ Thống',
+            tabLeads: 'Quản Lý Khách Hàng Tư Vấn',
             tabProducts: 'Bộ Sưu Tập Mẫu Cưới (Lookbook)',
-            tabCanva: 'Bộ Soạn Thảo Album Ảnh Canva-Style',
-            tabSiteEditor: 'Tùy Biến Nội Dung Website & Technical CMS',
-            tabBlogs: 'Cẩm Nang Cưới & Chuyện Nghề',
-            tabSettings: 'Cài Đặt Hệ Thống, Gmail SMTP & Google Sheets'
+            tabCanva: 'Thiết Kế Album Ảnh (Canva)',
+            tabSiteEditor: 'Chỉnh Sửa Nội Dung Website (CMS)',
+            tabBlogs: 'Bài Viết & Cẩm Nang Cưới',
+            tabSettings: 'Cài Đặt Hệ Thống & Liên Kết'
         };
         const pageTitleEl = document.getElementById('topbarPageTitle');
         if (pageTitleEl && titles[tabId]) pageTitleEl.textContent = titles[tabId];
@@ -384,6 +384,17 @@
         const newToday = leads.filter(l => l.status === 'Mới nhận').length;
         const deposited = leads.filter(l => l.status === 'Đã chốt cọc' || l.status === 'Hoàn thành').length;
 
+        const dateEl = document.getElementById('dashCurrentDate');
+        if (dateEl) {
+            const now = new Date();
+            const days = ['Chủ Nhật', 'Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy'];
+            const dayName = days[now.getDay()];
+            const d = String(now.getDate()).padStart(2, '0');
+            const m = String(now.getMonth() + 1).padStart(2, '0');
+            const y = now.getFullYear();
+            dateEl.textContent = `${dayName}, ${d}/${m}/${y}`;
+        }
+
         const kpiTotalEl = document.getElementById('kpiTotalLeads');
         const kpiNewEl = document.getElementById('kpiNewLeads');
         const kpiDepositEl = document.getElementById('kpiDeposited');
@@ -416,7 +427,7 @@
             const pct = Math.round((count / (total || 1)) * 100);
             if (el) el.style.width = `${pct}%`;
             const numEl = document.getElementById(`${id}Count`);
-            if (numEl) numEl.textContent = `${count} cặp đôi (${pct}%)`;
+            if (numEl) numEl.textContent = `${count} khách (${pct}%)`;
         };
         setBar('distGiaTien', countGiaTien);
         setBar('distMamQua', countMamQua);
