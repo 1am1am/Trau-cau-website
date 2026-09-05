@@ -166,7 +166,7 @@
                         <div class="related-price">Mức đầu tư: <strong>${relProj.price}</strong></div>
                         <div class="related-actions">
                             <a href="project-detail.html?id=${relProj.id}" class="btn-view-more">
-                                <span>VIEW MORE</span> <i class="fas fa-arrow-right"></i>
+                                <span>XEM THÊM</span> <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>

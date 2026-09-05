@@ -157,7 +157,7 @@ const consultForm = document.getElementById('consultationForm');
                 document.body.style.overflow = '';
             }
 
-            // Điều hướng chuẩn White Wedding: Click VIEW MORE hoặc Click Ảnh mở trang Bài Viết Dự Án Chi Tiết (project-detail.html)
+            // Điều hướng chuẩn: Click XEM THÊM hoặc Click Ảnh mở trang Bài Viết Dự Án Chi Tiết (project-detail.html)
             cards.forEach(card => {
                 const detailBtn = card.querySelector('.btn-card-detail');
                 const imgWrap = card.querySelector('.card-img-wrap');
