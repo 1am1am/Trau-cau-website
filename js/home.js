@@ -14,10 +14,14 @@ const consultForm = document.getElementById('consultationForm');
             consultForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 
-                const coupleNames = document.getElementById('coupleNames').value.trim();
-                const phone = document.getElementById('clientPhone').value.trim();
-                const weddingDate = document.getElementById('weddingDate').value.trim();
-                const location = document.getElementById('weddingLocation').value.trim();
+                const coupleNames = (document.getElementById('coupleNames')?.value || '').trim();
+                const phone = (document.getElementById('clientPhone')?.value || '').trim();
+                const email = (document.getElementById('clientEmail')?.value || '').trim();
+                const weddingDate = (document.getElementById('weddingDate')?.value || '').trim();
+                const location = (document.getElementById('weddingLocation')?.value || '').trim();
+                const budget = (document.getElementById('weddingBudget')?.value || '').trim();
+                const notes = (document.getElementById('weddingNotes')?.value || '').trim();
+                const source = (document.getElementById('sourceReferral')?.value || '').trim();
                 
                 // Thu thập các dịch vụ được chọn
                 const checkedServices = [];
@@ -25,13 +29,53 @@ const consultForm = document.getElementById('consultationForm');
                     checkedServices.push(cb.value);
                 });
                 
-                // Tạo nội dung tin nhắn Zalo mẫu để khách có thể gửi trao đổi ngay
+                // 1. Lưu bản ghi đơn tư vấn vào hệ thống Admin (LocalStorage)
+                const newConsultation = {
+                    id: 'lead_' + Date.now(),
+                    submittedAt: new Date().toLocaleString('vi-VN'),
+                    timestamp: Date.now(),
+                    coupleNames: coupleNames || 'Khách quan tâm',
+                    phone: phone,
+                    email: email,
+                    weddingDate: weddingDate,
+                    weddingLocation: location,
+                    weddingBudget: budget,
+                    services: checkedServices,
+                    weddingNotes: notes,
+                    sourceReferral: source,
+                    status: 'Mới nhận'
+                };
+
+                try {
+                    const existing = JSON.parse(localStorage.getItem('tc_consultations') || '[]');
+                    existing.unshift(newConsultation);
+                    localStorage.setItem('tc_consultations', JSON.stringify(existing));
+                } catch (err) {
+                    console.warn('Lỗi lưu đơn vào localStorage:', err);
+                }
+
+                // 2. Gửi đồng bộ tự động đến Google Sheet Webhook (nếu đã cấu hình)
+                const webhookUrl = localStorage.getItem('tc_gsheet_webhook');
+                if (webhookUrl && webhookUrl.trim().startsWith('http')) {
+                    try {
+                        fetch(webhookUrl.trim(), {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(newConsultation)
+                        }).catch(err => console.log('GSheet Sync notice:', err));
+                    } catch (netErr) {
+                        console.log('GSheet Sync notice:', netErr);
+                    }
+                }
+
+                // 3. Tạo nội dung tin nhắn Zalo mẫu để khách có thể trao đổi ngay
                 const messageText = `Chào Trầu Cau Wedding, mình là ${coupleNames} (SĐT: ${phone}). Mình dự kiến cưới ngày ${weddingDate} tại ${location}. Dịch vụ quan tâm: ${checkedServices.join(', ')}. Nhờ Trầu Cau tư vấn giúp mình nhé!`;
                 if (successZaloLink) {
                     successZaloLink.href = `https://zalo.me/0932005738?text=${encodeURIComponent(messageText)}`;
                 }
 
-                // Ẩn form và hiện thông báo cảm ơn tinh tế
+                // 4. Ẩn form và hiện thông báo cảm ơn tinh tế
                 consultForm.style.display = 'none';
                 consultSuccess.style.display = 'block';
                 

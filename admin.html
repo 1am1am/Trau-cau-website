@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Quản Trị Độc Quyền — Cưới Hỏi Trầu Cau Since 2012</title>
+    <link rel="icon" href="https://cuoihoitraucau.com/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- SheetJS (XLSX) CDN for Excel Export -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+
+    <!-- Admin CSS -->
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+    <!-- ==========================================================================
+         SCREEN 1: AUTHENTICATION (LOGIN & FORGOT PASSWORD VIA GMAIL OTP)
+         ========================================================================== -->
+    <div id="authScreen" class="auth-wrapper" style="display: flex;">
+        <div class="auth-card">
+            <!-- Box Đăng Nhập -->
+            <div id="loginBox">
+                <div class="auth-header">
+                    <div class="auth-logo">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h1 class="auth-title">CƯỚI HỎI TRẦU CAU</h1>
+                    <p class="auth-subtitle">Trang Quản Trị Độc Quyền Dành Riêng Cho Studio</p>
+                </div>
+
+                <form id="loginForm">
+                    <div class="auth-form-group">
+                        <label class="auth-label" for="loginUsername">Tên Đăng Nhập hoặc Gmail Quản Trị</label>
+                        <div class="auth-input-wrap">
+                            <i class="fas fa-user auth-input-icon"></i>
+                            <input type="text" id="loginUsername" class="auth-input" value="dbalam2k7@gmail.com" required placeholder="Nhập tên đăng nhập hoặc email">
+                        </div>
+                    </div>
+
+                    <div class="auth-form-group">
+                        <label class="auth-label" for="loginPassword">Mật Khẩu Quản Trị</label>
+                        <div class="auth-input-wrap">
+                            <i class="fas fa-lock auth-input-icon"></i>
+                            <input type="password" id="loginPassword" class="auth-input" value="Admin@TrauCau2026" required placeholder="Nhập mật khẩu">
+                            <button type="button" class="auth-toggle-pwd" onclick="togglePasswordVisibility('loginPassword', this)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="auth-footer-links" style="margin-bottom: 22px;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-size: 13.5px; cursor: pointer;">
+                            <input type="checkbox" checked style="accent-color: var(--adm-green);"> Ghi nhớ đăng nhập
+                        </label>
+                        <a href="javascript:void(0)" onclick="showForgotStep('forgotStepEmail')" class="auth-link">Quên mật khẩu?</a>
+                    </div>
+
+                    <button type="submit" class="auth-btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> ĐĂNG NHẬP VÀO HỆ THỐNG
+                    </button>
+                </form>
+            </div>
+
+            <!-- Box Quên Mật Khẩu (Flow 3 Bước: Nhập Mail -> Nhập OTP -> Đổi MK) -->
+            <div id="forgotBox" style="display: none;">
+                <!-- Bước 1: Nhập Email -->
+                <div id="forgotStepEmail">
+                    <div class="auth-header">
+                        <div class="auth-logo" style="background: #FAF3DE; color: var(--adm-gold-dark);">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <h2 class="auth-title" style="font-size: 22px;">Khôi Phục Mật Khẩu</h2>
+                        <p class="auth-subtitle">Mã OTP 6 số sẽ được gửi qua Gmail SMTP đến hộp thư của bạn</p>
+                    </div>
+
+                    <form id="forgotForm">
+                        <div class="auth-form-group">
+                            <label class="auth-label">Email Nhận Mã Xác Thực OTP</label>
+                            <div class="auth-input-wrap">
+                                <i class="fas fa-envelope auth-input-icon"></i>
+                                <input type="email" id="forgotEmail" class="auth-input" value="dbalam2k7@gmail.com" required placeholder="Nhập hòm thư Gmail">
+                            </div>
+                            <small class="help-text"><i class="fas fa-info-circle"></i> Sử dụng tài khoản Gmail quản trị đang kết nối SMTP.</small>
+                        </div>
+
+                        <button type="submit" class="auth-btn-primary" style="margin-top: 20px;">
+                            <i class="fas fa-paper-plane"></i> GỬI MÃ XÁC THỰC OTP
+                        </button>
+
+                        <div style="text-align: center; margin-top: 18px;">
+                            <a href="javascript:void(0)" onclick="showForgotStep('login')" class="auth-link"><i class="fas fa-arrow-left"></i> Quay lại Đăng Nhập</a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Bước 2: Nhập OTP -->
+                <div id="forgotStepOTP" style="display: none;">
+                    <div class="auth-header">
+                        <div class="auth-logo" style="background: #E0F2FE; color: #0284C7;">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h2 class="auth-title" style="font-size: 22px;">Nhập Mã OTP 6 Số</h2>
+                        <p class="auth-subtitle">Đã gửi mã đến: <strong id="otpTargetEmailSpan" style="color: var(--adm-green);">dbalam2k7@gmail.com</strong></p>
+                    </div>
+
+                    <form id="otpVerifyForm">
+                        <div class="auth-form-group" style="text-align: center;">
+                            <input type="text" id="otpInput" class="otp-digit-input" style="width: 220px; letter-spacing: 8px;" maxlength="6" placeholder="------" required autofocus>
+                            <small class="help-text" style="display: block; margin-top: 10px;">Mã OTP có hiệu lực trong vòng 5 phút (300 giây).</small>
+                        </div>
+
+                        <button type="submit" class="auth-btn-primary">
+                            <i class="fas fa-check-circle"></i> XÁC NHẬN MÃ OTP
+                        </button>
+
+                        <div style="text-align: center; margin-top: 18px;">
+                            <a href="javascript:void(0)" onclick="showForgotStep('forgotStepEmail')" class="auth-link">Gửi lại mã khác</a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Bước 3: Đặt Mật Khẩu Mới -->
+                <div id="forgotStepNewPass" style="display: none;">
+                    <div class="auth-header">
+                        <div class="auth-logo" style="background: #DCFCE7; color: #16A34A;">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <h2 class="auth-title" style="font-size: 22px;">Đặt Mật Khẩu Mới</h2>
+                        <p class="auth-subtitle">Chọn mật khẩu dễ nhớ nhưng an toàn cho cô chủ</p>
+                    </div>
+
+                    <form id="resetPasswordForm">
+                        <div class="auth-form-group">
+                            <label class="auth-label">Mật Khẩu Mới</label>
+                            <div class="auth-input-wrap">
+                                <i class="fas fa-lock auth-input-icon"></i>
+                                <input type="password" id="newPassword" class="auth-input" placeholder="Tối thiểu 6 ký tự" required>
+                            </div>
+                        </div>
+
+                        <div class="auth-form-group">
+                            <label class="auth-label">Xác Nhận Mật Khẩu Mới</label>
+                            <div class="auth-input-wrap">
+                                <i class="fas fa-check auth-input-icon"></i>
+                                <input type="password" id="confirmNewPassword" class="auth-input" placeholder="Nhập lại mật khẩu mới" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="auth-btn-primary" style="margin-top: 16px;">
+                            <i class="fas fa-save"></i> LƯU MẬT KHẨU & ĐĂNG NHẬP
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         SCREEN 2: MAIN ADMIN APPLICATION (SIDEBAR + DASHBOARD & WORKSPACES)
+         ========================================================================== -->
+    <div id="adminApp" class="admin-app" style="display: none;">
+        <!-- Left Sidebar Navigation -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <div class="sidebar-brand">
+                <div class="sidebar-logo-icon">
+                    <i class="fas fa-ring"></i>
+                </div>
+                <div>
+                    <div class="sidebar-title">TRẦU CAU</div>
+                    <div class="sidebar-tagline">Quản Trị Studio Cưới</div>
+                </div>
+            </div>
+
+            <div class="sidebar-user-card">
+                <div class="sidebar-avatar">TC</div>
+                <div>
+                    <div class="sidebar-user-name">Cô Chủ Trầu Cau</div>
+                    <div class="sidebar-user-status">Đang hoạt động</div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <span class="nav-heading">Kinh Doanh & Khách Hàng</span>
+                <button class="nav-item-btn active" onclick="switchTab('tabDashboard', this)">
+                    <i class="fas fa-chart-pie"></i> Bàn Làm Việc
+                </button>
+                <button class="nav-item-btn" onclick="switchTab('tabLeads', this)">
+                    <i class="fas fa-envelope-open-text"></i> Đơn Tư Vấn Của Khách
+                    <span id="badgeLeadsCount" class="nav-badge" style="display: none;">0</span>
+                </button>
+
+                <span class="nav-heading" style="margin-top: 12px;">Sản Phẩm & Album</span>
+                <button class="nav-item-btn" onclick="switchTab('tabProducts', this)">
+                    <i class="fas fa-archway"></i> Mẫu Cưới Lookbook
+                </button>
+                <button class="nav-item-btn" onclick="switchTab('tabCanva', this)">
+                    <i class="fas fa-palette"></i> Soạn Album Canva
+                </button>
+                <button class="nav-item-btn" onclick="switchTab('tabBlogs', this)">
+                    <i class="fas fa-newspaper"></i> Cẩm Nang Cưới
+                </button>
+
+                <span class="nav-heading" style="margin-top: 12px;">Hệ Thống & Kết Nối</span>
+                <button class="nav-item-btn" onclick="switchTab('tabSettings', this)">
+                    <i class="fas fa-cog"></i> Cài Đặt, SMTP & Sheet
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-sidebar-logout" onclick="handleLogout()">
+                    <i class="fas fa-sign-out-alt"></i> Đăng xuất
+                </button>
+                <span style="font-size: 11px; color: rgba(255,255,255,0.4);">v2.4 Pro</span>
+            </div>
+        </aside>
+
+        <!-- Main Workspace Area -->
+        <main class="admin-main">
+            <!-- Topbar Sticky Header -->
+            <header class="admin-topbar">
+                <div class="topbar-left">
+                    <button class="mobile-menu-toggle" onclick="toggleMobileSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h2 id="topbarPageTitle" class="topbar-page-title">Bàn Làm Việc & Báo Cáo Kinh Doanh</h2>
+                </div>
+
+                <div class="topbar-right">
+                    <button onclick="exportLeadsToExcel()" class="btn-topbar-action btn-excel-export" title="Xuất file Excel phân tích kinh doanh">
+                        <i class="fas fa-file-excel"></i> Xuất Báo Cáo Excel
+                    </button>
+                    <button onclick="openGoogleSheet()" class="btn-topbar-action btn-gsheet-link" title="Mở bảng tính Google Sheets lưu trữ đơn">
+                        <i class="fas fa-table"></i> Mở Google Sheet
+                    </button>
+                    <a href="index.html" target="_blank" class="btn-topbar-action btn-topbar-outline" title="Xem giao diện khách hàng">
+                        <i class="fas fa-external-link-alt"></i> Xem Website
+                    </a>
+                </div>
+            </header>
+
+            <!-- Page Body / Dynamic Tabs -->
+            <div class="admin-body">
+                
+                <!-- ==========================================
+                     TAB 1: BÀN LÀM VIỆC & DASHBOARD
+                     ========================================== -->
+                <div id="tabDashboard" class="admin-tab-pane active">
+                    <!-- KPI Cards Row -->
+                    <div class="dashboard-kpi-grid">
+                        <div class="kpi-card">
+                            <div>
+                                <div class="kpi-title">Tổng Đơn Đăng Ký</div>
+                                <div class="kpi-value" id="kpiTotalLeads">0</div>
+                                <div class="kpi-sub"><i class="fas fa-arrow-up"></i> Tăng 18% so với tháng trước</div>
+                            </div>
+                            <div class="kpi-icon blue"><i class="fas fa-inbox"></i></div>
+                        </div>
+
+                        <div class="kpi-card">
+                            <div>
+                                <div class="kpi-title">Đơn Mới Cần Gọi</div>
+                                <div class="kpi-value" id="kpiNewLeads" style="color: #E11D48;">0</div>
+                                <div class="kpi-sub" style="color: #E11D48;"><i class="fas fa-bell"></i> Ưu tiên gọi trong 30 phút</div>
+                            </div>
+                            <div class="kpi-icon rose"><i class="fas fa-phone-volume"></i></div>
+                        </div>
+
+                        <div class="kpi-card">
+                            <div>
+                                <div class="kpi-title">Đã Chốt Hợp Đồng / Cọc</div>
+                                <div class="kpi-value" id="kpiDeposited" style="color: #16A34A;">0</div>
+                                <div class="kpi-sub"><i class="fas fa-heart"></i> Tỷ lệ chốt cọc ~ 68%</div>
+                            </div>
+                            <div class="kpi-icon green"><i class="fas fa-handshake"></i></div>
+                        </div>
+
+                        <div class="kpi-card">
+                            <div>
+                                <div class="kpi-title">Mẫu Cưới Trưng Bày</div>
+                                <div class="kpi-value">12</div>
+                                <div class="kpi-sub" style="color: var(--adm-gold-dark);"><i class="fas fa-star"></i> Bộ sưu tập Lookbook</div>
+                            </div>
+                            <div class="kpi-icon gold"><i class="fas fa-award"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Actions & Sync Bar -->
+                    <div class="dashboard-actions-row">
+                        <div class="actions-left">
+                            <button onclick="exportLeadsToExcel()" class="btn-excel-export">
+                                <i class="fas fa-file-excel"></i> Xuất Toàn Bộ Đơn Ra File Excel (.xlsx)
+                            </button>
+                            <button onclick="openGoogleSheet()" class="btn-gsheet-link">
+                                <i class="fas fa-table"></i> Mở Bảng Google Sheet (1E1LB3...)
+                            </button>
+                        </div>
+                        <div>
+                            <span style="font-size: 13.5px; color: var(--adm-text-muted);">
+                                <i class="fas fa-sync-alt"></i> Tự động đồng bộ: <strong>Google Sheets & Gmail SMTP</strong>
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Charts Row -->
+                    <div class="dashboard-charts-grid">
+                        <!-- Chart 1: Xu Hướng Nhận Đơn -->
+                        <div class="chart-card">
+                            <div class="card-header">
+                                <h3 class="card-title">Xu Hướng Khách Đặt Lịch (6 Tháng Gần Nhất)</h3>
+                                <span style="font-size: 13px; color: var(--adm-text-muted);">Mùa cưới 2026</span>
+                            </div>
+                            <div class="chart-visual-box">
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar-pill" style="height: 45%;"></div>
+                                    <span class="chart-bar-label">T5</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar-pill" style="height: 60%;"></div>
+                                    <span class="chart-bar-label">T6</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar-pill" style="height: 50%;"></div>
+                                    <span class="chart-bar-label">T7</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar-pill" style="height: 75%;"></div>
+                                    <span class="chart-bar-label">T8</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar-pill" style="height: 90%; background: linear-gradient(180deg, #E11D48 0%, #2B4C28 100%);"></div>
+                                    <span class="chart-bar-label" style="font-weight:700; color:var(--adm-green);">T9 (Nay)</span>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar-pill" style="height: 85%; opacity: 0.5;"></div>
+                                    <span class="chart-bar-label">T10 (Dự kiến)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chart 2: Phân Bố Dịch Vụ -->
+                        <div class="chart-card">
+                            <div class="card-header">
+                                <h3 class="card-title">Gói Dịch Vụ Khách Quan Tâm</h3>
+                            </div>
+                            <div class="service-distribution-list">
+                                <div class="distribution-item">
+                                    <div class="distribution-header">
+                                        <span>Trang Trí Gia Tiên</span>
+                                        <strong id="distGiaTienCount">0 đơn</strong>
+                                    </div>
+                                    <div class="distribution-bar-bg">
+                                        <div id="distGiaTien" class="distribution-bar-fill" style="width: 0%; background: #2B4C28;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="distribution-item">
+                                    <div class="distribution-header">
+                                        <span>Mâm Quả Cưới Hỏi</span>
+                                        <strong id="distMamQuaCount">0 đơn</strong>
+                                    </div>
+                                    <div class="distribution-bar-bg">
+                                        <div id="distMamQua" class="distribution-bar-fill" style="width: 0%; background: #C59B27;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="distribution-item">
+                                    <div class="distribution-header">
+                                        <span>Rạp Cưới & Bàn Ghế</span>
+                                        <strong id="distRapCuoiCount">0 đơn</strong>
+                                    </div>
+                                    <div class="distribution-bar-bg">
+                                        <div id="distRapCuoi" class="distribution-bar-fill" style="width: 0%; background: #0284C7;"></div>
+                                    </div>
+                                </div>
+
+                                <div class="distribution-item">
+                                    <div class="distribution-header">
+                                        <span>Xe Hoa Rước Dâu</span>
+                                        <strong id="distXeHoaCount">0 đơn</strong>
+                                    </div>
+                                    <div class="distribution-bar-bg">
+                                        <div id="distXeHoa" class="distribution-bar-fill" style="width: 0%; background: #E11D48;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5 Đơn Gần Nhất -->
+                    <div class="table-card">
+                        <div class="table-toolbar">
+                            <h3 class="card-title" style="margin: 0;"><i class="fas fa-clock"></i> Khách Đăng Ký Tư Vấn Gần Nhất</h3>
+                            <button onclick="switchTab('tabLeads')" class="btn-topbar-action btn-topbar-outline">
+                                Xem Tất Cả Đơn <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="adm-table">
+                                <thead>
+                                    <tr>
+                                        <th>Cặp Đôi / Ngày Nhận</th>
+                                        <th>SĐT / Zalo</th>
+                                        <th>Ngày Cưới</th>
+                                        <th>Dịch Vụ Quan Tâm</th>
+                                        <th>Trạng Thái</th>
+                                        <th>Hành Động</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dashboardRecentLeads">
+                                    <!-- Render via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     TAB 2: QUẢN LÝ ĐƠN TƯ VẤN (LEADS & BOOKING)
+                     ========================================== -->
+                <div id="tabLeads" class="admin-tab-pane">
+                    <div class="table-card">
+                        <div class="table-toolbar">
+                            <div class="table-filter-pills">
+                                <button class="filter-pill active" onclick="filterLeadsByStatus('all', this)">Tất Cả</button>
+                                <button class="filter-pill" onclick="filterLeadsByStatus('Mới nhận', this)">Mới Nhận</button>
+                                <button class="filter-pill" onclick="filterLeadsByStatus('Đang tư vấn', this)">Đang Tư Vấn</button>
+                                <button class="filter-pill" onclick="filterLeadsByStatus('Đã chốt cọc', this)">Đã Chốt Cọc</button>
+                                <button class="filter-pill" onclick="filterLeadsByStatus('Hoàn thành', this)">Hoàn Thành</button>
+                            </div>
+
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <div class="search-box">
+                                    <i class="fas fa-search search-icon"></i>
+                                    <input type="text" id="leadSearchInput" class="search-input" placeholder="Tìm tên, SĐT, quận..." oninput="renderLeadsTable()">
+                                </div>
+                                <button onclick="exportLeadsToExcel()" class="btn-excel-export" style="padding: 9px 16px; font-size: 13.5px;">
+                                    <i class="fas fa-file-excel"></i> Xuất Excel
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="adm-table">
+                                <thead>
+                                    <tr>
+                                        <th>STT</th>
+                                        <th>Cặp Đôi / Liên Hệ</th>
+                                        <th>Số Điện Thoại / Zalo</th>
+                                        <th>Ngày Cưới & Địa Điểm</th>
+                                        <th>Dịch Vụ & Ngân Sách</th>
+                                        <th>Trạng Thái</th>
+                                        <th>Tâm Tình / Ghi Chú</th>
+                                        <th>Xóa</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="leadsTableBody">
+                                    <!-- Render qua js/admin.js -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     TAB 3: QUẢN LÝ MẪU CƯỚI (LOOKBOOK)
+                     ========================================== -->
+                <div id="tabProducts" class="admin-tab-pane">
+                    <div class="table-card">
+                        <div class="table-toolbar">
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <h3 class="card-title" style="margin:0;">Bộ Sưu Tập Mẫu Cưới Đang Trưng Bày</h3>
+                            </div>
+                            <button onclick="editProductModal('new')" class="btn-topbar-action btn-topbar-gold">
+                                <i class="fas fa-plus"></i> Thêm Mẫu Cưới Mới
+                            </button>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="adm-table">
+                                <thead>
+                                    <tr>
+                                        <th>Ảnh</th>
+                                        <th>Tên Tác Phẩm</th>
+                                        <th>Phân Loại</th>
+                                        <th>Mức Giá Tham Khảo</th>
+                                        <th>Không Gian Phù Hợp</th>
+                                        <th>Thao Tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="productsTableBody">
+                                    <!-- Render qua JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     TAB 4: SOẠN THẢO ALBUM ẢNH CANVA-STYLE
+                     ========================================== -->
+                <div id="tabCanva" class="admin-tab-pane">
+                    <div class="canva-editor-card">
+                        <div class="card-header" style="margin-bottom: 12px;">
+                            <div>
+                                <h3 class="card-title">Bộ Soạn Thảo Album Ảnh Cưới Phong Cách Canva</h3>
+                                <p style="font-size: 13.5px; color: var(--adm-text-muted); margin-top: 4px;">
+                                    Tự do chọn bố cục cao cấp, phóng to/thu nhỏ (Zoom), kéo tâm ảnh (Pan) và kéo thả ảnh mà không sợ vỡ giao diện website.
+                                </p>
+                            </div>
+                            <button onclick="saveCanvaAlbum()" class="btn-topbar-action btn-topbar-gold" style="padding: 12px 24px;">
+                                <i class="fas fa-save"></i> LƯU ALBUM & XUẤT BẢN
+                            </button>
+                        </div>
+
+                        <!-- 1. Chọn Preset Bố Cục -->
+                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 10px; color: var(--adm-green-deep);">
+                            1. Chọn Kiểu Bố Cục Album (Layout Preset):
+                        </div>
+                        <div class="preset-selector-row">
+                            <button class="preset-btn active" onclick="selectCanvaPreset('magazine', this)">
+                                <i class="fas fa-columns preset-icon"></i>
+                                <div class="preset-name">Kiểu Tạp Chí 2 Cột</div>
+                                <div class="preset-desc">1 ảnh chân dung 3:4 lớn bên trái + 2 ảnh chi tiết bên phải. Chuẩn tạp chí cưới cao cấp.</div>
+                            </button>
+
+                            <button class="preset-btn" onclick="selectCanvaPreset('grid2x2', this)">
+                                <i class="fas fa-th-large preset-icon"></i>
+                                <div class="preset-name">Kiểu Lưới Cân Đối 2x2</div>
+                                <div class="preset-desc">4 ảnh vuông đối xứng hoàn hảo, phù hợp bộ ảnh mâm quả rồng phụng.</div>
+                            </button>
+
+                            <button class="preset-btn" onclick="selectCanvaPreset('mosaic', this)">
+                                <i class="fas fa-cubes preset-icon"></i>
+                                <div class="preset-name">Kiểu Nghệ Thuật Mosaic</div>
+                                <div class="preset-desc">1 ảnh đại cảnh ngang 16:9 phía trên + 3 ảnh đứng nghệ thuật bên dưới.</div>
+                            </button>
+
+                            <button class="preset-btn" onclick="selectCanvaPreset('panorama', this)">
+                                <i class="fas fa-image preset-icon"></i>
+                                <div class="preset-name">Kiểu Toàn Cảnh Vòm Cong</div>
+                                <div class="preset-desc">1 ảnh panorama 21:9 hoành tráng dành cho các đại tiệc tư gia biệt thự.</div>
+                            </button>
+                        </div>
+
+                        <!-- 2. Khung Vẽ Canvas Trực Quan -->
+                        <div style="font-weight: 700; font-size: 14px; margin-bottom: 10px; color: var(--adm-green-deep);">
+                            2. Khung Căn Chỉnh Trực Quan (Kéo chuột chỉnh Zoom hoặc di chuyển tâm ảnh):
+                        </div>
+                        <div class="canva-board" id="canvaBoard">
+                            <!-- Render dynamic layout via JS -->
+                        </div>
+
+                        <!-- 3. Thư Viện Ảnh (Kéo thả lên khung) -->
+                        <div class="canva-library-wrap">
+                            <div class="library-header">
+                                <div class="library-title"><i class="fas fa-images"></i> Thư Viện Ảnh Của Cô (Nhấp giữ & kéo thả ảnh vào khung trên):</div>
+                                <small style="color: var(--adm-text-muted);">Hỗ trợ file ảnh JPG, PNG, WEBP từ máy tính/điện thoại</small>
+                            </div>
+                            <div class="library-grid" id="canvaLibraryGrid">
+                                <!-- Render qua JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     TAB 5: CẨM NANG CƯỚI (BLOGS)
+                     ========================================== -->
+                <div id="tabBlogs" class="admin-tab-pane">
+                    <div class="table-card">
+                        <div class="table-toolbar">
+                            <h3 class="card-title" style="margin: 0;">Danh Sách Bài Viết Cẩm Nang Cưới</h3>
+                            <button class="btn-topbar-action btn-topbar-gold" onclick="showToast('Mở trình soạn thảo bài viết mới', 'info')">
+                                <i class="fas fa-pen-nib"></i> Viết Bài Mới
+                            </button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="adm-table">
+                                <thead>
+                                    <tr>
+                                        <th>Ảnh Bìa</th>
+                                        <th>Tiêu Đề Bài Viết</th>
+                                        <th>Chuyên Mục</th>
+                                        <th>Thời Gian Đọc</th>
+                                        <th>Tác Giả</th>
+                                        <th>Thao Tác</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=120&q=80" style="width:70px; height:50px; object-fit:cover; border-radius:6px;"></td>
+                                        <td><strong>Nghi thức Lễ Gia Tiên chuẩn phong tục Sài Gòn xưa và nay</strong></td>
+                                        <td><span class="status-badge new">Nghi Lễ Gia Tiên</span></td>
+                                        <td>6 phút đọc</td>
+                                        <td>Nghệ Nhân Trầu Cau</td>
+                                        <td>
+                                            <button class="btn-table-action"><i class="fas fa-edit"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=120&q=80" style="width:70px; height:50px; object-fit:cover; border-radius:6px;"></td>
+                                        <td><strong>Ý nghĩa 6 mâm quả cưới hỏi truyền thống Nam Bộ</strong></td>
+                                        <td><span class="status-badge deposited">Mâm Quả</span></td>
+                                        <td>5 phút đọc</td>
+                                        <td>Nghệ Nhân Trầu Cau</td>
+                                        <td>
+                                            <button class="btn-table-action"><i class="fas fa-edit"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     TAB 6: CÀI ĐẶT HỆ THỐNG, SMTP & GOOGLE SHEETS
+                     ========================================== -->
+                <div id="tabSettings" class="admin-tab-pane">
+                    <form onsubmit="saveSettings(event)">
+                        <div class="settings-grid">
+                            <!-- Cột 1: Cấu Hình Gmail SMTP Gửi Thư -->
+                            <div class="settings-card">
+                                <h3 class="card-title" style="margin-bottom: 16px;">
+                                    <i class="fas fa-envelope" style="color: var(--adm-gold);"></i> 1. Cấu Hình Gửi Mail (Gmail SMTP)
+                                </h3>
+                                <p style="font-size: 13px; color: var(--adm-text-muted); margin-bottom: 18px;">
+                                    Hệ thống dùng tài khoản này để gửi mã OTP khôi phục mật khẩu và gửi email thông báo khi có khách đặt lịch.
+                                </p>
+
+                                <div class="form-group">
+                                    <label class="form-label">Máy Chủ SMTP</label>
+                                    <input type="text" id="cfgSmtpHost" class="form-control" value="smtp.gmail.com">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Cổng Kết Nối (Port)</label>
+                                    <input type="text" id="cfgSmtpPort" class="form-control" value="465">
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Tài Khoản Gmail Gửi Thư</label>
+                                    <input type="email" id="cfgSmtpUser" class="form-control" value="dbalam2k7@gmail.com" required>
+                                    <small class="help-text">Hiện đang dùng tài khoản tạm của bạn. Sau này có thể đổi sang email cô bất cứ lúc nào!</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Mật Khẩu Ứng Dụng Google (App Password)</label>
+                                    <input type="password" id="cfgSmtpPass" class="form-control" placeholder="Mã 16 chữ số do Google cấp">
+                                    <small class="help-text">Tạo tại: myaccount.google.com -> Bảo mật -> Mật khẩu ứng dụng.</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Email Nhận Thông Báo Khách Mới & Mã OTP</label>
+                                    <input type="email" id="cfgNotifyEmail" class="form-control" value="dbalam2k7@gmail.com">
+                                </div>
+
+                                <div style="display: flex; gap: 10px; margin-top: 14px;">
+                                    <button type="button" onclick="testSendSMTP()" class="btn-topbar-action btn-topbar-outline">
+                                        <i class="fas fa-paper-plane"></i> Gửi Thử Email Nghiệm Thu
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Cột 2: Cấu Hình Google Sheets & Storage -->
+                            <div class="settings-card">
+                                <h3 class="card-title" style="margin-bottom: 16px;">
+                                    <i class="fas fa-table" style="color: #0F9D58;"></i> 2. Cấu Hình Lưu Đơn Vào Google Sheets
+                                </h3>
+
+                                <div class="form-group">
+                                    <label class="form-label">Đường Dẫn Bảng Tính Google Sheet</label>
+                                    <input type="url" id="cfgGSheetUrl" class="form-control" value="https://docs.google.com/spreadsheets/d/1E1LB3DhIMPzQkCb49Ee9di4rhtuq1CWD36ItG5Y6gzE/edit?usp=sharing" readonly>
+                                    <small class="help-text">File Google Sheet chính của bạn đã được gắn cố định.</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">URL Ứng Dụng Web (Google Apps Script Webhook)</label>
+                                    <input type="url" id="cfgGSheetWebhook" class="form-control" placeholder="https://script.google.com/macros/s/.../exec">
+                                    <small class="help-text">Dán URL Webhook sau khi triển khai file <code>google-apps-script.js</code>.</small>
+                                </div>
+
+                                <div style="background: #F8FAFC; border: 1px solid #CBD5E1; border-radius: 8px; padding: 14px; margin-bottom: 18px;">
+                                    <div style="font-weight: 700; font-size: 13px; color: #1E293B; margin-bottom: 6px;">
+                                        <i class="fas fa-lightbulb" style="color: var(--adm-gold);"></i> Cách Kích Hoạt Trong 1 Phút:
+                                    </div>
+                                    <ol style="font-size: 12.5px; color: #475569; padding-left: 18px; line-height: 1.5;">
+                                        <li>Mở file <code>google-apps-script.js</code> có sẵn trong thư mục dự án.</li>
+                                        <li>Vào Google Sheet -> Tiện ích mở rộng -> Apps Script -> Dán mã vào.</li>
+                                        <li>Bấm Triển khai (Deploy) -> Ứng dụng web (Web app) -> Chọn quyền "Bất kỳ ai".</li>
+                                        <li>Copy link URL và dán vào ô bên trên!</li>
+                                    </ol>
+                                </div>
+
+                                <hr style="border: 0; border-top: 1px solid var(--adm-border); margin: 20px 0;">
+
+                                <h3 class="card-title" style="margin-bottom: 14px;">
+                                    <i class="fas fa-cloud" style="color: var(--adm-green);"></i> 3. Phương Án Lưu Trữ Ảnh (Storage)
+                                </h3>
+
+                                <div class="form-group">
+                                    <label class="form-label">Kho Lưu Trữ Hình Ảnh Album</label>
+                                    <select id="cfgStorageMode" class="form-control">
+                                        <option value="local">Lưu Trực Tiếp & Nén Thông Minh (Miễn phí 100% - Dùng Ngay)</option>
+                                        <option value="cloudinary">Cloudinary CDN (Miễn phí 25GB vĩnh viễn - Tối ưu nhất cho ảnh cưới)</option>
+                                        <option value="imgbb">ImgBB API (Miễn phí không giới hạn ảnh)</option>
+                                    </select>
+                                    <small class="help-text">Hiện đang chạy chế độ Lưu Trực Tiếp cực kỳ mượt mà.</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nút Lưu Chung -->
+                        <div style="margin-top: 24px; text-align: right;">
+                            <button type="submit" class="btn-topbar-action btn-topbar-gold" style="padding: 12px 28px; font-size: 15px;">
+                                <i class="fas fa-save"></i> LƯU TOÀN BỘ CÀI ĐẶT
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Chỉnh Sửa Mẫu Cưới -->
+    <div id="productEditModal" class="adm-modal-overlay" style="display: none;">
+        <div class="adm-modal-box">
+            <div class="modal-header">
+                <h3 class="modal-title">Chỉnh Sửa Thông Số Mẫu Cưới</h3>
+                <button class="modal-close-btn" onclick="closeProductModal()">&times;</button>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label class="form-label">Tên Tác Phẩm Cưới</label>
+                    <input type="text" class="form-control" value="Gia Tiên Song Hỷ Đỏ Nhung">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Mức Giá Tham Khảo</label>
+                    <input type="text" class="form-control" value="Chỉ từ 3.500.000đ">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Không Gian Phù Hợp</label>
+                    <input type="text" class="form-control" value="Tư gia nhà phố ngang 3.5m – 5.5m">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Chất Liệu Hoa</label>
+                    <input type="text" class="form-control" value="100% Hoa lụa cao cấp nhập khẩu hoặc Hoa tươi Đà Lạt tuyển chọn">
+                </div>
+                <div style="text-align: right; margin-top: 20px;">
+                    <button class="btn-topbar-action btn-topbar-outline" onclick="closeProductModal()">Hủy Bỏ</button>
+                    <button class="btn-topbar-action btn-topbar-gold" onclick="closeProductModal(); showToast('Đã lưu thông số mẫu cưới thành công!', 'success');">Lưu Lại</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/projects-data.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
