@@ -11,7 +11,37 @@
     function getSiteContent() {
         try {
             const raw = localStorage.getItem('tc_site_content');
-            return raw ? JSON.parse(raw) : null;
+            if (!raw) return null;
+            let data = JSON.parse(raw);
+            if (data && data.hero) {
+                let modified = false;
+                if (data.hero.badge === "Di Sản Cưới Hỏi Sài Gòn Since 2012" || !data.hero.badge) {
+                    data.hero.badge = "Gìn giữ nét đẹp cưới hỏi truyền thống từ 2012";
+                    modified = true;
+                }
+                if (data.hero.title === "Trọn Vẹn Ngày Lành Khởi Nguồn Từ Tâm Ý" || data.hero.title === "TIÊU ĐỀ ĐÃ ĐỔI TỪ ADMIN" || !data.hero.title_line1) {
+                    data.hero.title_line1 = "Trang Trí Gia Tiên";
+                    data.hero.title_line2 = "& Mâm Quả Nghệ Thuật";
+                    data.hero.title = "Trang Trí Gia Tiên & Mâm Quả Nghệ Thuật";
+                    modified = true;
+                }
+                if (data.hero.subtitle && data.hero.subtitle.includes("Hơn 14 năm tỉ mỉ chăm chút từng lễ vật")) {
+                    data.hero.subtitle = "Đồng hành cùng bạn trong ngày trọng đại nhất cuộc đời với sự tận tâm, chuyên nghiệp và những ý tưởng thiết kế độc bản.";
+                    modified = true;
+                }
+                if (data.hero.btn_primary === "Đặt Lịch Tư Vấn") {
+                    data.hero.btn_primary = "Khám Phá Dịch Vụ";
+                    modified = true;
+                }
+                if (data.hero.btn_secondary === "Khám Phá Kiệt Tác") {
+                    data.hero.btn_secondary = "Liên Hệ Tư Vấn";
+                    modified = true;
+                }
+                if (modified) {
+                    try { localStorage.setItem('tc_site_content', JSON.stringify(data, null, 2)); } catch (e) {}
+                }
+            }
+            return data;
         } catch (e) {
             console.warn('[CMS Sync] Failed to parse tc_site_content', e);
             return null;
@@ -124,8 +154,23 @@
             }
 
             const heroRevealText = document.getElementById('heroRevealText');
-            if (heroRevealText && h.title) {
-                heroRevealText.textContent = h.title;
+            const heroRevealSub = document.getElementById('heroRevealSub');
+
+            // Đồng bộ 2 dòng độc lập, tuyệt đối không chắp vá văn phong
+            if (h.title_line1 || h.title_line2) {
+                if (heroRevealText && h.title_line1) heroRevealText.textContent = h.title_line1;
+                if (heroRevealSub && h.title_line2) heroRevealSub.textContent = h.title_line2;
+            } else if (h.title) {
+                if (h.title.includes("Trọn Vẹn Ngày Lành") || h.title.includes("TIÊU ĐỀ ĐÃ ĐỔI TỪ ADMIN")) {
+                    if (heroRevealText) heroRevealText.textContent = "Trang Trí Gia Tiên";
+                    if (heroRevealSub) heroRevealSub.textContent = "& Mâm Quả Nghệ Thuật";
+                } else if (h.title.includes("&")) {
+                    const parts = h.title.split("&");
+                    if (heroRevealText) heroRevealText.textContent = parts[0].trim();
+                    if (heroRevealSub) heroRevealSub.textContent = "& " + parts.slice(1).join("&").trim();
+                } else {
+                    if (heroRevealText) heroRevealText.textContent = h.title;
+                }
             }
 
             const heroDesc = document.querySelector('.hero-desc');

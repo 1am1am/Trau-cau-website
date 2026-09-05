@@ -51,6 +51,9 @@
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 80px;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
         }
 
         * {
@@ -65,6 +68,8 @@
             color: var(--green);
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
         }
 
         /* Typography Base */
@@ -188,8 +193,8 @@
             display: inline-block;
             opacity: 0;
             transform: translateY(10px);
-            animation: subTitleFadeIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-            animation-delay: 1.1s;
+            animation: subTitleFadeIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 0.35s;
         }
 
         @keyframes subTitleFadeIn {
@@ -386,25 +391,44 @@
         }
 
         .hero-title {
-            font-size: 4.5rem;
-            margin-bottom: 20px;
+            font-size: clamp(3.4rem, 5.2vw, 4.6rem);
+            line-height: 1.18;
+            margin-bottom: 24px;
             color: var(--green);
+            font-family: var(--font-heading);
+            font-weight: 700;
+        }
+
+        .hero-reveal-line {
+            display: inline-block;
+            color: var(--gold-text);
+            font-style: italic;
+        }
+
+        .hero-reveal-sub {
+            display: inline-block;
+            color: var(--green);
+            font-size: clamp(3.0rem, 4.6vw, 4.0rem);
+            font-weight: 700;
+            margin-top: 6px;
         }
 
         .hero-subtitle {
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 4px;
             color: var(--gold-text);
-            margin-bottom: 30px;
+            margin-bottom: 26px;
             font-weight: 600;
         }
 
         .hero-desc {
-            font-size: 1.1rem;
-            margin-bottom: 40px;
+            font-size: 1.12rem;
+            line-height: 1.7;
+            max-width: 680px;
+            margin: 0 auto 36px;
             color: var(--green);
-            opacity: 0.9;
+            opacity: 0.92;
         }
 
         .hero-btns {
@@ -2975,18 +2999,25 @@
             .nav-menu {
                 position: fixed;
                 top: 0;
-                right: -100%;
-                width: 300px;
+                right: 0;
+                transform: translateX(100%);
+                width: 290px;
+                max-width: 85vw;
                 height: 100vh;
                 background-color: var(--white);
                 flex-direction: column;
-                padding: 100px 40px;
-                box-shadow: -10px 0 20px rgba(0,0,0,0.05);
-                transition: right 0.4s ease;
-                gap: 25px; /* reset gap for mobile menu */
+                padding: 100px 35px;
+                box-shadow: -10px 0 25px rgba(0,0,0,0.08);
+                transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.38s ease;
+                gap: 24px;
+                visibility: hidden;
+                z-index: 1050;
             }
 
-            .nav-menu.active { right: 0; }
+            .nav-menu.active {
+                transform: translateX(0);
+                visibility: visible;
+            }
             .nav-social { display: none; }
             
             .hero-title { font-size: 3.5rem; }
@@ -3002,7 +3033,10 @@
         }
 
         @media (max-width: 768px) {
-            .hero-title { font-size: clamp(2rem, 6.5vw, 2.6rem); line-height: 1.25; }
+            .hero-title { font-size: clamp(2.8rem, 6.8vw, 3.6rem) !important; line-height: 1.22 !important; margin-bottom: 20px !important; }
+            .hero-reveal-sub { font-size: clamp(2.4rem, 6vw, 3.1rem) !important; display: block; margin-top: 6px; }
+            .hero-subtitle { font-size: 0.85rem !important; letter-spacing: 3px !important; margin-bottom: 20px !important; }
+            .hero-desc { font-size: 1.05rem !important; line-height: 1.65 !important; margin-bottom: 30px !important; padding: 0 15px; }
             
             .about-grid, .footer-grid { grid-template-columns: 1fr; }
             .about-images { height: 400px; margin-bottom: 40px; }
@@ -3045,9 +3079,15 @@
         }
 
         @media (max-width: 600px) {
-            .hero-subtitle { font-size: 0.8rem; letter-spacing: 2px; }
-            .hero-title { font-size: clamp(1.32rem, 5.8vw, 1.75rem); line-height: 1.35; }
-            .hero-reveal-sub { display: inline-block; max-width: 100%; }
+            .hero { padding: 95px 16px 50px !important; height: auto !important; min-height: 100vh; }
+            .hero-content { width: 100% !important; max-width: 100% !important; margin: 0 auto; }
+            .hero-subtitle { font-size: 0.7rem !important; letter-spacing: 1.5px !important; margin-bottom: 14px !important; line-height: 1.5; white-space: normal; max-width: 280px; margin-left: auto; margin-right: auto; }
+            .hero-title { font-size: clamp(1.4rem, 5.8vw, 2.05rem) !important; line-height: 1.25 !important; margin-bottom: 18px !important; text-align: center; }
+            .hero-reveal-line { display: block; font-size: inherit; white-space: nowrap; }
+            .hero-reveal-sub { display: block; font-size: clamp(1.22rem, 5.1vw, 1.8rem) !important; line-height: 1.25 !important; margin-top: 6px; white-space: nowrap; }
+            .hero-desc { font-size: 0.95rem !important; line-height: 1.6 !important; margin-bottom: 28px !important; padding: 0 8px; max-width: 350px; margin-left: auto; margin-right: auto; }
+            .hero-btns { flex-direction: column; gap: 12px; width: 100%; max-width: 290px; margin: 0 auto; }
+            .hero-btns .btn { width: 100%; padding: 13px 20px; font-size: 0.9rem; }
             .masterpiece-metrics { grid-template-columns: 1fr; }
             .masterpiece-link { font-size: 1.05rem; }
             .video-lightbox-box { width: 96%; }
@@ -3104,7 +3144,7 @@
     <section class="hero" id="home">
         <div class="hero-content fade-in-up">
             <h2 class="hero-subtitle">Gìn giữ nét đẹp cưới hỏi truyền thống từ 2012</h2>
-            <h1 class="hero-title"><span class="italic text-gold hero-reveal-line" id="heroRevealText">Trang Trí Gia Tiên</span><br><span class="hero-reveal-sub">& Mâm Quả Nghệ Thuật</span></h1>
+            <h1 class="hero-title"><span class="italic text-gold hero-reveal-line" id="heroRevealText">Trang Trí Gia Tiên</span><br><span class="hero-reveal-sub" id="heroRevealSub">& Mâm Quả Nghệ Thuật</span></h1>
             <p class="hero-desc">Đồng hành cùng bạn trong ngày trọng đại nhất cuộc đời với sự tận tâm, chuyên nghiệp và những ý tưởng thiết kế độc bản.</p>
             <div class="hero-btns">
                 <a href="#services" class="btn btn-primary">Khám Phá Dịch Vụ</a>

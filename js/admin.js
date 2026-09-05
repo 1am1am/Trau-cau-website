@@ -26,11 +26,13 @@
             email: "traucau746@gmail.com"
         },
         hero: {
-            badge: "Di Sản Cưới Hỏi Sài Gòn Since 2012",
-            title: "Trọn Vẹn Ngày Lành Khởi Nguồn Từ Tâm Ý",
-            subtitle: "Hơn 14 năm tỉ mỉ chăm chút từng lễ vật gia tiên, mâm quả rồng phụng và không gian hôn lễ hoàng gia cho các gia tộc.",
-            btn_primary: "Đặt Lịch Tư Vấn",
-            btn_secondary: "Khám Phá Kiệt Tác"
+            badge: "Gìn giữ nét đẹp cưới hỏi truyền thống từ 2012",
+            title_line1: "Trang Trí Gia Tiên",
+            title_line2: "& Mâm Quả Nghệ Thuật",
+            title: "Trang Trí Gia Tiên & Mâm Quả Nghệ Thuật",
+            subtitle: "Đồng hành cùng bạn trong ngày trọng đại nhất cuộc đời với sự tận tâm, chuyên nghiệp và những ý tưởng thiết kế độc bản.",
+            btn_primary: "Khám Phá Dịch Vụ",
+            btn_secondary: "Liên Hệ Tư Vấn"
         },
         about: {
             heading: "Chuyện Nghề 14 Năm Chăm Chút Ngày Trọng Đại",
@@ -51,8 +53,44 @@
     };
 
     function initSiteContent() {
-        if (!localStorage.getItem('tc_site_content')) {
+        const stored = localStorage.getItem('tc_site_content');
+        if (!stored) {
             localStorage.setItem('tc_site_content', JSON.stringify(DEFAULT_SITE_CONTENT, null, 2));
+        } else {
+            // Tự động thanh lọc các chuỗi văn phong thử nghiệm cũ trong cache
+            try {
+                const parsed = JSON.parse(stored);
+                let modified = false;
+                if (parsed.hero) {
+                    if (parsed.hero.badge === "Di Sản Cưới Hỏi Sài Gòn Since 2012" || !parsed.hero.badge) {
+                        parsed.hero.badge = DEFAULT_SITE_CONTENT.hero.badge;
+                        modified = true;
+                    }
+                    if (parsed.hero.title === "Trọn Vẹn Ngày Lành Khởi Nguồn Từ Tâm Ý" || parsed.hero.title === "TIÊU ĐỀ ĐÃ ĐỔI TỪ ADMIN" || !parsed.hero.title_line1) {
+                        parsed.hero.title_line1 = DEFAULT_SITE_CONTENT.hero.title_line1;
+                        parsed.hero.title_line2 = DEFAULT_SITE_CONTENT.hero.title_line2;
+                        parsed.hero.title = DEFAULT_SITE_CONTENT.hero.title;
+                        modified = true;
+                    }
+                    if (parsed.hero.subtitle && parsed.hero.subtitle.includes("Hơn 14 năm tỉ mỉ chăm chút từng lễ vật")) {
+                        parsed.hero.subtitle = DEFAULT_SITE_CONTENT.hero.subtitle;
+                        modified = true;
+                    }
+                    if (parsed.hero.btn_primary === "Đặt Lịch Tư Vấn") {
+                        parsed.hero.btn_primary = DEFAULT_SITE_CONTENT.hero.btn_primary;
+                        modified = true;
+                    }
+                    if (parsed.hero.btn_secondary === "Khám Phá Kiệt Tác") {
+                        parsed.hero.btn_secondary = DEFAULT_SITE_CONTENT.hero.btn_secondary;
+                        modified = true;
+                    }
+                }
+                if (modified) {
+                    localStorage.setItem('tc_site_content', JSON.stringify(parsed, null, 2));
+                }
+            } catch (e) {
+                console.warn('[Site Content] Error sanitizing cache:', e);
+            }
         }
     }
     initSiteContent();
@@ -685,11 +723,12 @@
         setVal('cmsEmail', content.brand?.email);
 
         // 2. Hero
-        setVal('cmsHeroBadge', content.hero?.badge);
-        setVal('cmsHeroTitle', content.hero?.title);
-        setVal('cmsHeroSubtitle', content.hero?.subtitle);
-        setVal('cmsHeroBtnPrimary', content.hero?.btn_primary);
-        setVal('cmsHeroBtnSecondary', content.hero?.btn_secondary);
+        setVal('cmsHeroBadge', content.hero?.badge || DEFAULT_SITE_CONTENT.hero.badge);
+        setVal('cmsHeroTitle1', content.hero?.title_line1 || "Trang Trí Gia Tiên");
+        setVal('cmsHeroTitle2', content.hero?.title_line2 || "& Mâm Quả Nghệ Thuật");
+        setVal('cmsHeroSubtitle', content.hero?.subtitle || DEFAULT_SITE_CONTENT.hero.subtitle);
+        setVal('cmsHeroBtnPrimary', content.hero?.btn_primary || DEFAULT_SITE_CONTENT.hero.btn_primary);
+        setVal('cmsHeroBtnSecondary', content.hero?.btn_secondary || DEFAULT_SITE_CONTENT.hero.btn_secondary);
 
         // 3. About
         setVal('cmsAboutHeading', content.about?.heading);
@@ -738,7 +777,11 @@
 
         current.hero = current.hero || {};
         current.hero.badge = getVal('cmsHeroBadge');
-        current.hero.title = getVal('cmsHeroTitle');
+        const t1 = getVal('cmsHeroTitle1') || "Trang Trí Gia Tiên";
+        const t2 = getVal('cmsHeroTitle2') || "& Mâm Quả Nghệ Thuật";
+        current.hero.title_line1 = t1;
+        current.hero.title_line2 = t2;
+        current.hero.title = `${t1} ${t2}`.trim();
         current.hero.subtitle = getVal('cmsHeroSubtitle');
         current.hero.btn_primary = getVal('cmsHeroBtnPrimary');
         current.hero.btn_secondary = getVal('cmsHeroBtnSecondary');
