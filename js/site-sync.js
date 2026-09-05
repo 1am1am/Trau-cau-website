@@ -11,7 +11,9 @@
     function getSiteContent() {
         try {
             const raw = localStorage.getItem('tc_site_content');
-            if (!raw) return null;
+            if (!raw) {
+                return window.TC_SITE_CONTENT || null;
+            }
             let data = JSON.parse(raw);
             if (data && data.hero) {
                 let modified = false;
@@ -216,7 +218,25 @@
             }
         }
 
-        // 4. CHÂN TRANG & TRIẾT LÝ (FOOTER SECTION)
+        // 4. LỜI KÊU GỌI HÀNH ĐỘNG (CTA SECTION)
+        if (content.cta) {
+            const c = content.cta;
+            const ctaTitle1 = document.getElementById('ctaTitleLine1') || document.querySelector('.cta-title-line1');
+            const ctaTitle2 = document.getElementById('ctaTitleLine2') || document.querySelector('.cta-title-line2');
+            if (ctaTitle1 && c.title_line1) ctaTitle1.textContent = c.title_line1;
+            if (ctaTitle2 && c.title_line2) ctaTitle2.textContent = c.title_line2;
+
+            const ctaDesc = document.getElementById('ctaDesc') || document.querySelector('.cta-desc');
+            if (ctaDesc && c.desc) ctaDesc.textContent = c.desc;
+
+            const ctaPrimary = document.getElementById('ctaBtnPrimary') || document.querySelector('.cta-btns .btn-primary');
+            if (ctaPrimary && c.btn_primary) ctaPrimary.textContent = c.btn_primary;
+
+            const ctaSecondary = document.getElementById('ctaBtnSecondary') || document.querySelector('.cta-btns .btn-outline');
+            if (ctaSecondary && c.btn_secondary) ctaSecondary.textContent = c.btn_secondary;
+        }
+
+        // 5. CHÂN TRANG & TRIẾT LÝ (FOOTER SECTION)
         if (content.footer) {
             const f = content.footer;
             const quoteHeading = document.querySelector('.footer-right h3');

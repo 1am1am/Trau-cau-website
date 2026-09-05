@@ -604,11 +604,14 @@
                             <button class="cms-tab-btn" onclick="switchCmsTab('cmsTabAbout', this)">
                                 <i class="fas fa-history"></i> 3. Chuyện Nghề 14 Năm
                             </button>
+                            <button class="cms-tab-btn" onclick="switchCmsTab('cmsTabCTA', this)">
+                                <i class="fas fa-bullhorn"></i> 4. Lời Kêu Gọi (CTA)
+                            </button>
                             <button class="cms-tab-btn" onclick="switchCmsTab('cmsTabFooter', this)">
-                                <i class="fas fa-shoe-prints"></i> 4. Chân Trang & Địa Chỉ
+                                <i class="fas fa-shoe-prints"></i> 5. Chân Trang & Địa Chỉ
                             </button>
                             <button class="cms-tab-btn tech-mode" onclick="switchCmsTab('cmsTabTechnical', this)">
-                                <i class="fas fa-code"></i> 5. Chế Độ Technical (JSON Editor)
+                                <i class="fas fa-code"></i> 6. Chế Độ Technical (JSON Editor)
                             </button>
                         </div>
 
@@ -766,7 +769,48 @@
                             </div>
                         </div>
 
-                        <!-- Mục 4: Footer & Địa Chỉ -->
+                        <!-- Mục 4: CTA Section -->
+                        <div id="cmsTabCTA" class="cms-tab-pane" style="display: none;">
+                            <div class="cms-card">
+                                <h3 class="cms-card-title">Lời Kêu Gọi Hành Động (CTA Section)</h3>
+                                <p class="cms-card-desc">Đoạn văn kết thúc thôi thúc các cặp đôi nhấc máy đặt lịch hẹn hoặc gọi hotline.</p>
+
+                                <div class="cms-grid-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Dòng 1 Tiêu Đề</label>
+                                        <input type="text" id="cmsCtaTitle1" class="form-control" value="Bắt Đầu Hành Trình">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Dòng 2 Tiêu Đề (Vàng Kim Nghiêng)</label>
+                                        <input type="text" id="cmsCtaTitle2" class="form-control" value="Của Riêng Bạn">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Lời Dẫn Kêu Gọi (Mô Tả)</label>
+                                    <textarea id="cmsCtaDesc" rows="3" class="form-control">Hãy để Trầu Cau cùng bạn kiến tạo nên những khoảnh khắc tuyệt đẹp và đáng nhớ nhất.</textarea>
+                                </div>
+
+                                <div class="cms-grid-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Chữ Nút Bấm Chính</label>
+                                        <input type="text" id="cmsCtaBtnPrimary" class="form-control" value="Đặt Lịch Tư Vấn">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Chữ Nút Bấm Phụ</label>
+                                        <input type="text" id="cmsCtaBtnSecondary" class="form-control" value="Gọi Ngay Hotline">
+                                    </div>
+                                </div>
+
+                                <div style="text-align: right; margin-top: 10px;">
+                                    <button onclick="saveVisualSiteEditor(event)" class="btn-topbar-action btn-topbar-gold" style="padding: 11px 26px;">
+                                        <i class="fas fa-save"></i> Lưu Lời Kêu Gọi CTA
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mục 5: Footer & Địa Chỉ -->
                         <div id="cmsTabFooter" class="cms-tab-pane" style="display: none;">
                             <div class="cms-card">
                                 <h3 class="cms-card-title">Chân Trang (Footer) & Địa Chỉ Studio</h3>

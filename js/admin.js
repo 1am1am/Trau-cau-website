@@ -44,6 +44,13 @@
                 { value: "1000+", label: "Đại Lễ Viên Mãn", desc: "Từ tư gia ấm cúng đến biệt thự sang trọng" }
             ]
         },
+        cta: {
+            title_line1: "Bắt Đầu Hành Trình",
+            title_line2: "Của Riêng Bạn",
+            desc: "Hãy để Trầu Cau cùng bạn kiến tạo nên những khoảnh khắc tuyệt đẹp và đáng nhớ nhất.",
+            btn_primary: "Đặt Lịch Tư Vấn",
+            btn_secondary: "Gọi Ngay Hotline"
+        },
         footer: {
             quote_title: "Một ngày cưới vẹn tròn khởi nguồn từ",
             quote_highlight: "Sự Tận Tâm & Chăm Chút Tỉ Mỉ",
@@ -84,6 +91,10 @@
                         parsed.hero.btn_secondary = DEFAULT_SITE_CONTENT.hero.btn_secondary;
                         modified = true;
                     }
+                }
+                if (!parsed.cta) {
+                    parsed.cta = DEFAULT_SITE_CONTENT.cta;
+                    modified = true;
                 }
                 if (modified) {
                     localStorage.setItem('tc_site_content', JSON.stringify(parsed, null, 2));
@@ -743,14 +754,21 @@
             setVal('cmsStat3Label', content.about.stats[2]?.label);
         }
 
-        // 4. Footer
+        // 4. CTA
+        setVal('cmsCtaTitle1', content.cta?.title_line1 || DEFAULT_SITE_CONTENT.cta.title_line1);
+        setVal('cmsCtaTitle2', content.cta?.title_line2 || DEFAULT_SITE_CONTENT.cta.title_line2);
+        setVal('cmsCtaDesc', content.cta?.desc || DEFAULT_SITE_CONTENT.cta.desc);
+        setVal('cmsCtaBtnPrimary', content.cta?.btn_primary || DEFAULT_SITE_CONTENT.cta.btn_primary);
+        setVal('cmsCtaBtnSecondary', content.cta?.btn_secondary || DEFAULT_SITE_CONTENT.cta.btn_secondary);
+
+        // 5. Footer
         setVal('cmsFooterQuoteTitle', content.footer?.quote_title);
         setVal('cmsFooterQuoteHighlight', content.footer?.quote_highlight);
         setVal('cmsFooterQuoteSub', content.footer?.quote_sub);
         setVal('cmsFooterAddress', content.brand?.address);
         setVal('cmsFooterCopyright', content.footer?.copyright);
 
-        // 5. Technical JSON Editor
+        // 6. Technical JSON Editor
         const jsonArea = document.getElementById('techJsonTextarea');
         if (jsonArea) {
             jsonArea.value = JSON.stringify(content, null, 2);
@@ -795,6 +813,13 @@
             { value: getVal('cmsStat2Val'), label: getVal('cmsStat2Label'), desc: "Chất liệu cao cấp tuyển chọn" },
             { value: getVal('cmsStat3Val'), label: getVal('cmsStat3Label'), desc: "Đại lễ gia tiên chu toàn" }
         ];
+
+        current.cta = current.cta || {};
+        current.cta.title_line1 = getVal('cmsCtaTitle1') || "Bắt Đầu Hành Trình";
+        current.cta.title_line2 = getVal('cmsCtaTitle2') || "Của Riêng Bạn";
+        current.cta.desc = getVal('cmsCtaDesc');
+        current.cta.btn_primary = getVal('cmsCtaBtnPrimary');
+        current.cta.btn_secondary = getVal('cmsCtaBtnSecondary');
 
         current.footer = current.footer || {};
         current.footer.quote_title = getVal('cmsFooterQuoteTitle');
