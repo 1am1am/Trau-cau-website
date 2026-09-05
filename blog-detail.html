@@ -332,6 +332,11 @@
         </div>
     </section>
 
+    <!-- Blog Sequential Navigation Strip (Chuyển bài trước / bài sau) -->
+    <nav class="post-navigation-strip" id="blogNavStrip">
+        <!-- Nạp động qua JS -->
+    </nav>
+
     <!-- Related Articles Section -->
     <section class="related-section">
         <div class="container">
@@ -483,7 +488,50 @@
                 relatedContainer.appendChild(card);
             });
 
-            // 7. Floating contact & Scroll-to-top
+            // 7. Render Sequential Blog Navigation Strip (Chuyển tiếp bài trước / bài sau)
+            renderBlogNavStrip(blogId);
+
+            function renderBlogNavStrip(currentId) {
+                const strip = document.getElementById('blogNavStrip');
+                if (!strip) return;
+
+                const blogKeys = Object.keys(BLOGS_DATABASE);
+                const currentIndex = blogKeys.indexOf(currentId);
+                if (currentIndex === -1) return;
+
+                const prevIndex = (currentIndex - 1 + blogKeys.length) % blogKeys.length;
+                const nextIndex = (currentIndex + 1) % blogKeys.length;
+
+                const prevArticle = BLOGS_DATABASE[blogKeys[prevIndex]];
+                const nextArticle = BLOGS_DATABASE[blogKeys[nextIndex]];
+
+                strip.innerHTML = `
+                    <div class="container">
+                        <div class="post-nav-inner">
+                            <a href="blog-detail.html?id=${prevArticle.id}" class="post-nav-item prev" title="Xem bài trước: ${prevArticle.title}">
+                                <i class="fas fa-chevron-left"></i>
+                                <div class="post-nav-meta">
+                                    <span class="post-nav-kicker">Bài Trước</span>
+                                    <h4 class="post-nav-title">${prevArticle.title}</h4>
+                                </div>
+                            </a>
+                            <a href="index.html#blog" class="post-nav-center" title="Xem tất cả bài viết cẩm nang">
+                                <i class="fas fa-th"></i>
+                                <span>Tất Cả Cẩm Nang</span>
+                            </a>
+                            <a href="blog-detail.html?id=${nextArticle.id}" class="post-nav-item next" title="Xem bài tiếp theo: ${nextArticle.title}">
+                                <i class="fas fa-chevron-right"></i>
+                                <div class="post-nav-meta">
+                                    <span class="post-nav-kicker">Bài Kế Tiếp</span>
+                                    <h4 class="post-nav-title">${nextArticle.title}</h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // 8. Floating contact & Scroll-to-top
             const floatBtn = document.getElementById('floatBtn');
             const floatContact = document.getElementById('floatContact');
             if (floatBtn && floatContact) {

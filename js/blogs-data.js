@@ -179,6 +179,161 @@ const BLOGS_DATABASE = {
             'Bàn giao và cắm hoa trực tiếp tại nhà trước ngày lễ 1 ngày'
         ],
         related: ['top-5-phong-cach-gia-tien', 'y-nghia-6-mam-qua']
+    },
+
+    'nghi-thuc-ruoc-dau-truyen-thong-sai-gon': {
+        id: 'nghi-thuc-ruoc-dau-truyen-thong-sai-gon',
+        category: 'Phong Tục',
+        categoryLabel: 'NGHI THỨC CƯỚI HỎI TRUYỀN THỐNG',
+        title: 'Trình Tự & Nghi Thức Lễ Rước Dâu Truyền Thống Sài Gòn',
+        date: '18 Tháng 8, 2023',
+        readTime: '8 phút đọc',
+        author: 'Nghệ Nhân Trầu Cau Since 2012',
+        authorRole: 'Cố Vấn Nghi Lễ Gia Tộc Cao Cấp',
+        heroImg: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=80',
+        heroCaption: 'Nghi thức dâng trà bái tổ tiên — thời khắc thiêng liêng đong đầy xúc cảm của đôi uyên ương.',
+        excerpt: 'Hướng dẫn đầy đủ và chuẩn xác nhất về trình tự lễ rước dâu tại tư gia miền Nam, giúp hai họ tổ chức ngày đại hỷ chỉn chu, vẹn tròn và ấm cúng.',
+        quote: 'Mỗi nghi thức trong ngày đón dâu là một lời răn dạy về đạo hiếu, sự hòa thuận và lòng biết ơn tổ tiên đã vun đắp cho nhân duyên nảy lộc.',
+        content: `
+            <p class="blog-lead">Lễ rước dâu (lễ nghinh hôn) là thời khắc quan trọng bậc nhất trong đám cưới truyền thống của người Sài Gòn và Nam Bộ. Để ngày trọng đại diễn ra suôn sẻ, trang nghiêm mà không cập rập, việc nắm rõ trình tự từng bước là điều tối cần thiết cho cả hai gia đình.</p>
+
+            <h2>1. Chuẩn Bị & Xuất Hành Tại Nhà Trai</h2>
+            <p>Trước giờ hoàng đạo khoảng 1 - 2 tiếng, chú rể cùng trưởng đoàn và đội bưng quả tề tựu đông đủ. Trưởng đoàn nhà trai sẽ thắp hương báo cáo bàn thờ tổ tiên nhà mình trước khi xuất hành, kiểm tra kỹ lưỡng danh sách mâm quả, phong bao lì xì duyên và hoa cưới cầm tay.</p>
+
+            <h2>2. Nghi Thức Chào Hỏi & Trao Mâm Quả Tại Nhà Gái</h2>
+            <p>Khi đoàn xe hoa nhà trai đến, đội bưng quả nam xếp hàng chỉnh tề trước cổng. Nhà gái cử đại diện ra đón tiếp. Hai bên trao tráp sính lễ kèm bao lì xì may mắn trong tiếng cười rộn rã.</p>
+            <p>Sau đó, sính lễ được đặt trang trọng lên bàn dài trước bàn thờ gia tiên nhà gái theo đúng thứ tự lễ tục.</p>
+
+            <div class="blog-inline-img">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80" alt="Lễ rước dâu trang trọng" loading="lazy">
+                <p class="inline-caption">Không gian gia tiên nhà gái được chuẩn bị trang nghiêm, ngập tràn sắc đỏ cát tường.</p>
+            </div>
+
+            <h2>3. Nghi Thức Kính Báo Gia Tiên & Dâng Trà Cha Mẹ</h2>
+            <p>Mẹ cô dâu hoặc bậc cao niên sẽ dắt cô dâu từ trong phòng ra mắt hai họ. Giây phút này chú rể trao hoa cầm tay cho cô dâu. Đôi bạn trẻ cùng nhau thắp hương trước bàn thờ gia tiên dưới sự hướng dẫn của trưởng tộc.</p>
+            <p>Tiếp theo là nghi thức dâng trà kính cha mẹ hai bên. Chén trà thơm nồng chứa đựng lòng tri ân sâu nặng với công ơn sinh thành dưỡng dục.</p>
+
+            <div class="blog-expert-box">
+                <div class="expert-box-header">
+                    <i class="fas fa-clock expert-icon"></i>
+                    <h4>Thời Gian Vàng Cho Giờ Lễ Đón Dâu</h4>
+                </div>
+                <p>"Hai họ nên thống nhất trước mốc thời gian chi tiết từng nghi lễ. Thời gian làm lễ tại nhà gái lý tưởng nhất là từ 30 đến 45 phút, vừa đủ trang trọng, ấm cúng mà không gây mệt mỏi cho người lớn tuổi và kịp giờ hoàng đạo rước dâu về nhà trai."</p>
+                <div class="expert-sign">— Ban Cố Vấn Nghi Lễ Trầu Cau</div>
+            </div>
+
+            <h2>4. Nghi Thức Lại Quả & Lên Xe Hoa Về Nhà Chồng</h2>
+            <p>Trước khi chú rể rước cô dâu ra xe hoa, mẹ cô dâu sẽ thực hiện nghi thức lại quả (gửi lại một phần sính lễ cho nhà trai). Sau đó, đoàn rước dâu lên đường trong niềm hân hoan chúc phúc của hai gia đình.</p>
+        `,
+        checklistTitle: 'Checklist Chuẩn Bị Cho Ngày Đón Dâu Chu Đáo',
+        checklists: [
+            'Lên danh sách thứ tự người đại diện phát biểu của hai bên gia đình',
+            'Chuẩn bị sẵn phong bao lì xì duyên cho đội bưng mâm quả',
+            'Sắp xếp chỗ đậu xe hoa và xe chở hai họ trước cửa tư gia thuận tiện',
+            'Chuẩn bị sẵn ấm trà nóng, nước suối in tem tên riêng và bánh ngọt tiếp khách',
+            'Bàn thờ gia tiên luôn có sẵn nến rồng phụng, nhang trầm và bật lửa dự phòng'
+        ],
+        related: ['top-5-phong-cach-gia-tien', 'y-nghia-6-mam-qua']
+    },
+
+    'kinh-nghiem-chon-rap-cuoi-tu-gia': {
+        id: 'kinh-nghiem-chon-rap-cuoi-tu-gia',
+        category: 'Kinh Nghiệm',
+        categoryLabel: 'CẨM NANG KHÔNG GIAN CƯỚI TƯ GIA',
+        title: 'Kinh Nghiệm Dựng Rạp Cưới Tư Gia Đẹp, Bền & Thoáng Mát',
+        date: '02 Tháng 8, 2023',
+        readTime: '6 phút đọc',
+        author: 'Kỹ Sư Kết Cấu Rạp Trầu Cau',
+        authorRole: 'Giám Đốc Kỹ Thuật & Khung Không Gian',
+        heroImg: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80',
+        heroCaption: 'Rạp cưới khung nhôm định hình hiện đại với trần lụa voan xếp nếp lộng lẫy tại tư gia biệt thự.',
+        excerpt: 'Những bí quyết quan trọng khi dựng rạp cưới tại nhà: chọn khung nhôm an toàn, xử lý mặt bằng đường hẻm và lắp đặt hệ thống quạt mát thông minh.',
+        quote: 'Rạp cưới tại gia mang linh hồn của sự sum vầy lối xóm, nơi khách quý cảm nhận trọn vẹn sự hiếu khách và ấm cúng chân thành của gia chủ.',
+        content: `
+            <p class="blog-lead">Tổ chức tiệc cưới tại gia luôn mang lại không khí ấm áp, gần gũi và thiêng liêng khó nơi nào sánh bằng. Tuy nhiên, việc dựng rạp ngoài trời đòi hỏi phải tính toán kỹ lưỡng về tính an toàn kết cấu, tính thẩm mỹ trang trí và sự thoải mái cho khách mời dưới thời tiết Sài Gòn.</p>
+
+            <h2>1. Chọn Khung Nhôm Định Hình (Khung Truss) Thay Cho Khung Sắt Truyền Thống</h2>
+            <p>Khung sắt ống hàn cũ kỹ trước đây vừa nặng nề, vừa thô kệch và tiềm ẩn rủi ro khi có mưa gió. Hiện nay, <strong>hệ khung nhôm định hình (Truss hợp kim nhôm)</strong> là tiêu chuẩn vàng của Trầu Cau: trọng lượng nhẹ, thẩm mỹ sáng bóng, khả năng chịu lực vượt trội và tuyệt đối an toàn.</p>
+
+            <h2>2. Nghệ Thuật Phủ Trần Voan & Ánh Sáng Ấm Áp</h2>
+            <p>Trần rạp được phủ 2 lớp lụa voan cao cấp xếp ly uốn lượn nghệ thuật. Kết hợp cùng đèn chùm pha lê hoàng gia và dải đèn led vàng ấm tạo nên không gian huyền ảo lung linh như tiệc cưới tại khách sạn 5 sao.</p>
+
+            <div class="blog-inline-img">
+                <img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1000&q=80" alt="Không gian rạp cưới tư gia ấm cúng" loading="lazy">
+                <p class="inline-caption">Không gian rạp tiệc sân vườn thoáng đãng, sang trọng đón tiếp 20 bàn tiệc thịnh soạn.</p>
+            </div>
+
+            <h2>3. Giải Pháp Làm Mát & Lưu Thông Không Khí</h2>
+            <p>Với khí hậu nhiệt đới nắng ấm quanh năm, việc bố trí quạt hơi nước công nghiệp công suất lớn và quạt đảo trần tại các vị trí thông minh giúp không gian luôn mát mẻ, dễ chịu suốt buổi tiệc.</p>
+
+            <div class="blog-expert-box">
+                <div class="expert-box-header">
+                    <i class="fas fa-shield-alt expert-icon"></i>
+                    <h4>Cam Kết Khảo Sát Kỹ Thuật 24 Giờ</h4>
+                </div>
+                <p>"Trước khi lên thiết kế rạp, đội ngũ kỹ thuật Trầu Cau luôn đến tận nhà đo đạc trắc địa, kiểm tra đường dây điện trên cao, cống thoát nước và hướng gió để đảm bảo thi công vừa khít từng centimet mặt bằng tư gia."</p>
+                <div class="expert-sign">— Đội Ngũ Kỹ Thuật Rạp Trầu Cau</div>
+            </div>
+        `,
+        checklistTitle: 'Các Tiêu Chuẩn Kỹ Thuật Bàn Giao Rạp Cưới Trầu Cau',
+        checklists: [
+            'Khảo sát mặt bằng thực tế và tư vấn phương án dựng rạp tối ưu nhất',
+            'Khung nhôm truss chuẩn sự kiện chống chọi thời tiết mưa gió',
+            'Mái bạt 2 da chống nóng, chống tia UV hiệu quả',
+            'Hệ thống quạt làm mát công nghiệp và đèn chiếu sáng kiểm tra kỹ lưỡng',
+            'Lắp đặt hoàn thiện trước ngày cưới 1 ngày để gia đình yên tâm chuẩn bị'
+        ],
+        related: ['nghi-thuc-ruoc-dau-truyen-thong-sai-gon', 'xu-huong-hoa-cuoi-cam-tay-co-dau']
+    },
+
+    'xu-huong-hoa-cuoi-cam-tay-co-dau': {
+        id: 'xu-huong-hoa-cuoi-cam-tay-co-dau',
+        category: 'Xu Hướng',
+        categoryLabel: 'XU HƯỚNG PHỤ KIỆN CƯỚI 2026',
+        title: 'Top Những Dáng Hoa Cưới Cầm Tay Tôn Dáng Cô Dâu Hoàn Hảo',
+        date: '20 Tháng 7, 2023',
+        readTime: '5 phút đọc',
+        author: 'Floral Designer Trầu Cau',
+        authorRole: 'Chuyên Gia Thiết Kế Hoa Cưới Nghệ Thuật',
+        heroImg: 'https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1200&q=80',
+        heroCaption: 'Bó hoa cưới cầm tay dáng suối hoa lan thanh khiết tôn vinh nét duyên dáng của nàng dâu.',
+        excerpt: 'Bí quyết chọn bó hoa cưới cầm tay chuẩn mực theo từng phom váy cưới và chiều cao cô dâu, mang lại vẻ đẹp thanh tú và rạng ngời.',
+        quote: 'Bó hoa cưới cầm tay là món trang sức sống động nhất của nàng dâu, cùng nàng bước vào cánh cổng hôn nhân đầy ắp yêu thương.',
+        content: `
+            <p class="blog-lead">Hoa cưới cầm tay không đơn thuần là một phụ kiện đi kèm, mà là điểm nhấn thị giác quan trọng nhất của cô dâu trong ngày vu quy. Bó hoa phù hợp sẽ tôn lên đường cong của chiếc váy cưới và nét rạng ngời trên gương mặt cô dâu.</p>
+
+            <h2>1. Bó Hoa Dáng Tròn Cổ Điển (Posy / Biedermeier)</h2>
+            <p>Dáng hoa tròn gọn gàng, được kết từ hoa hồng Ecuador, mẫu đơn hoặc tulip. Đây là kiểu dáng an toàn, phù hợp với hầu hết các dáng váy cưới từ váy chữ A truyền thống đến áo dài lụa thêu hoa.</p>
+
+            <h2>2. Bó Hoa Dáng Suối Thác Nước Tự Nhiên (Cascade)</h2>
+            <p>Với các dải lan hồ điệp trắng hoặc lá thường xuân rủ nhẹ nhàng xuống dưới, dáng thác nước mang lại vẻ đẹp kiêu sa, quý tộc. Kiểu bó này đặc biệt tôn dáng cho các cô dâu có chiều cao lý tưởng và diện váy cưới đuôi cá bồng bềnh.</p>
+
+            <div class="blog-inline-img">
+                <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=80" alt="Bó hoa cưới cầm tay tinh tế" loading="lazy">
+                <p class="inline-caption">Sắc hoa trắng kem tinh khôi hòa quyện cùng dải ruy băng lụa satin thượng hạng.</p>
+            </div>
+
+            <h2>3. Bó Hoa Dáng Cầm Tay Tự Do Phong Cách Châu Âu (Garden Style)</h2>
+            <p>Được thiết kế bất đối xứng với nhiều loại hoa lá cỏ dại nhập khẩu, dáng hoa tự do mang lại hơi thở tươi trẻ, phóng khoáng và vô cùng ăn ảnh.</p>
+
+            <div class="blog-expert-box">
+                <div class="expert-box-header">
+                    <i class="fas fa-heart expert-icon"></i>
+                    <h4>Mẹo Nhỏ Cho Nàng Dâu</h4>
+                </div>
+                <p>"Khi cầm hoa, cô dâu nên giữ bó hoa ở vị trí ngang hông, thả lỏng vai và hơi nghiêng hoa về phía trước một góc 45 độ để các góc máy nhiếp ảnh bắt trọn cả gương mặt xinh đẹp lẫn sắc hoa rạng ngời."</p>
+                <div class="expert-sign">— Florist Trầu Cau Wedding</div>
+            </div>
+        `,
+        checklistTitle: 'Đặc Quyền Hoa Cưới Tại Trầu Cau',
+        checklists: [
+            'Thiết kế bó hoa độc bản theo yêu cầu và tone màu riêng của cô dâu',
+            '100% hoa tươi nhập khẩu cắt cành mới sáng sớm',
+            'Tặng kèm 1 hoa cài áo chú rể và 4 hoa cài áo hai họ cao cấp',
+            'Hộp bảo quản giữ nước chuyên dụng giúp hoa tươi suốt cả ngày dài',
+            'Giao hoa tận tay cô dâu trước giờ trang điểm'
+        ],
+        related: ['bi-quyet-chon-hoa-tuoi', 'kinh-nghiem-chon-rap-cuoi-tu-gia']
     }
 };
 

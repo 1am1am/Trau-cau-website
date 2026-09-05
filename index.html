@@ -856,6 +856,71 @@
             display: none !important;
         }
 
+        .lookbook-card.page-hidden,
+        .blog-card.page-hidden {
+            display: none !important;
+        }
+
+        /* Luxury Editorial Pagination */
+        .pagination-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 48px;
+            padding-top: 15px;
+        }
+
+        .page-btn,
+        .page-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 44px;
+            height: 44px;
+            padding: 0 14px;
+            background-color: #FFFFFF;
+            border: 1px solid rgba(197, 155, 39, 0.28);
+            border-radius: 50%;
+            color: var(--green-dark);
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 4px 12px rgba(72, 108, 47, 0.05);
+        }
+
+        .page-numbers {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .page-num.active {
+            background-color: var(--green);
+            color: #FAF8F0;
+            border-color: var(--green);
+            box-shadow: 0 6px 18px rgba(72, 108, 47, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .page-btn:hover:not(:disabled),
+        .page-num:hover:not(.active) {
+            background-color: #FAF8F0;
+            border-color: var(--gold);
+            color: var(--gold-text);
+            transform: translateY(-2px);
+        }
+
+        .page-btn:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+            border-color: rgba(0, 0, 0, 0.1);
+            transform: none;
+            box-shadow: none;
+        }
+
         @keyframes fadeInScale {
             from {
                 opacity: 0;
@@ -3514,6 +3579,19 @@
                     </div>
                 </article>
             </div>
+
+            <!-- Lookbook Multi-Page Pagination (Phân trang duyệt tác phẩm) -->
+            <div class="pagination-wrap" id="lookbookPagination">
+                <button type="button" class="page-btn prev-btn" id="lookbookPrevBtn" title="Trang trước" aria-label="Trang trước">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="page-numbers" id="lookbookPageNumbers">
+                    <!-- Nạp động qua JS -->
+                </div>
+                <button type="button" class="page-btn next-btn" id="lookbookNextBtn" title="Trang tiếp theo" aria-label="Trang tiếp theo">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -3913,6 +3991,76 @@
                         </div>
                     </div>
                 </article>
+                <article class="blog-card fade-in-up">
+                    <a href="blog-detail.html?id=nghi-thuc-ruoc-dau-truyen-thong-sai-gon" class="blog-img" title="Đọc bài viết">
+                        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Trình Tự & Nghi Thức Lễ Rước Dâu Truyền Thống Sài Gòn" loading="lazy">
+                    </a>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>Phong Tục</span>
+                            <span class="meta-dot">•</span>
+                            <span>18 Tháng 8, 2023</span>
+                        </div>
+                        <h3 class="blog-title"><a href="blog-detail.html?id=nghi-thuc-ruoc-dau-truyen-thong-sai-gon">Trình Tự & Nghi Thức Lễ Rước Dâu Truyền Thống Sài Gòn</a></h3>
+                        <p class="blog-excerpt">Hướng dẫn đầy đủ và chuẩn xác nhất về trình tự lễ rước dâu tại tư gia miền Nam, giúp hai họ tổ chức ngày đại hỷ chỉn chu...</p>
+                        <div class="blog-actions">
+                            <a href="blog-detail.html?id=nghi-thuc-ruoc-dau-truyen-thong-sai-gon" class="btn-read-more">
+                                <span>ĐỌC BÀI VIẾT</span> <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card fade-in-up delay-100">
+                    <a href="blog-detail.html?id=kinh-nghiem-chon-rap-cuoi-tu-gia" class="blog-img" title="Đọc bài viết">
+                        <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=800&q=80" alt="Kinh Nghiệm Dựng Rạp Cưới Tư Gia Đẹp, Bền & Thoáng Mát" loading="lazy">
+                    </a>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>Kinh Nghiệm</span>
+                            <span class="meta-dot">•</span>
+                            <span>02 Tháng 8, 2023</span>
+                        </div>
+                        <h3 class="blog-title"><a href="blog-detail.html?id=kinh-nghiem-chon-rap-cuoi-tu-gia">Kinh Nghiệm Dựng Rạp Cưới Tư Gia Đẹp, Bền & Thoáng Mát</a></h3>
+                        <p class="blog-excerpt">Những bí quyết quan trọng khi dựng rạp cưới tại nhà: chọn khung nhôm an toàn, xử lý mặt bằng đường hẻm và hệ thống quạt mát...</p>
+                        <div class="blog-actions">
+                            <a href="blog-detail.html?id=kinh-nghiem-chon-rap-cuoi-tu-gia" class="btn-read-more">
+                                <span>ĐỌC BÀI VIẾT</span> <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                <article class="blog-card fade-in-up delay-200">
+                    <a href="blog-detail.html?id=xu-huong-hoa-cuoi-cam-tay-co-dau" class="blog-img" title="Đọc bài viết">
+                        <img src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=800&q=80" alt="Top Những Dáng Hoa Cưới Cầm Tay Tôn Dáng Cô Dâu Hoàn Hảo" loading="lazy">
+                    </a>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span>Xu Hướng</span>
+                            <span class="meta-dot">•</span>
+                            <span>20 Tháng 7, 2023</span>
+                        </div>
+                        <h3 class="blog-title"><a href="blog-detail.html?id=xu-huong-hoa-cuoi-cam-tay-co-dau">Top Những Dáng Hoa Cưới Cầm Tay Tôn Dáng Cô Dâu Hoàn Hảo</a></h3>
+                        <p class="blog-excerpt">Bí quyết chọn bó hoa cưới cầm tay chuẩn mực theo từng phom váy cưới và chiều cao cô dâu, mang lại vẻ đẹp thanh tú rạng ngời...</p>
+                        <div class="blog-actions">
+                            <a href="blog-detail.html?id=xu-huong-hoa-cuoi-cam-tay-co-dau" class="btn-read-more">
+                                <span>ĐỌC BÀI VIẾT</span> <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Blog Multi-Page Pagination (Phân trang cẩm nang) -->
+            <div class="pagination-wrap" id="blogPagination">
+                <button type="button" class="page-btn prev-btn" id="blogPrevBtn" title="Trang trước" aria-label="Trang trước">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="page-numbers" id="blogPageNumbers">
+                    <!-- Nạp động qua JS -->
+                </div>
+                <button type="button" class="page-btn next-btn" id="blogNextBtn" title="Trang tiếp theo" aria-label="Trang tiếp theo">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -4293,28 +4441,127 @@
         // HYBRID LOOKBOOK / PORTFOLIO LOGIC
         // ==========================================
         (function initLookbook() {
-            // 1. Bộ lọc Tabs (Filter Tabs)
+            // 1. Phân Trang & Bộ Lọc Tabs (Multi-Page Lookbook Pagination)
             const tabs = document.querySelectorAll('.lookbook-tab');
-            const cards = document.querySelectorAll('.lookbook-card');
+            const cards = Array.from(document.querySelectorAll('.lookbook-card'));
+            const paginationWrap = document.getElementById('lookbookPagination');
+            const pageNumbersContainer = document.getElementById('lookbookPageNumbers');
+            const prevBtn = document.getElementById('lookbookPrevBtn');
+            const nextBtn = document.getElementById('lookbookNextBtn');
+
+            const ITEMS_PER_PAGE = 6;
+            let currentFilter = 'all';
+            let currentPage = 1;
+
+            function getFilteredCards() {
+                if (currentFilter === 'all') {
+                    return cards;
+                }
+                return cards.filter(card => card.getAttribute('data-category') === currentFilter);
+            }
+
+            function updatePagination(shouldScroll = false) {
+                const filtered = getFilteredCards();
+                const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE) || 1;
+
+                if (currentPage > totalPages) currentPage = 1;
+
+                // Ẩn/Hiện thẻ theo phân loại
+                cards.forEach(card => {
+                    const matchesCategory = currentFilter === 'all' || card.getAttribute('data-category') === currentFilter;
+                    if (!matchesCategory) {
+                        card.classList.add('hidden');
+                        card.classList.add('page-hidden');
+                    } else {
+                        card.classList.remove('hidden');
+                    }
+                });
+
+                // Phân trang thẻ hợp lệ
+                filtered.forEach((card, index) => {
+                    const pageOfCard = Math.floor(index / ITEMS_PER_PAGE) + 1;
+                    if (pageOfCard === currentPage) {
+                        card.classList.remove('page-hidden');
+                    } else {
+                        card.classList.add('page-hidden');
+                    }
+                });
+
+                // Cập nhật thanh điều hướng phân trang
+                if (paginationWrap) {
+                    if (totalPages <= 1) {
+                        paginationWrap.style.display = 'none';
+                    } else {
+                        paginationWrap.style.display = 'flex';
+                    }
+                }
+
+                if (pageNumbersContainer) {
+                    pageNumbersContainer.innerHTML = '';
+                    for (let p = 1; p <= totalPages; p++) {
+                        const btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = `page-num ${p === currentPage ? 'active' : ''}`;
+                        btn.textContent = p;
+                        btn.setAttribute('data-page', p);
+                        btn.setAttribute('aria-label', `Trang ${p}`);
+                        btn.addEventListener('click', () => {
+                            goToPage(p);
+                        });
+                        pageNumbersContainer.appendChild(btn);
+                    }
+                }
+
+                if (prevBtn) {
+                    prevBtn.disabled = (currentPage <= 1);
+                }
+                if (nextBtn) {
+                    nextBtn.disabled = (currentPage >= totalPages);
+                }
+
+                if (shouldScroll) {
+                    const portfolioSection = document.getElementById('portfolio');
+                    if (portfolioSection) {
+                        portfolioSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            }
+
+            function goToPage(page) {
+                currentPage = page;
+                updatePagination(true);
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    if (currentPage > 1) {
+                        goToPage(currentPage - 1);
+                    }
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    const filtered = getFilteredCards();
+                    const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE) || 1;
+                    if (currentPage < totalPages) {
+                        goToPage(currentPage + 1);
+                    }
+                });
+            }
 
             tabs.forEach(tab => {
                 tab.addEventListener('click', function () {
-                    // Cập nhật trạng thái active của tabs
                     tabs.forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
-
-                    const filter = this.getAttribute('data-filter');
-
-                    cards.forEach(card => {
-                        const category = card.getAttribute('data-category');
-                        if (filter === 'all' || category === filter) {
-                            card.classList.remove('hidden');
-                        } else {
-                            card.classList.add('hidden');
-                        }
-                    });
+                    currentFilter = this.getAttribute('data-filter');
+                    currentPage = 1;
+                    updatePagination(false);
                 });
             });
+
+            // Khởi tạo ban đầu
+            updatePagination(false);
 
             // Liên kết từ 4 ô Dịch Vụ Trọn Gói chuyển hướng thẳng đến đúng bộ lọc sản phẩm demo
             const serviceLinks = document.querySelectorAll('.service-link[data-filter-target]');
@@ -4498,6 +4745,91 @@
                     closeVideo();
                 }
             });
+        })();
+
+        // ==========================================
+        // BLOG MULTI-PAGE PAGINATION LOGIC (PHÂN TRANG BLOG)
+        // ==========================================
+        (function initBlogPagination() {
+            const blogCards = Array.from(document.querySelectorAll('.blog-card'));
+            const paginationWrap = document.getElementById('blogPagination');
+            const pageNumbersContainer = document.getElementById('blogPageNumbers');
+            const prevBtn = document.getElementById('blogPrevBtn');
+            const nextBtn = document.getElementById('blogNextBtn');
+
+            if (!paginationWrap || blogCards.length === 0) return;
+
+            const BLOGS_PER_PAGE = 3;
+            const totalPages = Math.ceil(blogCards.length / BLOGS_PER_PAGE) || 1;
+            let currentPage = 1;
+
+            function updateBlogPage(page, shouldScroll = false) {
+                currentPage = page;
+
+                blogCards.forEach((card, index) => {
+                    const pageOfCard = Math.floor(index / BLOGS_PER_PAGE) + 1;
+                    if (pageOfCard === currentPage) {
+                        card.classList.remove('page-hidden');
+                    } else {
+                        card.classList.add('page-hidden');
+                    }
+                });
+
+                if (totalPages <= 1) {
+                    paginationWrap.style.display = 'none';
+                } else {
+                    paginationWrap.style.display = 'flex';
+                }
+
+                if (pageNumbersContainer) {
+                    pageNumbersContainer.innerHTML = '';
+                    for (let p = 1; p <= totalPages; p++) {
+                        const btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = `page-num ${p === currentPage ? 'active' : ''}`;
+                        btn.textContent = p;
+                        btn.setAttribute('data-page', p);
+                        btn.setAttribute('aria-label', `Trang ${p}`);
+                        btn.addEventListener('click', () => {
+                            updateBlogPage(p, true);
+                        });
+                        pageNumbersContainer.appendChild(btn);
+                    }
+                }
+
+                if (prevBtn) {
+                    prevBtn.disabled = (currentPage <= 1);
+                }
+                if (nextBtn) {
+                    nextBtn.disabled = (currentPage >= totalPages);
+                }
+
+                if (shouldScroll) {
+                    const blogSection = document.getElementById('blog');
+                    if (blogSection) {
+                        blogSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    if (currentPage > 1) {
+                        updateBlogPage(currentPage - 1, true);
+                    }
+                });
+            }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    if (currentPage < totalPages) {
+                        updateBlogPage(currentPage + 1, true);
+                    }
+                });
+            }
+
+            // Khởi tạo hiển thị trang 1
+            updateBlogPage(1, false);
         })();
 
         // ==========================================

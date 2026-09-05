@@ -106,6 +106,9 @@
             // Render Related Projects
             renderRelatedProjects();
 
+            // Render Sequential Project Navigation Strip (Chuyển tiếp giữa các mẫu)
+            renderProjectNavStrip();
+
             // Khởi tạo Lightbox Event Listeners
             initLightboxEvents();
 
@@ -173,6 +176,46 @@
                 `;
                 container.appendChild(card);
             });
+        }
+
+        function renderProjectNavStrip() {
+            const strip = document.getElementById('projectNavStrip');
+            if (!strip || !currentProject) return;
+
+            const projectKeys = Object.keys(PROJECTS_DATABASE);
+            const currentIndex = projectKeys.indexOf(currentProject.id);
+            if (currentIndex === -1) return;
+
+            const prevIndex = (currentIndex - 1 + projectKeys.length) % projectKeys.length;
+            const nextIndex = (currentIndex + 1) % projectKeys.length;
+
+            const prevProj = PROJECTS_DATABASE[projectKeys[prevIndex]];
+            const nextProj = PROJECTS_DATABASE[projectKeys[nextIndex]];
+
+            strip.innerHTML = `
+                <div class="container">
+                    <div class="post-nav-inner">
+                        <a href="project-detail.html?id=${prevProj.id}" class="post-nav-item prev" title="Xem mẫu trước: ${prevProj.title}">
+                            <i class="fas fa-chevron-left"></i>
+                            <div class="post-nav-meta">
+                                <span class="post-nav-kicker">Mẫu Trước</span>
+                                <h4 class="post-nav-title">${prevProj.title}</h4>
+                            </div>
+                        </a>
+                        <a href="index.html#portfolio" class="post-nav-center" title="Xem toàn bộ mẫu trong bộ sưu tập">
+                            <i class="fas fa-th"></i>
+                            <span>Tất Cả Mẫu</span>
+                        </a>
+                        <a href="project-detail.html?id=${nextProj.id}" class="post-nav-item next" title="Xem mẫu tiếp theo: ${nextProj.title}">
+                            <i class="fas fa-chevron-right"></i>
+                            <div class="post-nav-meta">
+                                <span class="post-nav-kicker">Mẫu Kế Tiếp</span>
+                                <h4 class="post-nav-title">${nextProj.title}</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            `;
         }
 
         /* ==========================================================================
