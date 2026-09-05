@@ -376,6 +376,7 @@
         localStorage.setItem('tc_consultations', JSON.stringify(leads));
         renderDashboard();
         renderLeadsTable();
+        updateNotificationBadges();
     }
 
     function renderDashboard() {
@@ -398,19 +399,12 @@
         const kpiTotalEl = document.getElementById('kpiTotalLeads');
         const kpiNewEl = document.getElementById('kpiNewLeads');
         const kpiDepositEl = document.getElementById('kpiDeposited');
-        const badgeLeadsCount = document.getElementById('badgeLeadsCount');
 
         if (kpiTotalEl) kpiTotalEl.textContent = total;
         if (kpiNewEl) kpiNewEl.textContent = newToday;
         if (kpiDepositEl) kpiDepositEl.textContent = deposited;
-        if (badgeLeadsCount) {
-            badgeLeadsCount.textContent = newToday;
-            badgeLeadsCount.style.display = newToday > 0 ? 'inline-block' : 'none';
-        }
 
-        // Cập nhật thẻ tóm tắt hữu cơ
-        const summaryNewLeadsEl = document.getElementById('summaryNewLeadsBadge');
-        if (summaryNewLeadsEl) summaryNewLeadsEl.textContent = newToday;
+        updateNotificationBadges();
 
         // Phân bố dịch vụ
         let countGiaTien = 0, countMamQua = 0, countRapCuoi = 0, countXeHoa = 0;
@@ -1146,7 +1140,247 @@
     window.showToast = showToast;
 
     // ==========================================
-    // 12. KHỞI TẠO TỔNG THỂ
+    // 12. TRUNG TÂM THÔNG BÁO & ĐỒNG BỘ REAL-TIME
+    // ==========================================
+    function updateNotificationBadges() {
+        const leads = getLeads();
+        const newLeads = leads.filter(l => l.status === 'Mới nhận');
+        const count = newLeads.length;
+
+        // 1. Cập nhật huy hiệu số trên sidebar
+        const badgeLeadsCount = document.getElementById('badgeLeadsCount');
+        if (badgeLeadsCount) {
+            badgeLeadsCount.textContent = count;
+            badgeLeadsCount.style.display = count > 0 ? 'inline-block' : 'none';
+        }
+
+        // 2. Cập nhật chuông thông báo Topbar
+        const topbarNotifBadge = document.getElementById('topbarNotifBadge');
+        if (topbarNotifBadge) {
+            topbarNotifBadge.textContent = count;
+            topbarNotifBadge.style.display = count > 0 ? 'inline-block' : 'none';
+        }
+
+        // 3. Cập nhật thẻ tóm tắt Dashboard
+        const summaryNewLeadsEl = document.getElementById('summaryNewLeadsBadge');
+        if (summaryNewLeadsEl) summaryNewLeadsEl.textContent = count;
+
+        const kpiNewEl = document.getElementById('kpiNewLeads');
+        if (kpiNewEl) kpiNewEl.textContent = count;
+
+        // 4. Cập nhật danh sách trong dropdown thông báo
+        const notifContainer = document.getElementById('notifListContainer');
+        if (notifContainer) {
+            if (newLeads.length === 0) {
+                notifContainer.innerHTML = `
+                    <div class="notif-empty">
+                        <i class="fas fa-check-circle" style="font-size:26px; color:#10B981; margin-bottom:8px; display:block;"></i>
+                        Tất cả các đơn đã được tiếp nhận và xử lý chu toàn!
+                    </div>
+                `;
+            } else {
+                notifContainer.innerHTML = newLeads.slice(0, 8).map(lead => `
+                    <div class="notif-item unread" onclick="selectLeadFromNotif('${lead.id}')">
+                        <div class="notif-item-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="notif-item-content">
+                            <div class="notif-item-title">${lead.coupleNames}</div>
+                            <div class="notif-item-desc">
+                                SĐT: <strong>${lead.phone}</strong> • Cưới: ${lead.weddingDate || 'Chưa định'}
+                            </div>
+                            <div class="notif-item-time">
+                                <i class="far fa-clock"></i> Gửi lúc: ${lead.submittedAt}
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+    }
+    window.updateNotificationBadges = updateNotificationBadges;
+
+    window.toggleNotificationDropdown = function (e) {
+        if (e) e.stopPropagation();
+        const dropdown = document.getElementById('notifDropdown');
+        if (!dropdown) return;
+        const isShown = dropdown.style.display === 'block';
+        dropdown.style.display = isShown ? 'none' : 'block';
+    };
+
+    // Đóng dropdown khi bấm ra ngoài
+    document.addEventListener('click', function (e) {
+        const wrap = document.getElementById('topbarNotifWrap');
+        const dropdown = document.getElementById('notifDropdown');
+        if (dropdown && wrap && !wrap.contains(e.target)) {
+            dropdown.style.display = 'none';
+        }
+    });
+
+    window.markAllLeadsSeen = function () {
+        const leads = getLeads();
+        let changed = false;
+        leads.forEach(l => {
+            if (l.status === 'Mới nhận') {
+                l.status = 'Đang tư vấn';
+                changed = true;
+            }
+        });
+        if (changed) {
+            saveLeads(leads);
+            showToast('Đã đánh dấu toàn bộ đơn là Đang tư vấn.', 'success');
+        } else {
+            showToast('Hiện không có đơn mới nào chưa xem.', 'info');
+        }
+        const dropdown = document.getElementById('notifDropdown');
+        if (dropdown) dropdown.style.display = 'none';
+    };
+
+    window.goToLeadsTab = function () {
+        const dropdown = document.getElementById('notifDropdown');
+        if (dropdown) dropdown.style.display = 'none';
+        const tabBtn = document.querySelector('button[onclick*="tabLeads"]');
+        if (tabBtn) {
+            switchTab('tabLeads', tabBtn);
+        } else {
+            switchTab('tabLeads');
+        }
+    };
+
+    window.selectLeadFromNotif = function (leadId) {
+        window.goToLeadsTab();
+        setTimeout(() => {
+            const searchInput = document.getElementById('leadSearchInput');
+            if (searchInput) {
+                const leads = getLeads();
+                const target = leads.find(l => l.id === leadId);
+                if (target) {
+                    searchInput.value = target.phone;
+                    renderLeadsTable();
+                }
+            }
+        }, 100);
+    };
+
+    function playNotificationSound() {
+        try {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (!AudioCtx) return;
+            const ctx = new AudioCtx();
+            const now = ctx.currentTime;
+            
+            // Âm thanh chuông báo tinh tế (2 note C5 -> G5)
+            const osc1 = ctx.createOscillator();
+            const gain1 = ctx.createGain();
+            osc1.type = 'sine';
+            osc1.frequency.setValueAtTime(523.25, now);
+            gain1.gain.setValueAtTime(0.12, now);
+            gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+            osc1.connect(gain1);
+            gain1.connect(ctx.destination);
+            osc1.start(now);
+            osc1.stop(now + 0.35);
+
+            const osc2 = ctx.createOscillator();
+            const gain2 = ctx.createGain();
+            osc2.type = 'sine';
+            osc2.frequency.setValueAtTime(783.99, now + 0.12);
+            gain2.gain.setValueAtTime(0.15, now + 0.12);
+            gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.5);
+            osc2.connect(gain2);
+            gain2.connect(ctx.destination);
+            osc2.start(now + 0.12);
+            osc2.stop(now + 0.5);
+        } catch (e) {
+            // AudioContext may be restricted before user gesture, safely bypass
+        }
+    }
+
+    // TẠO ĐƠN THỬ NGHIỆM ĐỂ TEST ĐỒNG BỘ THÔNG BÁO VÀ DATABASE
+    window.createMockLeadTest = function () {
+        const mockNames = [
+            'Huy Hoàng & Ánh Tuyết',
+            'Đức Thịnh & Diễm My',
+            'Gia Huy & Thùy Dung',
+            'Thanh Tuấn & Mai Lan',
+            'Văn Khang & Ngọc Trâm'
+        ];
+        const mockPhones = ['0903 111 222', '0918 333 444', '0937 555 666', '0979 777 888', '0988 999 000'];
+        const mockLocations = ['Phường Bàn Cờ, Q.3', 'Thảo Điền, TP. Thủ Đức', 'Tư gia Quận 7', 'Biệt thự Bình Thạnh', 'Quận 1, TP.HCM'];
+        const mockServices = [
+            ['Trang trí gia tiên', 'Mâm quả cưới hỏi'],
+            ['Trang trí gia tiên', 'Rạp cưới & bàn ghế'],
+            ['Trọn gói gia tiên & xe hoa'],
+            ['Trang trí gia tiên cao cấp']
+        ];
+
+        const randomIdx = Math.floor(Math.random() * mockNames.length);
+        const now = new Date();
+        const pad = n => String(n).padStart(2, '0');
+        const timeStr = `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+
+        const testLead = {
+            id: 'lead_' + Date.now(),
+            submittedAt: timeStr,
+            timestamp: Date.now(),
+            coupleNames: mockNames[randomIdx],
+            phone: mockPhones[randomIdx],
+            email: 'test.couple@gmail.com',
+            weddingDate: '15/12/2026',
+            weddingLocation: mockLocations[randomIdx],
+            services: mockServices[randomIdx % mockServices.length],
+            weddingBudget: '30.000.000đ',
+            weddingNotes: 'Đơn thử nghiệm hệ thống đồng bộ thông báo và database thời gian thực.',
+            sourceReferral: 'Thử Nghiệm Admin',
+            status: 'Mới nhận'
+        };
+
+        const leads = getLeads();
+        leads.unshift(testLead);
+        saveLeads(leads);
+
+        playNotificationSound();
+        showToast(`🔔 Đã tạo đơn thử nghiệm từ ${testLead.coupleNames} (${testLead.phone})!`, 'success');
+
+        // Bắn tín hiệu sang các tab khác
+        localStorage.setItem('tc_new_lead_event', JSON.stringify({
+            id: testLead.id,
+            coupleNames: testLead.coupleNames,
+            phone: testLead.phone,
+            time: Date.now()
+        }));
+    };
+
+    // LẮNG NGHE ĐƠN MỚI TỪ CÁC TAB KHÁC THỜI GIAN THỰC (REALTIME STORAGE SYNC)
+    window.addEventListener('storage', function (e) {
+        if (e.key === 'tc_consultations' || e.key === 'tc_new_lead_event') {
+            console.log('[Admin Sync] Nhận tín hiệu dữ liệu đơn tư vấn cập nhật!');
+            renderDashboard();
+            renderLeadsTable();
+            updateNotificationBadges();
+
+            if (e.key === 'tc_new_lead_event' && e.newValue) {
+                try {
+                    const info = JSON.parse(e.newValue);
+                    playNotificationSound();
+                    showToast(`🔔 Khách vừa đặt lịch: ${info.coupleNames || 'Khách mới'} (${info.phone || ''})`, 'info');
+                } catch (err) {}
+            }
+        }
+    });
+
+    window.addEventListener('tc_new_lead', function (e) {
+        renderDashboard();
+        renderLeadsTable();
+        updateNotificationBadges();
+        if (e.detail) {
+            playNotificationSound();
+            showToast(`🔔 Khách vừa đặt lịch: ${e.detail.coupleNames} (${e.detail.phone})`, 'info');
+        }
+    });
+
+    // ==========================================
+    // 13. KHỞI TẠO TỔNG THỂ
     // ==========================================
     function renderAllViews() {
         renderDashboard();
@@ -1155,6 +1389,7 @@
         initCanvaEditor();
         loadSiteEditorData();
         loadSettingsForm();
+        updateNotificationBadges();
     }
 
     document.addEventListener('DOMContentLoaded', () => {

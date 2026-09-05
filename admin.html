@@ -238,6 +238,29 @@
                 </div>
 
                 <div class="topbar-right">
+                    <!-- Notification Bell & Dropdown -->
+                    <div class="topbar-notif-wrap" id="topbarNotifWrap">
+                        <button type="button" class="topbar-notif-btn" id="btnNotifBell" onclick="toggleNotificationDropdown(event)" title="Thông báo đơn tư vấn mới">
+                            <i class="far fa-bell"></i>
+                            <span class="notif-badge" id="topbarNotifBadge" style="display: none;">0</span>
+                        </button>
+                        <div class="notif-dropdown" id="notifDropdown" style="display: none;">
+                            <div class="notif-header">
+                                <div class="notif-header-title">
+                                    <i class="fas fa-bell" style="color: var(--tc-gold);"></i>
+                                    <span>Đơn Đặt Lịch Mới</span>
+                                </div>
+                                <button type="button" class="notif-btn-clear" onclick="markAllLeadsSeen()">Đánh dấu đã xem</button>
+                            </div>
+                            <div class="notif-body" id="notifListContainer">
+                                <!-- Nạp động qua JS -->
+                            </div>
+                            <div class="notif-footer">
+                                <button type="button" class="notif-view-all" onclick="goToLeadsTab()">Xem Toàn Bộ Sổ Tay Khách Hàng &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
                     <button onclick="exportLeadsToExcel()" class="topbar-btn" title="Xuất danh sách sang file Excel (.xlsx)">
                         <i class="far fa-file-excel" style="color: #10B981; font-size: 14px;"></i> Xuất Excel
                     </button>
@@ -261,7 +284,7 @@
                     <div class="dash-welcome-card">
                         <div>
                             <h2 class="dash-welcome-title">Xin chào Cô Chủ Trầu Cau!</h2>
-                            <p class="dash-welcome-desc">Chào mừng cô quay trở lại bàn làm việc. Hiện có <strong id="summaryNewLeadsBadge" class="dash-new-badge">1 đơn mới</strong> từ khách hàng cần tư vấn sớm.</p>
+                            <p class="dash-welcome-desc">Chào mừng cô quay trở lại bàn làm việc. Hiện có <strong id="summaryNewLeadsBadge" class="dash-new-badge">1</strong> đơn tư vấn mới từ khách hàng cần liên hệ sớm.</p>
                         </div>
                         <div class="dash-welcome-date">
                             <i class="far fa-calendar-alt"></i> <span id="dashCurrentDate">Thứ Bảy, 05/09/2026</span>
@@ -431,11 +454,14 @@
                                 <button class="filter-pill" onclick="filterLeadsByStatus('Hoàn thành', this)">Hoàn Thành</button>
                             </div>
 
-                            <div style="display: flex; gap: 12px; align-items: center;">
+                            <div style="display: flex; gap: 8px; align-items: center;">
                                 <div class="search-box">
                                     <i class="fas fa-search search-icon"></i>
                                     <input type="text" id="leadSearchInput" class="search-input" placeholder="Tìm tên, SĐT, quận..." oninput="renderLeadsTable()">
                                 </div>
+                                <button type="button" onclick="createMockLeadTest()" class="topbar-btn" title="Tạo thử 1 đơn khách mới để test đồng bộ thông báo">
+                                    <i class="fas fa-plus-circle" style="color: var(--tc-gold);"></i> Tạo Đơn Thử Nghiệm
+                                </button>
                                 <button onclick="exportLeadsToExcel()" class="topbar-btn">
                                     <i class="far fa-file-excel" style="color: #10B981;"></i> Xuất Excel (.xlsx)
                                 </button>

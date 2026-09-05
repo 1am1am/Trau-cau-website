@@ -4415,10 +4415,14 @@
             consultForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 
-                const coupleNames = document.getElementById('coupleNames').value.trim();
-                const phone = document.getElementById('clientPhone').value.trim();
-                const weddingDate = document.getElementById('weddingDate').value.trim();
-                const location = document.getElementById('weddingLocation').value.trim();
+                const coupleNames = document.getElementById('coupleNames') ? document.getElementById('coupleNames').value.trim() : '';
+                const phone = document.getElementById('clientPhone') ? document.getElementById('clientPhone').value.trim() : '';
+                const email = document.getElementById('clientEmail') ? document.getElementById('clientEmail').value.trim() : '';
+                const weddingDate = document.getElementById('weddingDate') ? document.getElementById('weddingDate').value.trim() : '';
+                const location = document.getElementById('weddingLocation') ? document.getElementById('weddingLocation').value.trim() : '';
+                const budget = document.getElementById('weddingBudget') ? document.getElementById('weddingBudget').value.trim() : '';
+                const notes = document.getElementById('weddingNotes') ? document.getElementById('weddingNotes').value.trim() : '';
+                const referral = document.getElementById('sourceReferral') ? document.getElementById('sourceReferral').value : '';
                 
                 // Thu thập các dịch vụ được chọn
                 const checkedServices = [];
@@ -4426,13 +4430,72 @@
                     checkedServices.push(cb.value);
                 });
                 
-                // Tạo nội dung tin nhắn Zalo mẫu để khách có thể gửi trao đổi ngay
+                // 1. TẠO ĐƠN TƯ VẤN VÀ LƯU VÀO HỆ THỐNG DATABASE (LOCALSTORAGE)
+                const now = new Date();
+                const pad = n => String(n).padStart(2, '0');
+                const timeStr = `${pad(now.getDate())}/${pad(now.getMonth() + 1)}/${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+                
+                const newLead = {
+                    id: 'lead_' + Date.now(),
+                    submittedAt: timeStr,
+                    timestamp: Date.now(),
+                    coupleNames: coupleNames || 'Khách Đặt Tư Vấn',
+                    phone: phone,
+                    email: email || '',
+                    weddingDate: weddingDate || 'Chưa định',
+                    weddingLocation: location || 'TP.HCM',
+                    services: checkedServices.length > 0 ? checkedServices : ['Trang trí gia tiên'],
+                    weddingBudget: budget || 'Chưa xác định',
+                    weddingNotes: notes || '',
+                    sourceReferral: referral || 'Website Trực Tiếp',
+                    status: 'Mới nhận'
+                };
+
+                try {
+                    let existingLeads = [];
+                    const rawLeads = localStorage.getItem('tc_consultations');
+                    if (rawLeads) {
+                        try { existingLeads = JSON.parse(rawLeads); } catch (err) { existingLeads = []; }
+                    }
+                    existingLeads.unshift(newLead);
+                    localStorage.setItem('tc_consultations', JSON.stringify(existingLeads));
+                    
+                    // Phát tín hiệu thông báo thời gian thực sang Admin tab
+                    localStorage.setItem('tc_new_lead_event', JSON.stringify({
+                        id: newLead.id,
+                        coupleNames: newLead.coupleNames,
+                        phone: newLead.phone,
+                        weddingDate: newLead.weddingDate,
+                        time: Date.now()
+                    }));
+
+                    window.dispatchEvent(new CustomEvent('tc_new_lead', { detail: newLead }));
+                } catch (storeErr) {
+                    console.error('[Trầu Cau Lead] Lỗi lưu đơn tư vấn:', storeErr);
+                }
+
+                // 2. GỬI TỰ ĐỘNG SANG GOOGLE SHEET QUA APPS SCRIPT WEBHOOK (NẾU ĐÃ CÀI ĐẶT)
+                const gsheetWebhook = localStorage.getItem('tc_gsheet_webhook');
+                if (gsheetWebhook && gsheetWebhook.startsWith('http')) {
+                    try {
+                        fetch(gsheetWebhook, {
+                            method: 'POST',
+                            mode: 'no-cors',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(newLead)
+                        }).catch(e => console.warn('[Google Sheet Webhook] Gửi thất bại:', e));
+                    } catch (e) {
+                        // ignore network error in sandbox
+                    }
+                }
+
+                // 3. TẠO NỘI DUNG TIN NHẮN ZALO MẪU
                 const messageText = `Chào Trầu Cau Wedding, mình là ${coupleNames} (SĐT: ${phone}). Mình dự kiến cưới ngày ${weddingDate} tại ${location}. Dịch vụ quan tâm: ${checkedServices.join(', ')}. Nhờ Trầu Cau tư vấn giúp mình nhé!`;
                 if (successZaloLink) {
                     successZaloLink.href = `https://zalo.me/0932005738?text=${encodeURIComponent(messageText)}`;
                 }
 
-                // Ẩn form và hiện thông báo cảm ơn tinh tế
+                // 4. Ẩn form và hiện thông báo cảm ơn tinh tế
                 consultForm.style.display = 'none';
                 consultSuccess.style.display = 'block';
                 
