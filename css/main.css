@@ -167,10 +167,10 @@ h1, h2, h3, h4 {
 }
 
 .header.scrolled {
-    background-color: rgba(45, 66, 48, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 14px 0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    background-color: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    padding: 15px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .nav-container {
@@ -187,19 +187,20 @@ h1, h2, h3, h4 {
 
 .logo-text {
     font-family: var(--font-brand);
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--green);
     letter-spacing: 2px;
-    line-height: 1;
+    line-height: 1.1;
 }
 
 .logo-tagline {
-    font-size: 0.6rem;
-    color: var(--ivory);
-    letter-spacing: 2.5px;
+    font-size: 0.68rem;
+    color: var(--gold-text);
+    letter-spacing: 2px;
     text-transform: uppercase;
-    margin-top: 4px;
+    margin-top: 3px;
+    font-weight: 600;
 }
 
 .nav-menu {
@@ -210,15 +211,15 @@ h1, h2, h3, h4 {
 }
 
 .nav-link {
-    color: var(--ivory);
+    color: var(--green-dark);
     text-decoration: none;
     font-size: 0.85rem;
-    font-weight: 500;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     position: relative;
     padding: 6px 0;
-    transition: color 0.3s;
+    transition: color 0.3s ease;
     white-space: nowrap;
 }
 
@@ -229,12 +230,12 @@ h1, h2, h3, h4 {
     left: 0;
     width: 0;
     height: 1.5px;
-    background-color: var(--gold);
+    background-color: var(--gold-text);
     transition: width 0.3s ease;
 }
 
 .nav-link:hover, .nav-link.active {
-    color: var(--gold);
+    color: var(--gold-text);
 }
 
 .nav-link:hover::after, .nav-link.active::after {
