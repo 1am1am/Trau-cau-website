@@ -1,35 +1,46 @@
 /**
  * =========================================================================
- * CƯỚI HỎI TRẦU CAU — ADMIN MANAGEMENT PANEL STYLESHEET
- * Luxury Royal Wedding Theme & Non-Tech Friendly High Usability
+ * CƯỚI HỎI TRẦU CAU — ATELIER ADMIN SUITE (LUXURY ARTISANAL THEME)
+ * Handcrafted, Warm, Non-Tech Friendly & Zero "AI Boxy Vibe"
  * =========================================================================
  */
 
 :root {
-    --adm-green-deep: #1B351E;
-    --adm-green: #2B4C28;
-    --adm-green-light: #3D6639;
-    --adm-green-subtle: #EBF2EA;
-    --adm-gold: #C59B27;
-    --adm-gold-light: #F4E7BF;
-    --adm-gold-dark: #9A7618;
-    --adm-ivory: #FAF8F2;
-    --adm-bg: #F4F2EC;
-    --adm-card-bg: #FFFFFF;
-    --adm-text-main: #1F2A1E;
-    --adm-text-muted: #667264;
-    --adm-border: rgba(43, 76, 40, 0.12);
-    --adm-border-focus: #C59B27;
+    /* Bản Sắc Màu Cưới Hoàng Gia Nam Bộ */
+    --tc-forest: #1A341D;
+    --tc-green: #254629;
+    --tc-green-soft: #385E3D;
+    --tc-green-light: #EBF2EB;
+    --tc-green-mist: #F4F7F4;
     
-    --adm-shadow-sm: 0 2px 8px rgba(27, 53, 30, 0.05);
-    --adm-shadow-md: 0 8px 24px rgba(27, 53, 30, 0.08);
-    --adm-shadow-lg: 0 16px 40px rgba(27, 53, 30, 0.12);
-    --adm-radius: 12px;
-    --adm-radius-lg: 18px;
-    --adm-radius-pill: 50px;
+    --tc-gold: #C59B27;
+    --tc-gold-champagne: #D8B758;
+    --tc-gold-light: #FBF4DE;
+    --tc-gold-foil: linear-gradient(135deg, #C59B27 0%, #E8D18C 50%, #C59B27 100%);
     
-    --adm-font-serif: 'Playfair Display', serif;
-    --adm-font-sans: 'Plus Jakarta Sans', sans-serif;
+    --tc-paper: #FAF8F2;
+    --tc-paper-warm: #F4EFE6;
+    --tc-paper-card: #FFFFFF;
+    --tc-ink: #1B261D;
+    --tc-ink-soft: #4E5C50;
+    --tc-ink-muted: #7E8C80;
+    
+    --tc-gold-line: rgba(197, 155, 39, 0.28);
+    --tc-border-soft: rgba(37, 70, 41, 0.08);
+    
+    /* Đổ bóng tự nhiên như chất liệu giấy mộc & lụa tơ tằm */
+    --tc-shadow-soft: 0 4px 18px rgba(26, 52, 29, 0.04);
+    --tc-shadow-card: 0 10px 30px -5px rgba(26, 52, 29, 0.06), 0 2px 6px rgba(0,0,0,0.02);
+    --tc-shadow-hover: 0 16px 36px -8px rgba(26, 52, 29, 0.12);
+    
+    --tc-radius-sm: 8px;
+    --tc-radius: 14px;
+    --tc-radius-lg: 22px;
+    --tc-radius-pill: 50px;
+    
+    --tc-font-serif: 'Playfair Display', Georgia, serif;
+    --tc-font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    --tc-font-cinzel: 'Cinzel', serif;
 }
 
 * {
@@ -39,24 +50,26 @@
 }
 
 body {
-    font-family: var(--adm-font-sans);
-    background-color: var(--adm-bg);
-    color: var(--adm-text-main);
-    line-height: 1.6;
+    font-family: var(--tc-font-sans);
+    background-color: var(--tc-paper-warm);
+    background-image: radial-gradient(rgba(197, 155, 39, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+    color: var(--tc-ink);
+    line-height: 1.65;
     font-size: 15px;
     -webkit-font-smoothing: antialiased;
 }
 
 /* ==========================================================================
-   1. AUTHENTICATION & LOGIN / FORGOT PASSWORD MODAL SCREEN
+   1. MÀN HÌNH ĐĂNG NHẬP / XÁC THỰC THIỆP CƯỚI (AUTH SCREEN)
    ========================================================================== */
 .auth-wrapper {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 24px;
-    background: radial-gradient(circle at top, #2E502B 0%, #152718 100%);
+    padding: 30px 20px;
+    background: radial-gradient(circle at top center, #244627 0%, #132415 100%);
     position: relative;
     overflow: hidden;
 }
@@ -64,22 +77,33 @@ body {
 .auth-wrapper::before {
     content: '';
     position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(197, 155, 39, 0.15) 0%, transparent 70%);
-    top: -100px;
-    right: -100px;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(197, 155, 39, 0.18) 0%, transparent 68%);
+    top: -150px;
+    right: -150px;
+    pointer-events: none;
+}
+
+.auth-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(235, 242, 235, 0.08) 0%, transparent 70%);
+    bottom: -100px;
+    left: -100px;
     pointer-events: none;
 }
 
 .auth-card {
     background: #FAF8F2;
-    border: 2px solid rgba(197, 155, 39, 0.35);
-    border-radius: 20px;
+    border: 2px solid var(--tc-gold-line);
+    border-radius: var(--tc-radius-lg);
     width: 100%;
-    max-width: 480px;
-    padding: 40px 36px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    max-width: 460px;
+    padding: 44px 38px;
+    box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.45);
     position: relative;
     z-index: 2;
 }
@@ -93,40 +117,40 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 68px;
-    height: 68px;
-    background: var(--adm-green);
-    color: var(--adm-gold-light);
+    width: 70px;
+    height: 70px;
+    background: var(--tc-forest);
+    color: var(--tc-gold-champagne);
     border-radius: 50%;
     font-size: 28px;
-    margin-bottom: 14px;
-    border: 2px solid var(--adm-gold);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    margin-bottom: 16px;
+    border: 2px solid var(--tc-gold);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .auth-title {
-    font-family: var(--adm-font-serif);
+    font-family: var(--tc-font-serif);
     font-size: 26px;
-    color: var(--adm-green-deep);
+    color: var(--tc-forest);
     font-weight: 700;
     letter-spacing: 0.5px;
 }
 
 .auth-subtitle {
-    color: var(--adm-text-muted);
+    color: var(--tc-ink-soft);
     font-size: 14px;
-    margin-top: 4px;
+    margin-top: 6px;
 }
 
 .auth-form-group {
-    margin-bottom: 18px;
+    margin-bottom: 20px;
 }
 
 .auth-label {
     display: block;
     font-weight: 600;
-    color: var(--adm-green-deep);
-    margin-bottom: 6px;
+    color: var(--tc-forest);
+    margin-bottom: 7px;
     font-size: 14px;
 }
 
@@ -136,54 +160,53 @@ body {
 
 .auth-input {
     width: 100%;
-    padding: 13px 16px;
-    padding-left: 42px;
-    border: 1.5px solid rgba(43, 76, 40, 0.2);
-    border-radius: 10px;
+    padding: 13px 16px 13px 44px;
+    border: 1.5px solid rgba(37, 70, 41, 0.18);
+    border-radius: 12px;
     background: #FFFFFF;
     font-size: 15px;
-    color: var(--adm-text-main);
+    color: var(--tc-ink);
     transition: all 0.25s ease;
 }
 
 .auth-input:focus {
     outline: none;
-    border-color: var(--adm-gold);
+    border-color: var(--tc-gold);
     box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.2);
 }
 
 .auth-input-icon {
     position: absolute;
-    left: 14px;
+    left: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--adm-green);
+    color: var(--tc-green);
     font-size: 16px;
 }
 
 .auth-toggle-pwd {
     position: absolute;
-    right: 14px;
+    right: 15px;
     top: 50%;
     transform: translateY(-50%);
     background: none;
     border: none;
-    color: var(--adm-text-muted);
+    color: var(--tc-ink-muted);
     cursor: pointer;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .auth-btn-primary {
     width: 100%;
-    padding: 14px;
-    background: linear-gradient(135deg, var(--adm-green) 0%, var(--adm-green-deep) 100%);
+    padding: 14px 20px;
+    background: linear-gradient(135deg, var(--tc-green) 0%, var(--tc-forest) 100%);
     color: #FFFFFF;
-    border: 1px solid var(--adm-gold);
-    border-radius: 10px;
-    font-size: 16px;
+    border: 1px solid var(--tc-gold);
+    border-radius: 12px;
+    font-size: 15.5px;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 6px 18px rgba(27, 53, 30, 0.25);
+    box-shadow: 0 6px 20px rgba(26, 52, 29, 0.25);
     transition: all 0.25s ease;
     display: flex;
     align-items: center;
@@ -192,9 +215,9 @@ body {
 }
 
 .auth-btn-primary:hover {
-    background: linear-gradient(135deg, var(--adm-green-light) 0%, var(--adm-green) 100%);
+    background: linear-gradient(135deg, var(--tc-green-soft) 0%, var(--tc-green) 100%);
     transform: translateY(-1px);
-    box-shadow: 0 8px 22px rgba(27, 53, 30, 0.3);
+    box-shadow: 0 8px 24px rgba(26, 52, 29, 0.32);
 }
 
 .auth-footer-links {
@@ -206,54 +229,43 @@ body {
 }
 
 .auth-link {
-    color: var(--adm-green);
+    color: var(--tc-green);
     text-decoration: none;
     font-weight: 600;
     transition: color 0.2s;
 }
 
 .auth-link:hover {
-    color: var(--adm-gold-dark);
+    color: var(--tc-gold);
     text-decoration: underline;
 }
 
-.otp-box-grid {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin: 16px 0;
-}
-
 .otp-digit-input {
-    width: 48px;
-    height: 56px;
+    width: 100%;
+    max-width: 240px;
+    height: 58px;
     text-align: center;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: 700;
-    color: var(--adm-green-deep);
-    border: 2px solid rgba(43, 76, 40, 0.25);
-    border-radius: 8px;
+    color: var(--tc-forest);
+    border: 2px solid var(--tc-gold-line);
+    border-radius: 12px;
     background: #FFFFFF;
-}
-
-.otp-digit-input:focus {
-    outline: none;
-    border-color: var(--adm-gold);
-    box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.25);
+    letter-spacing: 8px;
 }
 
 /* ==========================================================================
-   2. MAIN ADMIN APP LAYOUT (SIDEBAR + CONTENT)
+   2. KHUNG GIAO DIỆN QUẢN TRỊ (ORGANIC ATELIER LAYOUT)
    ========================================================================== */
 .admin-app {
     display: flex;
     min-height: 100vh;
 }
 
-/* Sidebar */
+/* Thanh Sidebar Nghệ Nhân */
 .admin-sidebar {
-    width: 275px;
-    background: var(--adm-green-deep);
+    width: 280px;
+    background: linear-gradient(180deg, #18311B 0%, #122414 100%);
     color: #FFFFFF;
     display: flex;
     flex-direction: column;
@@ -262,66 +274,70 @@ body {
     bottom: 0;
     left: 0;
     z-index: 100;
-    border-right: 1px solid rgba(197, 155, 39, 0.25);
-    transition: transform 0.3s ease;
+    border-right: 1px solid var(--tc-gold-line);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .sidebar-brand {
-    padding: 24px 20px;
+    padding: 26px 22px;
     display: flex;
     align-items: center;
     gap: 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .sidebar-logo-icon {
     width: 44px;
     height: 44px;
-    background: rgba(197, 155, 39, 0.2);
-    border: 1.5px solid var(--adm-gold);
-    border-radius: 10px;
+    background: rgba(197, 155, 39, 0.18);
+    border: 1.5px solid var(--tc-gold);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--adm-gold-light);
+    color: var(--tc-gold-champagne);
     font-size: 20px;
 }
 
 .sidebar-title {
-    font-family: var(--adm-font-serif);
-    font-size: 18px;
+    font-family: var(--tc-font-serif);
+    font-size: 19px;
     font-weight: 700;
     letter-spacing: 0.5px;
     color: #FFFFFF;
 }
 
 .sidebar-tagline {
-    font-size: 11.5px;
-    color: var(--adm-gold-light);
+    font-size: 11px;
+    color: var(--tc-gold-champagne);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
 }
 
+/* Thẻ cô chủ */
 .sidebar-user-card {
-    padding: 18px 20px;
+    margin: 16px 14px 8px;
+    padding: 14px 16px;
     display: flex;
     align-items: center;
     gap: 12px;
-    background: rgba(255, 255, 255, 0.04);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(197, 155, 39, 0.2);
+    border-radius: 14px;
 }
 
 .sidebar-avatar {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: #C59B27;
-    color: #1B351E;
+    background: var(--tc-gold-foil);
+    color: var(--tc-forest);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
-    font-size: 18px;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
 }
 
 .sidebar-user-name {
@@ -340,27 +356,28 @@ body {
 
 .sidebar-user-status::before {
     content: '';
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     background: #4ADE80;
     border-radius: 50%;
+    box-shadow: 0 0 8px #4ADE80;
 }
 
 .sidebar-nav {
     flex: 1;
-    padding: 18px 12px;
+    padding: 12px 14px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 4px;
 }
 
 .nav-heading {
     font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     color: rgba(255, 255, 255, 0.4);
-    padding: 10px 14px 4px;
+    padding: 12px 14px 4px;
     font-weight: 700;
 }
 
@@ -369,45 +386,46 @@ body {
     align-items: center;
     gap: 14px;
     padding: 12px 16px;
-    border-radius: 10px;
+    border-radius: 12px;
     color: rgba(255, 255, 255, 0.85);
-    background: none;
+    background: transparent;
     border: none;
     width: 100%;
     text-align: left;
-    font-size: 14.5px;
+    font-size: 14px;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.22s ease;
 }
 
 .nav-item-btn i {
-    font-size: 17px;
+    font-size: 16px;
     width: 22px;
-    color: var(--adm-gold-light);
+    color: var(--tc-gold-champagne);
     opacity: 0.85;
 }
 
 .nav-item-btn:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.07);
     color: #FFFFFF;
+    transform: translateX(3px);
 }
 
 .nav-item-btn.active {
-    background: linear-gradient(90deg, rgba(197, 155, 39, 0.25) 0%, rgba(197, 155, 39, 0.05) 100%);
+    background: linear-gradient(90deg, rgba(197, 155, 39, 0.28) 0%, rgba(197, 155, 39, 0.08) 100%);
     color: #FFFFFF;
     font-weight: 600;
-    border-left: 3px solid var(--adm-gold);
+    border-left: 3px solid var(--tc-gold);
 }
 
 .nav-item-btn.active i {
-    color: var(--adm-gold);
+    color: var(--tc-gold);
     opacity: 1;
 }
 
 .nav-badge {
     margin-left: auto;
-    padding: 3px 8px;
+    padding: 3px 9px;
     border-radius: 20px;
     font-size: 11.5px;
     font-weight: 700;
@@ -439,21 +457,21 @@ body {
     color: #FF8080;
 }
 
-/* Main Content Wrapper */
+/* Phần Thân Trang Chính */
 .admin-main {
     flex: 1;
-    margin-left: 275px;
+    margin-left: 280px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* Topbar */
 .admin-topbar {
-    height: 72px;
-    background: #FFFFFF;
-    border-bottom: 1px solid var(--adm-border);
-    padding: 0 32px;
+    height: 74px;
+    background: rgba(250, 248, 242, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--tc-border-soft);
+    padding: 0 36px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -473,21 +491,21 @@ body {
     background: none;
     border: none;
     font-size: 20px;
-    color: var(--adm-green-deep);
+    color: var(--tc-forest);
     cursor: pointer;
 }
 
 .topbar-page-title {
-    font-family: var(--adm-font-serif);
+    font-family: var(--tc-font-serif);
     font-size: 22px;
     font-weight: 700;
-    color: var(--adm-green-deep);
+    color: var(--tc-forest);
 }
 
 .topbar-right {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 14px;
 }
 
 .btn-topbar-action {
@@ -495,37 +513,38 @@ body {
     align-items: center;
     gap: 8px;
     padding: 9px 18px;
-    border-radius: 8px;
+    border-radius: var(--tc-radius-pill);
     font-size: 13.5px;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
 }
 
 .btn-topbar-outline {
-    border: 1.5px solid var(--adm-green);
-    color: var(--adm-green);
+    border: 1.5px solid var(--tc-green);
+    color: var(--tc-green);
     background: transparent;
 }
 
 .btn-topbar-outline:hover {
-    background: var(--adm-green-subtle);
+    background: var(--tc-green-light);
 }
 
 .btn-topbar-gold {
-    background: var(--adm-gold);
-    color: #1B351E;
-    border: 1px solid var(--adm-gold-dark);
+    background: var(--tc-gold-foil);
+    color: var(--tc-forest);
+    border: 1px solid rgba(197, 155, 39, 0.4);
+    box-shadow: 0 3px 12px rgba(197, 155, 39, 0.25);
 }
 
 .btn-topbar-gold:hover {
-    background: #D4AF37;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 16px rgba(197, 155, 39, 0.35);
 }
 
-/* Page Content Body */
 .admin-body {
-    padding: 32px;
+    padding: 36px;
     flex: 1;
 }
 
@@ -535,266 +554,215 @@ body {
 
 .admin-tab-pane.active {
     display: block;
-    animation: fadeIn 0.3s ease;
+    animation: atelierFadeIn 0.3s ease;
 }
 
-@keyframes fadeIn {
+@keyframes atelierFadeIn {
     from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
 /* ==========================================================================
-   3. DASHBOARD STATS & KPI CARDS
+   3. KHÔNG KHÍ THỦ CÔNG: BÀN LÀM VIỆC & SỔ TAY KHÁCH HÀNG (UNBOXED)
    ========================================================================== */
-.dashboard-kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 28px;
-}
 
-.kpi-card {
-    background: #FFFFFF;
-    border: 1px solid var(--adm-border);
-    border-radius: var(--adm-radius);
-    padding: 22px;
-    box-shadow: var(--adm-shadow-sm);
+/* Lời Chào Thân Mật Thay Cho Thẻ KPI Cứng Nhắc */
+.atelier-welcome-banner {
+    background: linear-gradient(135deg, #FAF8F2 0%, #F5EFE3 100%);
+    border: 1px solid var(--tc-gold-line);
+    border-radius: var(--tc-radius-lg);
+    padding: 28px 32px;
+    margin-bottom: 30px;
+    box-shadow: var(--tc-shadow-card);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
 }
 
-.kpi-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--adm-shadow-md);
+.atelier-welcome-banner::after {
+    content: '❦';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 110px;
+    color: rgba(197, 155, 39, 0.07);
+    pointer-events: none;
+    font-family: serif;
 }
 
-.kpi-title {
-    font-size: 13.5px;
-    color: var(--adm-text-muted);
-    font-weight: 600;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.kpi-value {
-    font-size: 32px;
-    font-family: var(--adm-font-serif);
+.welcome-lead-title {
+    font-family: var(--tc-font-serif);
+    font-size: 24px;
+    color: var(--tc-forest);
     font-weight: 700;
-    color: var(--adm-green-deep);
-    line-height: 1.1;
+    margin-bottom: 6px;
 }
 
-.kpi-sub {
-    font-size: 12.5px;
-    margin-top: 8px;
-    color: #16A34A;
+.welcome-lead-sub {
+    color: var(--tc-ink-soft);
+    font-size: 14.5px;
+    max-width: 620px;
+}
+
+.welcome-summary-pills {
     display: flex;
-    align-items: center;
-    gap: 4px;
-    font-weight: 500;
+    gap: 14px;
+    margin-top: 18px;
+    flex-wrap: wrap;
 }
 
-.kpi-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 22px;
-}
-
-.kpi-icon.green { background: #EBF2EA; color: #2B4C28; }
-.kpi-icon.gold { background: #FAF3DE; color: #9A7618; }
-.kpi-icon.blue { background: #E0F2FE; color: #0284C7; }
-.kpi-icon.rose { background: #FFE4E6; color: #E11D48; }
-
-/* Dashboard Actions Bar */
-.dashboard-actions-row {
+.summary-pill {
     background: #FFFFFF;
-    border: 1px solid var(--adm-border);
-    border-radius: var(--adm-radius);
-    padding: 16px 20px;
+    border: 1px solid var(--tc-border-soft);
+    padding: 8px 18px;
+    border-radius: var(--tc-radius-pill);
+    font-size: 13.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: var(--tc-shadow-soft);
+}
+
+.summary-pill strong {
+    color: var(--tc-forest);
+    font-size: 16px;
+}
+
+.summary-pill.urgent {
+    background: #FFF1F2;
+    border-color: #FECDD3;
+    color: #BE123C;
+}
+
+.summary-pill.urgent strong {
+    color: #BE123C;
+}
+
+/* Thẻ Dịch Vụ & Xu Hướng Dạng Tự Nhiên */
+.dashboard-organic-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 28px;
+    margin-bottom: 30px;
+}
+
+.organic-card {
+    background: #FFFFFF;
+    border: 1px solid var(--tc-border-soft);
+    border-radius: var(--tc-radius-lg);
+    padding: 28px;
+    box-shadow: var(--tc-shadow-card);
+}
+
+.card-atelier-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 28px;
-    box-shadow: var(--adm-shadow-sm);
-    flex-wrap: wrap;
-    gap: 14px;
+    margin-bottom: 20px;
 }
 
-.actions-left {
+.card-atelier-title {
+    font-family: var(--tc-font-serif);
+    font-size: 19px;
+    color: var(--tc-forest);
+    font-weight: 700;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
-.btn-excel-export {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    background: #107C41;
-    color: #FFFFFF;
-    border: none;
-    padding: 11px 20px;
-    border-radius: 8px;
-    font-size: 14.5px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(16, 124, 65, 0.25);
-    transition: all 0.2s;
-}
-
-.btn-excel-export:hover {
-    background: #0B6A36;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(16, 124, 65, 0.35);
-}
-
-.btn-gsheet-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    background: #F8FAFC;
-    color: #0F172A;
-    border: 1.5px solid #CBD5E1;
-    padding: 10px 18px;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-
-.btn-gsheet-link:hover {
-    background: #F1F5F9;
-    border-color: #94A3B8;
-}
-
-.btn-gsheet-link i {
-    color: #0F9D58;
+.card-atelier-title i {
+    color: var(--tc-gold);
     font-size: 17px;
 }
 
-/* Charts Grid */
-.dashboard-charts-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 24px;
-    margin-bottom: 28px;
-}
-
-.chart-card {
-    background: #FFFFFF;
-    border: 1px solid var(--adm-border);
-    border-radius: var(--adm-radius);
-    padding: 24px;
-    box-shadow: var(--adm-shadow-sm);
-}
-
-.card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 18px;
-}
-
-.card-title {
-    font-family: var(--adm-font-serif);
-    font-size: 18px;
-    color: var(--adm-green-deep);
-    font-weight: 700;
-}
-
-.chart-visual-box {
-    height: 220px;
+/* Thanh Xu Hướng Mềm Mại */
+.chart-soft-box {
     display: flex;
     align-items: flex-end;
     gap: 16px;
-    padding: 16px 0;
-    border-bottom: 1px solid #E2E8F0;
+    height: 190px;
+    padding: 10px 0;
 }
 
-.chart-bar-group {
+.chart-soft-col {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
     justify-content: flex-end;
+    height: 100%;
     gap: 8px;
 }
 
-.chart-bar-pill {
+.chart-soft-pill {
     width: 100%;
-    max-width: 38px;
-    background: linear-gradient(180deg, var(--adm-gold) 0%, var(--adm-green) 100%);
-    border-radius: 6px 6px 0 0;
-    transition: height 0.5s ease;
+    max-width: 32px;
+    background: linear-gradient(180deg, rgba(197, 155, 39, 0.6) 0%, rgba(37, 70, 41, 0.8) 100%);
+    border-radius: 20px 20px 0 0;
+    transition: height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.chart-bar-label {
-    font-size: 12px;
-    color: var(--adm-text-muted);
-    font-weight: 500;
+.chart-soft-pill.current {
+    background: linear-gradient(180deg, var(--tc-gold) 0%, var(--tc-green) 100%);
+    box-shadow: 0 4px 14px rgba(197, 155, 39, 0.3);
 }
 
-.service-distribution-list {
+/* Danh Sách Phân Bố Dịch Vụ */
+.service-flow-list {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 16px;
 }
 
-.distribution-item {
+.service-flow-item {
     display: flex;
     flex-direction: column;
     gap: 6px;
 }
 
-.distribution-header {
+.service-flow-head {
     display: flex;
     justify-content: space-between;
-    font-size: 13.5px;
+    font-size: 14px;
     font-weight: 600;
 }
 
-.distribution-bar-bg {
-    height: 9px;
-    background: #E2E8F0;
-    border-radius: 6px;
+.service-flow-track {
+    height: 8px;
+    background: #F1ECE3;
+    border-radius: 10px;
     overflow: hidden;
 }
 
-.distribution-bar-fill {
+.service-flow-bar {
     height: 100%;
-    border-radius: 6px;
-    background: var(--adm-green);
+    border-radius: 10px;
+    background: var(--tc-green);
     transition: width 0.4s ease;
 }
 
 /* ==========================================================================
-   4. DATA TABLES (CONSULTATION LEADS & PROJECTS)
+   4. BẢNG SỔ TAY TƯ VẤN (CALLIGRAPHY GUEST REGISTER)
    ========================================================================== */
 .table-card {
     background: #FFFFFF;
-    border: 1px solid var(--adm-border);
-    border-radius: var(--adm-radius);
-    box-shadow: var(--adm-shadow-sm);
+    border: 1px solid var(--tc-border-soft);
+    border-radius: var(--tc-radius-lg);
+    box-shadow: var(--tc-shadow-card);
     overflow: hidden;
 }
 
 .table-toolbar {
-    padding: 18px 24px;
+    padding: 20px 28px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--adm-border);
-    gap: 14px;
+    border-bottom: 1px solid rgba(37, 70, 41, 0.06);
+    gap: 16px;
     flex-wrap: wrap;
 }
 
@@ -805,11 +773,11 @@ body {
 }
 
 .filter-pill {
-    padding: 7px 16px;
-    border-radius: 20px;
-    border: 1px solid var(--adm-border);
+    padding: 7px 18px;
+    border-radius: var(--tc-radius-pill);
+    border: 1px solid rgba(37, 70, 41, 0.12);
     background: #FFFFFF;
-    color: var(--adm-text-main);
+    color: var(--tc-ink);
     font-size: 13.5px;
     font-weight: 500;
     cursor: pointer;
@@ -817,35 +785,82 @@ body {
 }
 
 .filter-pill.active {
-    background: var(--adm-green);
+    background: var(--tc-green);
     color: #FFFFFF;
-    border-color: var(--adm-green);
+    border-color: var(--tc-green);
+    box-shadow: 0 3px 10px rgba(37, 70, 41, 0.2);
 }
 
 .search-box {
     position: relative;
-    width: 260px;
+    width: 250px;
 }
 
 .search-input {
     width: 100%;
-    padding: 8px 14px 8px 36px;
-    border: 1px solid var(--adm-border);
-    border-radius: 8px;
+    padding: 9px 14px 9px 38px;
+    border: 1.5px solid rgba(37, 70, 41, 0.14);
+    border-radius: var(--tc-radius-pill);
     font-size: 13.5px;
+    background: #FAF8F2;
+    transition: all 0.2s;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--tc-gold);
+    background: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.15);
 }
 
 .search-icon {
     position: absolute;
-    left: 12px;
+    left: 14px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--adm-text-muted);
+    color: var(--tc-ink-muted);
 }
 
-.table-responsive {
-    width: 100%;
-    overflow-x: auto;
+.btn-excel-export {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #147A46;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--tc-radius-pill);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(20, 122, 70, 0.25);
+    transition: all 0.2s;
+}
+
+.btn-excel-export:hover {
+    background: #0E6237;
+    transform: translateY(-1px);
+}
+
+.btn-gsheet-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    color: #1E293B;
+    border: 1.5px solid #CBD5E1;
+    padding: 9px 18px;
+    border-radius: var(--tc-radius-pill);
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-gsheet-link:hover {
+    background: #F8FAFC;
+    border-color: #94A3B8;
 }
 
 .adm-table {
@@ -856,33 +871,33 @@ body {
 
 .adm-table th {
     background: #FAF8F2;
-    padding: 14px 18px;
+    padding: 14px 22px;
     font-size: 13px;
     font-weight: 700;
-    color: var(--adm-green-deep);
-    border-bottom: 1.5px solid var(--adm-border);
+    color: var(--tc-forest);
+    border-bottom: 1.5px solid rgba(197, 155, 39, 0.2);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.6px;
 }
 
 .adm-table td {
-    padding: 16px 18px;
-    border-bottom: 1px solid #F1EFE9;
+    padding: 18px 22px;
+    border-bottom: 1px solid #F3EFE6;
     font-size: 14px;
     vertical-align: middle;
 }
 
 .adm-table tbody tr:hover {
-    background-color: #FBF9F4;
+    background-color: #FAF8F2;
 }
 
-/* Status Badges */
+/* Nhãn Trạng Thái */
 .status-badge {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     padding: 5px 12px;
-    border-radius: 20px;
+    border-radius: var(--tc-radius-pill);
     font-size: 12px;
     font-weight: 600;
 }
@@ -894,12 +909,12 @@ body {
 .status-badge.cancelled { background: #F1F5F9; color: #64748B; }
 
 .status-select {
-    padding: 5px 10px;
-    border-radius: 8px;
-    border: 1px solid var(--adm-border);
+    padding: 6px 12px;
+    border-radius: var(--tc-radius-pill);
+    border: 1px solid var(--tc-border-soft);
     font-size: 13px;
     font-weight: 500;
-    background: #FFFFFF;
+    background: #FAF8F2;
     cursor: pointer;
 }
 
@@ -907,38 +922,36 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 34px;
-    height: 34px;
-    border-radius: 8px;
-    border: 1px solid var(--adm-border);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--tc-border-soft);
     background: #FFFFFF;
-    color: var(--adm-text-main);
+    color: var(--tc-ink);
     cursor: pointer;
     text-decoration: none;
     transition: all 0.2s;
 }
 
 .btn-table-action:hover {
-    background: var(--adm-green);
+    background: var(--tc-green);
     color: #FFFFFF;
-    border-color: var(--adm-green);
 }
 
 .btn-table-action.delete:hover {
     background: #E11D48;
     color: #FFFFFF;
-    border-color: #E11D48;
 }
 
 /* ==========================================================================
-   5. CANVA-STYLE PHOTO ALBUM EDITOR
+   5. BỘ SOẠN THẢO ALBUM CANVA (ATELIER STYLE)
    ========================================================================== */
 .canva-editor-card {
     background: #FFFFFF;
-    border: 1px solid var(--adm-border);
-    border-radius: var(--adm-radius-lg);
-    padding: 28px;
-    box-shadow: var(--adm-shadow-md);
+    border: 1px solid var(--tc-border-soft);
+    border-radius: var(--tc-radius-lg);
+    padding: 32px;
+    box-shadow: var(--tc-shadow-card);
     margin-bottom: 30px;
 }
 
@@ -946,14 +959,14 @@ body {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    margin-bottom: 24px;
+    margin-bottom: 26px;
 }
 
 .preset-btn {
-    border: 2px solid var(--adm-border);
-    border-radius: 12px;
-    padding: 16px;
-    background: #FFFFFF;
+    border: 1.5px solid var(--tc-border-soft);
+    border-radius: 16px;
+    padding: 18px;
+    background: #FAF8F2;
     text-align: left;
     cursor: pointer;
     transition: all 0.25s ease;
@@ -963,44 +976,44 @@ body {
 }
 
 .preset-btn:hover {
-    border-color: var(--adm-gold);
-    background: #FAF8F2;
+    border-color: var(--tc-gold);
+    background: #FFFFFF;
+    transform: translateY(-2px);
 }
 
 .preset-btn.active {
-    border-color: var(--adm-green);
-    background: #EBF2EA;
-    box-shadow: 0 4px 14px rgba(43, 76, 40, 0.15);
+    border-color: var(--tc-green);
+    background: #EBF2EB;
+    box-shadow: 0 6px 18px rgba(37, 70, 41, 0.12);
 }
 
 .preset-icon {
     font-size: 24px;
-    color: var(--adm-green);
+    color: var(--tc-green);
 }
 
 .preset-name {
     font-weight: 700;
-    font-size: 14.5px;
-    color: var(--adm-green-deep);
+    font-size: 15px;
+    color: var(--tc-forest);
 }
 
 .preset-desc {
     font-size: 12px;
-    color: var(--adm-text-muted);
+    color: var(--tc-ink-soft);
 }
 
-/* Canvas Board Area */
+/* Khung Vẽ Canvas Trực Quan */
 .canva-board {
-    background: #232B22;
-    border: 2px dashed rgba(197, 155, 39, 0.4);
-    border-radius: 14px;
-    padding: 30px;
+    background: #1C271E;
+    border: 2px dashed rgba(197, 155, 39, 0.35);
+    border-radius: 18px;
+    padding: 32px;
     min-height: 480px;
     position: relative;
     margin-bottom: 24px;
 }
 
-/* Layout 1: Magazine Split (1 Lớn Trái 3:4 + 2 Nhỏ Phải) */
 .canva-layout-magazine {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
@@ -1015,7 +1028,6 @@ body {
     gap: 20px;
 }
 
-/* Layout 2: Curated 2x2 Grid */
 .canva-layout-grid2x2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1024,7 +1036,6 @@ body {
     margin: 0 auto;
 }
 
-/* Layout 3: Mosaic Dynamic (1 Ngang 16:9 + 3 Đứng) */
 .canva-layout-mosaic {
     display: flex;
     flex-direction: column;
@@ -1039,25 +1050,23 @@ body {
     gap: 16px;
 }
 
-/* Layout 4: Panorama Hero */
 .canva-layout-panorama {
     max-width: 900px;
     margin: 0 auto;
 }
 
-/* Photo Frames Inside Canvas */
 .canva-frame {
-    background: #192019;
+    background: #121A13;
     border: 2px dashed rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
+    border-radius: 14px;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: move;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-    transition: border-color 0.2s, transform 0.2s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: all 0.2s ease;
 }
 
 .canva-frame.aspect-3-4 { aspect-ratio: 3 / 4; }
@@ -1066,7 +1075,7 @@ body {
 .canva-frame.aspect-21-9 { aspect-ratio: 21 / 9; }
 
 .canva-frame.drag-over {
-    border-color: var(--adm-gold);
+    border-color: var(--tc-gold);
     transform: scale(1.02);
 }
 
@@ -1078,36 +1087,20 @@ body {
     transition: transform 0.1s ease-out;
 }
 
-.frame-empty-state {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    color: rgba(255, 255, 255, 0.5);
-    text-align: center;
-    padding: 20px;
-}
-
-.frame-empty-state i {
-    font-size: 32px;
-    color: var(--adm-gold);
-}
-
-/* Floating Controls Toolbar on Frame */
 .frame-toolbar {
     position: absolute;
     bottom: 12px;
     left: 12px;
     right: 12px;
-    background: rgba(20, 30, 20, 0.88);
+    background: rgba(18, 30, 20, 0.88);
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(197, 155, 39, 0.35);
-    border-radius: 8px;
-    padding: 8px 12px;
+    border: 1px solid rgba(197, 155, 39, 0.3);
+    border-radius: 10px;
+    padding: 8px 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: 12px;
     opacity: 0;
     transition: opacity 0.2s;
     z-index: 10;
@@ -1120,7 +1113,7 @@ body {
 .toolbar-zoom-slider {
     flex: 1;
     height: 5px;
-    accent-color: var(--adm-gold);
+    accent-color: var(--tc-gold);
 }
 
 .toolbar-btn {
@@ -1130,33 +1123,33 @@ body {
     font-size: 14px;
     cursor: pointer;
     padding: 4px 6px;
-    border-radius: 4px;
+    border-radius: 6px;
     transition: color 0.2s;
 }
 
 .toolbar-btn:hover {
-    color: var(--adm-gold);
+    color: var(--tc-gold);
 }
 
-/* Media Library Strip */
+/* Thư Viện Ảnh Bên Dưới */
 .canva-library-wrap {
     background: #FAF8F2;
-    border: 1px solid var(--adm-border);
-    border-radius: 12px;
-    padding: 18px;
+    border: 1px solid var(--tc-gold-line);
+    border-radius: 16px;
+    padding: 22px;
 }
 
 .library-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 
 .library-title {
     font-weight: 700;
-    font-size: 15px;
-    color: var(--adm-green-deep);
+    font-size: 15.5px;
+    color: var(--tc-forest);
 }
 
 .library-grid {
@@ -1169,18 +1162,18 @@ body {
 .library-item {
     width: 100px;
     height: 120px;
-    border-radius: 8px;
-    border: 2px solid #CBD5E1;
+    border-radius: 10px;
+    border: 2px solid rgba(37, 70, 41, 0.15);
     overflow: hidden;
     flex-shrink: 0;
     cursor: grab;
     position: relative;
-    transition: transform 0.2s, border-color 0.2s;
+    transition: all 0.2s;
 }
 
 .library-item:hover {
-    transform: translateY(-2px);
-    border-color: var(--adm-gold);
+    transform: translateY(-3px);
+    border-color: var(--tc-gold);
 }
 
 .library-item img {
@@ -1192,37 +1185,177 @@ body {
 .library-upload-card {
     width: 100px;
     height: 120px;
-    border-radius: 8px;
-    border: 2px dashed var(--adm-gold);
+    border-radius: 10px;
+    border: 2px dashed var(--tc-gold);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 6px;
-    color: var(--adm-gold-dark);
+    color: var(--tc-gold);
     font-size: 12px;
     font-weight: 600;
     text-align: center;
     cursor: pointer;
     background: #FFFFFF;
     flex-shrink: 0;
+    transition: all 0.2s;
+}
+
+.library-upload-card:hover {
+    background: #FAF8F2;
+    transform: translateY(-2px);
 }
 
 /* ==========================================================================
-   6. SETTINGS & CONFIGURATION FORMS
+   6. MỤC TECHNICAL & TÙY BIẾN TOÀN DIỆN NỘI DUNG WEB (CMS ADVANCED)
+   ========================================================================== */
+.site-editor-container {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.cms-nav-tabs {
+    display: flex;
+    gap: 10px;
+    border-bottom: 2px solid var(--tc-border-soft);
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+    overflow-x: auto;
+}
+
+.cms-tab-btn {
+    padding: 10px 22px;
+    border-radius: var(--tc-radius-pill);
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--tc-ink-soft);
+    font-size: 14.5px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.cms-tab-btn:hover {
+    color: var(--tc-forest);
+    background: #FFFFFF;
+}
+
+.cms-tab-btn.active {
+    background: var(--tc-forest);
+    color: #FFFFFF;
+    box-shadow: 0 4px 14px rgba(26, 52, 29, 0.2);
+}
+
+.cms-tab-btn.tech-mode {
+    margin-left: auto;
+    background: #232B22;
+    color: var(--tc-gold-champagne);
+    border: 1px solid var(--tc-gold);
+}
+
+.cms-tab-pane {
+    display: none;
+}
+
+.cms-tab-pane.active {
+    display: block;
+    animation: atelierFadeIn 0.25s ease;
+}
+
+.cms-card {
+    background: #FFFFFF;
+    border: 1px solid var(--tc-border-soft);
+    border-radius: var(--tc-radius-lg);
+    padding: 30px;
+    box-shadow: var(--tc-shadow-card);
+    margin-bottom: 24px;
+}
+
+.cms-card-title {
+    font-family: var(--tc-font-serif);
+    font-size: 18px;
+    color: var(--tc-forest);
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.cms-card-desc {
+    font-size: 13.5px;
+    color: var(--tc-ink-soft);
+    margin-bottom: 22px;
+}
+
+.cms-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Technical JSON Editor Screen */
+.technical-editor-wrap {
+    background: #1A221B;
+    border: 1.5px solid var(--tc-gold);
+    border-radius: var(--tc-radius-lg);
+    padding: 24px;
+    color: #E2E8F0;
+}
+
+.technical-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 14px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(197, 155, 39, 0.2);
+    color: var(--tc-gold-champagne);
+    border: 1px solid var(--tc-gold);
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 12px;
+    font-family: monospace;
+}
+
+.tech-json-textarea {
+    width: 100%;
+    height: 480px;
+    background: #111812;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 16px;
+    color: #A7F3D0;
+    font-family: 'Fira Code', Consolas, Monaco, monospace;
+    font-size: 13.5px;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+.tech-json-textarea:focus {
+    outline: none;
+    border-color: var(--tc-gold);
+    box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.25);
+}
+
+/* ==========================================================================
+   7. CÀI ĐẶT HỆ THỐNG & MODALS
    ========================================================================== */
 .settings-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
-}
-
-.settings-card {
-    background: #FFFFFF;
-    border: 1px solid var(--adm-border);
-    border-radius: var(--adm-radius);
-    padding: 26px;
-    box-shadow: var(--adm-shadow-sm);
+    gap: 28px;
 }
 
 .form-group {
@@ -1233,88 +1366,31 @@ body {
     display: block;
     font-weight: 600;
     font-size: 14px;
-    color: var(--adm-green-deep);
-    margin-bottom: 6px;
+    color: var(--tc-forest);
+    margin-bottom: 7px;
 }
 
 .form-control {
     width: 100%;
-    padding: 11px 14px;
-    border: 1.5px solid rgba(43, 76, 40, 0.2);
-    border-radius: 8px;
+    padding: 11px 15px;
+    border: 1.5px solid rgba(37, 70, 41, 0.16);
+    border-radius: 10px;
     font-size: 14.5px;
-    color: var(--adm-text-main);
+    color: var(--tc-ink);
     background: #FFFFFF;
+    transition: all 0.2s;
 }
 
 .form-control:focus {
     outline: none;
-    border-color: var(--adm-gold);
+    border-color: var(--tc-gold);
     box-shadow: 0 0 0 3px rgba(197, 155, 39, 0.15);
 }
 
 .help-text {
     font-size: 12.5px;
-    color: var(--adm-text-muted);
+    color: var(--tc-ink-muted);
     margin-top: 5px;
-}
-
-/* Modal Windows */
-.adm-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(15, 23, 15, 0.65);
-    backdrop-filter: blur(4px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    padding: 20px;
-}
-
-.adm-modal-box {
-    background: #FFFFFF;
-    border: 1.5px solid var(--adm-gold);
-    border-radius: 16px;
-    width: 100%;
-    max-width: 640px;
-    max-height: 90vh;
-    overflow-y: auto;
-    padding: 30px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    animation: modalPop 0.25s ease;
-}
-
-@keyframes modalPop {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-.modal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--adm-border);
-    padding-bottom: 12px;
-}
-
-.modal-title {
-    font-family: var(--adm-font-serif);
-    font-size: 20px;
-    color: var(--adm-green-deep);
-    font-weight: 700;
-}
-
-.modal-close-btn {
-    background: none;
-    border: none;
-    font-size: 22px;
-    color: var(--adm-text-muted);
-    cursor: pointer;
 }
 
 /* Toast Notifications */
@@ -1325,27 +1401,27 @@ body {
     z-index: 2000;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .adm-toast {
     background: #FFFFFF;
-    border-left: 4px solid var(--adm-green);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    border-radius: 8px;
-    padding: 14px 18px;
+    border-left: 4px solid var(--tc-green);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.14);
+    border-radius: 10px;
+    padding: 15px 20px;
     display: flex;
     align-items: center;
     gap: 12px;
-    min-width: 300px;
-    animation: slideInRight 0.3s ease;
+    min-width: 320px;
+    animation: atelierSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .adm-toast.success { border-left-color: #16A34A; }
 .adm-toast.error { border-left-color: #E11D48; }
 .adm-toast.info { border-left-color: #0284C7; }
 
-@keyframes slideInRight {
+@keyframes atelierSlideIn {
     from { transform: translateX(100%); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
 }
@@ -1364,13 +1440,7 @@ body {
     .mobile-menu-toggle {
         display: block;
     }
-    .dashboard-kpi-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .dashboard-charts-grid {
-        grid-template-columns: 1fr;
-    }
-    .settings-grid {
+    .dashboard-organic-grid, .cms-grid-2, .settings-grid {
         grid-template-columns: 1fr;
     }
     .preset-selector-row {
@@ -1379,10 +1449,15 @@ body {
 }
 
 @media (max-width: 640px) {
-    .dashboard-kpi-grid {
-        grid-template-columns: 1fr;
-    }
     .preset-selector-row {
         grid-template-columns: 1fr;
+    }
+    .atelier-welcome-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .cms-tab-btn.tech-mode {
+        margin-left: 0;
     }
 }
