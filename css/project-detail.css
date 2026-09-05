@@ -709,7 +709,7 @@
             gap: 10px;
             padding: 15px 36px;
             background: var(--green);
-            color: var(--ivory);
+            color: #FAF8F0 !important;
             font-size: 0.95rem;
             font-weight: 600;
             letter-spacing: 0.5px;
@@ -720,12 +720,26 @@
             text-decoration: none;
         }
 
+        .btn-inquiry-zalo,
+        .btn-inquiry-zalo:visited,
+        .btn-inquiry-zalo:focus,
+        .btn-inquiry-zalo:active,
+        .btn-inquiry-zalo span,
+        .btn-inquiry-zalo i {
+            color: #FAF8F0 !important;
+        }
+
         .btn-inquiry-zalo:hover {
             background: var(--green-dark);
             border-color: var(--green-dark);
-            color: #FFFFFF;
+            color: #FFFFFF !important;
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(45, 66, 48, 0.22);
+        }
+
+        .btn-inquiry-zalo:hover span,
+        .btn-inquiry-zalo:hover i {
+            color: #FFFFFF !important;
         }
 
         .btn-inquiry-call {
@@ -1234,6 +1248,28 @@
         }
         .footer-logo .logo-tagline {
             color: var(--gold) !important;
+        }
+        .footer-right h3 {
+            font-size: 2.5rem;
+            color: var(--ivory) !important;
+            margin-bottom: 40px;
+            font-family: var(--font-heading);
+            font-weight: 300;
+            line-height: 1.35;
+        }
+        .footer-right h3 strong {
+            font-style: italic;
+            font-weight: 600;
+            color: var(--gold) !important;
+        }
+        .footer-quote-sub {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: rgba(250, 248, 240, 0.85) !important;
+            font-style: italic;
+            font-weight: 300;
+            margin-top: -25px;
+            margin-bottom: 35px;
         }
 
 /* Project Detail Responsive */

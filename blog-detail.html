@@ -171,6 +171,30 @@
             margin: 0;
             line-height: 1.5;
         }
+
+        /* Protect CTA Zalo Button text color against visited purple */
+        .btn-inquiry-zalo,
+        .btn-inquiry-zalo:visited,
+        .btn-inquiry-zalo:focus,
+        .btn-inquiry-zalo:active,
+        .btn-inquiry-zalo span,
+        .btn-inquiry-zalo i {
+            color: #FAF8F0 !important;
+        }
+
+        .btn-inquiry-zalo:hover,
+        .btn-inquiry-zalo:hover span,
+        .btn-inquiry-zalo:hover i {
+            color: #FFFFFF !important;
+        }
+
+        /* Unified Footer Ivory & Gold Typography */
+        .footer-right h3 {
+            color: var(--ivory) !important;
+        }
+        .footer-right h3 strong {
+            color: var(--gold) !important;
+        }
     </style>
 </head>
 <body>
