@@ -490,49 +490,52 @@ body {
     gap: 10px;
 }
 
-.btn-topbar-action {
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.topbar-btn, .btn-topbar-action {
     display: inline-flex;
     align-items: center;
     gap: 7px;
-    padding: 8px 16px;
-    border-radius: var(--tc-radius-pill);
+    height: 34px;
+    padding: 0 13px;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
+    color: #334155;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.2s ease;
+    transition: all 0.15s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
-.btn-excel-export {
-    background: #059669;
-    color: #FFFFFF;
-    border: none;
+.topbar-btn:hover, .btn-topbar-action:hover {
+    background: #F8FAFC;
+    border-color: #CBD5E1;
+    color: #0F172A;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
 }
 
-.btn-excel-export:hover {
-    background: #047857;
-    transform: translateY(-1px);
-}
-
-.btn-gsheet-link {
-    background: #FFFFFF;
-    color: #1E293B;
-    border: 1.5px solid #CBD5E1;
-}
-
-.btn-gsheet-link:hover {
+.topbar-btn:active, .btn-topbar-action:active {
     background: #F1F5F9;
-    border-color: #94A3B8;
+    transform: translateY(1px);
 }
 
-.btn-topbar-outline {
-    border: 1.5px solid var(--tc-green);
-    color: var(--tc-green);
-    background: transparent;
+.btn-excel-export, .btn-gsheet-link, .btn-topbar-outline {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    color: #334155;
 }
 
-.btn-topbar-outline:hover {
-    background: var(--tc-green-light);
+.btn-excel-export:hover, .btn-gsheet-link:hover, .btn-topbar-outline:hover {
+    background: #F8FAFC;
+    border-color: #CBD5E1;
+    color: #0F172A;
 }
 
 .btn-topbar-gold {

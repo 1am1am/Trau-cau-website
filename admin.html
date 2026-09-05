@@ -18,7 +18,7 @@
     <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 
     <!-- Admin CSS -->
-    <link rel="stylesheet" href="css/admin.css?v=20260905_v5">
+    <link rel="stylesheet" href="css/admin.css?v=20260905_v6">
 </head>
 <body>
 
@@ -238,14 +238,14 @@
                 </div>
 
                 <div class="topbar-right">
-                    <button onclick="exportLeadsToExcel()" class="btn-topbar-action btn-excel-export" title="Xuất toàn bộ sổ tay sang Excel">
-                        <i class="fas fa-file-excel"></i> Xuất Excel
+                    <button onclick="exportLeadsToExcel()" class="topbar-btn" title="Xuất danh sách sang file Excel (.xlsx)">
+                        <i class="far fa-file-excel" style="color: #10B981; font-size: 14px;"></i> Xuất Excel
                     </button>
-                    <button onclick="openGoogleSheet()" class="btn-topbar-action btn-gsheet-link" title="Mở bảng Google Sheet trực tiếp">
-                        <i class="fas fa-table"></i> Google Sheet
+                    <button onclick="openGoogleSheet()" class="topbar-btn" title="Mở bảng tính Google Sheet">
+                        <i class="fas fa-table" style="color: #0284C7; font-size: 13px;"></i> Google Sheet
                     </button>
-                    <a href="index.html" target="_blank" class="btn-topbar-action btn-topbar-outline" title="Xem trang chủ khách thấy">
-                        <i class="fas fa-external-link-alt"></i> Xem Trang Chủ
+                    <a href="index.html" target="_blank" class="topbar-btn" title="Xem trang web">
+                        <i class="fas fa-arrow-up-right-from-square" style="color: #64748B; font-size: 12px;"></i> Xem Website
                     </a>
                 </div>
             </header>
@@ -393,8 +393,8 @@
                     <div class="dash-card" style="padding: 24px;">
                         <div class="dash-card-header">
                             <h3 class="dash-card-title"><i class="fas fa-envelope-open-text" style="color: var(--tc-forest);"></i> Khách Hàng Đăng Ký Tư Vấn Gần Nhất</h3>
-                            <button onclick="switchTab('tabLeads')" class="btn-topbar-action btn-topbar-outline">
-                                Xem toàn bộ danh sách <i class="fas fa-arrow-right"></i>
+                            <button onclick="switchTab('tabLeads')" class="topbar-btn">
+                                Xem tất cả <i class="fas fa-arrow-right" style="font-size: 11px;"></i>
                             </button>
                         </div>
                         <div style="overflow-x: auto;">
@@ -436,8 +436,8 @@
                                     <i class="fas fa-search search-icon"></i>
                                     <input type="text" id="leadSearchInput" class="search-input" placeholder="Tìm tên, SĐT, quận..." oninput="renderLeadsTable()">
                                 </div>
-                                <button onclick="exportLeadsToExcel()" class="btn-excel-export">
-                                    <i class="fas fa-file-excel"></i> Xuất File Excel (.xlsx)
+                                <button onclick="exportLeadsToExcel()" class="topbar-btn">
+                                    <i class="far fa-file-excel" style="color: #10B981;"></i> Xuất Excel (.xlsx)
                                 </button>
                             </div>
                         </div>
@@ -990,6 +990,6 @@
 
     <!-- Scripts -->
     <script src="js/projects-data.js"></script>
-    <script src="js/admin.js?v=20260905_v5"></script>
+    <script src="js/admin.js?v=20260905_v6"></script>
 </body>
 </html>
