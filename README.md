@@ -1,6 +1,6 @@
 # Cưới Hỏi Trầu Cau — Website Dịch Vụ Cưới Hỏi Trọn Gói & Trang Trí Gia Tiên
 
-Website giới thiệu dịch vụ cưới hỏi truyền thống & cao cấp **Trầu Cau Wedding** (746 Nguyễn Đình Chiểu, P.1, Q.3, TP.HCM • Hotline: 093 200 57 38).
+Website giới thiệu dịch vụ cưới hỏi truyền thống & cao cấp **Trầu Cau Wedding** (746 Nguyễn Đình Chiểu, Phường Bàn Cờ, Q.3, TP.HCM • Hotline: 093 200 57 38).
 
 ---
 
